@@ -3,13 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\LoginModel;
+use App\Models\TransaksiModel;
 
-class Dashboard extends BaseController
+class Transaksi extends BaseController
 {
     protected $LoginModel;
+    protected $TransaksiModel;
     public function __construct()
     {
         $this->LoginModel = new LoginModel;
+        $this->TransaksiModel = new TransaksiModel;
     }
     public function index()
     {
@@ -18,23 +21,10 @@ class Dashboard extends BaseController
             return redirect()->to('/login');
         } else {
             $data = [
-                'admin' => $this->LoginModel->findAll(),
+                'transaksi' => $this->TransaksiModel->findAll(),
                 'username' => $user['username']
             ];
-            echo view('v_dashboard', $data);
+            echo view('v_transaksi', $data);
         }
-    }
-
-    public function lihat($nama)
-    {
-        // $lihat = $this->LoginModel->where(['nama_adm' => $nama])->first();
-        $data = [
-            'lihat' => $this->LoginModel->where(['nama_adm' => $nama])->findAll()
-        ];
-        echo view('template_undangan/document', $data);
-    }
-
-    public function kirim()
-    {
     }
 }

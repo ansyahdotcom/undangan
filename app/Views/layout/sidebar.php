@@ -25,7 +25,7 @@
                     <a href="buku" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Data Buku
+                            Undangan
                         </p>
                     </a>
                 </li>
@@ -33,7 +33,7 @@
                     <a href="pinjam" class="nav-link">
                         <i class="nav-icon fas fa-clipboard"></i>
                         <p>
-                            Peminjaman Buku
+                            Form Transaksi
                         </p>
                     </a>
                 </li>

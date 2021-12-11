@@ -14,7 +14,7 @@ class Login extends BaseController
 
     public function index()
     {
-        if (session()->get('username') != null) {
+        if (session()->get('username') != NULL) {
             return redirect()->to('/dashboard');
         } else {
             echo view('v_login');
@@ -28,20 +28,22 @@ class Login extends BaseController
         //     'username' => $this->request->getVar('username'),
         //     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
         // ]);
+
+        // LOGIN
         if (!$this->validate([
             'username' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'username harus diisi'
                 ]
-                ],
-                'password' => [
-                    'rules' => 'required|min_length[5]',
-                    'errors' => [
-                        'required' => 'password harus diisi',
-                        'min_length[5]' => 'password terlalu pendek'
-                    ]
+            ],
+            'password' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required' => 'password harus diisi',
+                    'min_length[5]' => 'password terlalu pendek'
                 ]
+            ]
         ])) {
             return redirect()->to('/login')->withInput();
         }
@@ -66,5 +68,12 @@ class Login extends BaseController
             session()->setFlashdata('message', 'belum_terdaftar');
             return redirect()->to('/login');
         }
+    }
+
+    public function logout()
+    {
+        session()->destroy(TRUE);
+        session()->setFlashdata('message', 'logout');
+        return redirect()->to('/login');
     }
 }
