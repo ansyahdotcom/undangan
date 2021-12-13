@@ -12,15 +12,12 @@
     <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
-<<<<<<< Updated upstream
     <!-- DataTables -->
     <link rel="stylesheet" href="/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-=======
     <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="/assets/plugins/sweetalert2/sweetalert2.min.css">
->>>>>>> Stashed changes
     <!-- Select2 -->
     <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -130,7 +127,6 @@
     <!-- Sweet Alert -->
     <script src="/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/js/swal.js"></script>
-<<<<<<< Updated upstream
     <!-- DataTables  & Plugins -->
     <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -147,12 +143,10 @@
     <!-- jquery-validation -->
     <script src="/assets/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="/assets/plugins/jquery-validation/additional-methods.min.js"></script>
-=======
     <!-- Toastr -->
     <script src="../../plugins/toastr/toastr.min.js"></script>
 
 
->>>>>>> Stashed changes
     <!-- Select2 -->
     <script src="/assets/plugins/select2/js/select2.full.min.js"></script>
     <!-- InputMask -->

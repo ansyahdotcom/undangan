@@ -25,11 +25,7 @@
                     <a href="<?php echo base_url('/Admin_controllers') ?>" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
-<<<<<<< Updated upstream
-                            Undangan
-=======
                             Manajemen Admin
->>>>>>> Stashed changes
                         </p>
                     </a>
                 </li>
