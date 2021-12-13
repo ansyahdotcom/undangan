@@ -134,7 +134,7 @@ foreach ($dataAdmin as $row) : ?>
                                                  </div>
                                           </div>
                                           <div class="form-group row">
-                                                 <label for="pengarang" class="col-sm-3 col-form-label">Username</label>
+                                                 <label for="username" class="col-sm-3 col-form-label">Username</label>
                                                  <div class="col-sm-9">
                                                         <input value="<?= $row->username; ?>" type="text" class="form-control" name="username" placeholder="Username">
                                                  </div>
