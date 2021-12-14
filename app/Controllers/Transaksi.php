@@ -143,6 +143,16 @@ class Transaksi extends BaseController
             return redirect()->to('/login');
         } else {
             $id = $this->request->getVar('id');
+
+            //find foto name by id
+            $foto_pria = $this->TransaksiModel->where(['id_tr' => $id])->first();
+            $foto_wanita = $this->TransaksiModel->where(['id_tr' => $id])->first();
+            
+            // delete foto in folder "assets/dist/img"
+            unlink('assets/dist/img/transaksi/' . $foto_pria['foto_pria']);
+            unlink('assets/dist/img/transaksi/' . $foto_wanita['foto_wanita']);
+
+            // delete data in database
             $this->TransaksiModel->delete($id);
             session()->setFlashdata('message', 'delete');
             return redirect()->to('/transaksi');

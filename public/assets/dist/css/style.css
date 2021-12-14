@@ -1,0 +1,10 @@
+.object-cover {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.border-dashed {
+    border: dashed 3px;
+}

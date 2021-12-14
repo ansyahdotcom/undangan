@@ -30,6 +30,7 @@ class TransaksiModel extends Model
         'foto_pria',
         'foto_wanita',
         'permalink',
-        'nomor_hp'
+        'nomor_hp',
+        'id_tm'
     ];
 }
