@@ -127,6 +127,7 @@ class Transaksi extends BaseController
                 'foto_wanita' => $wanita,
                 'permalink' => $permalink,
                 'nomor_hp' => $this->request->getVar('no_hp'),
+                'id_tm' => 1
             ];
 
             // query builder insert 
@@ -149,8 +150,13 @@ class Transaksi extends BaseController
             $foto_wanita = $this->TransaksiModel->where(['id_tr' => $id])->first();
             
             // delete foto in folder "assets/dist/img"
-            unlink('assets/dist/img/transaksi/' . $foto_pria['foto_pria']);
-            unlink('assets/dist/img/transaksi/' . $foto_wanita['foto_wanita']);
+            if($foto_pria['foto_pria'] != 'default-p.png'){
+                unlink('assets/dist/img/transaksi/'.$foto_pria['foto_pria']);
+            }
+
+            if($foto_wanita['foto_wanita'] != 'default-w.png'){
+                unlink('assets/dist/img/transaksi/'.$foto_wanita['foto_wanita']);
+            }
 
             // delete data in database
             $this->TransaksiModel->delete($id);
@@ -165,6 +171,21 @@ class Transaksi extends BaseController
         if ($user == null) {
             return redirect()->to('/login');
         } else {
+            // get all data foto name
+            $foto = $this->TransaksiModel->findAll();
+
+            // delete foto in folder "assets/dist/img"
+            foreach ($foto as $f) {
+                if($f['foto_pria'] != 'default-p.png'){
+                    unlink('assets/dist/img/transaksi/'.$f['foto_pria']);
+                }
+
+                if($f['foto_wanita'] != 'default-w.png'){
+                    unlink('assets/dist/img/transaksi/'.$f['foto_wanita']);
+                }
+            }
+
+            // delete all data in database
             $this->TransaksiModel->truncate();
             session()->setFlashdata('message', 'delete');
             return redirect()->to('/transaksi');
