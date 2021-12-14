@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/template" class="nav-link">
+                    <a href="/templat" class="nav-link">
                         <i class="nav-icon fas fa-palette"></i>
                         <p>
                             Form Template
