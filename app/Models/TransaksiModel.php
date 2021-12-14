@@ -11,5 +11,26 @@ class TransaksiModel extends Model
     protected $useTimestamps = true;
     protected $createdField = 'created_tr';
     protected $updatedField = 'updated_tr';
-    protected $allowedFields = ['nama_pria', 'nama_wanita', 'foto_pria'];
+    protected $allowedFields = [
+        'id_tr',
+        'nama_pria', 
+        'nama_wanita', 
+        'nama_pgl_pria', 
+        'nama_pgl_wanita', 
+        'nama_ayah_pria', 
+        'nama_ibu_pria',
+        'nama_ayah_wanita',
+        'nama_ibu_wanita',
+        'maps_akad',
+        'tgl_akad',
+        'alamat_akad',
+        'maps_resepsi',
+        'tgl_resepsi',
+        'alamat_resepsi',
+        'foto_pria',
+        'foto_wanita',
+        'permalink',
+        'nomor_hp',
+        'id_tm'
+    ];
 }

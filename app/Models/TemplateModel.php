@@ -7,9 +7,9 @@ use CodeIgniter\Model;
 class TemplateModel extends Model
 {
     protected $table = 'template';
-    protected $primaryKey = 'id_tr';
+    protected $primaryKey = 'id_tm';
     protected $useTimestamps = true;
-    protected $createdField = 'created_tr';
-    protected $updatedField = 'updated_tr';
+    protected $createdField = 'created_tm';
+    protected $updatedField = 'updated_tm';
     protected $allowedFields = ['id_tm', 'nama_tm', 'harga_tm'];
 }

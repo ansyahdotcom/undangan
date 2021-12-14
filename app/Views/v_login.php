@@ -162,7 +162,6 @@
                 </div>
             </form>
         </div>
-        <a href="dashboard" type="button" class="btn btn-primary">Dashboard</a>
     </div>
 </div>
 

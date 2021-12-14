@@ -48,16 +48,16 @@ class Admin_controllers extends BaseController
                      $simpan = $this->madmin->simpanData($this->table, $data);
 
                      if ($simpan) {
-                            echo "<script>alert('Data Berhasil Disimpan!'); 
-                            window.location='" . base_url('Admin_controllers') . "';</script>";
+                            session()->setFlashdata('message', 'save');
+                            return redirect()->to('Admin_controllers');
                      } else {
-                            echo "<script>alert('Data Gagal Disimpan!'); 
-                            window.location='" . base_url('/Admin_controllers') . "';</script>";
+                            session()->setFlashdata('message', 'notsave');
+                            return redirect()->to('/Admin_controllers');
                      }
               } catch (\Exception $e) {
 
-                     echo "<script>alert('ID Admin Sudah Ada!'); 
-                            window.location='" . base_url('/Admin_controllers') . "';</script>";
+                     session()->setFlashdata('message', 'isExist');
+                     return redirect()->to('/Admin_controllers');
               }
        }
 
@@ -80,21 +80,29 @@ class Admin_controllers extends BaseController
                      $edit = $this->madmin->editData($this->table, $data, $where);
 
                      if ($edit) {
-                            echo "<script>alert('Data Berhasil Diedit!'); 
-                            window.location='" . base_url('Admin_controllers') . "';</script>";
+                            session()->setFlashdata('message', 'edit');
+                            return redirect()->to('Admin_controllers');
+
+                            // echo "<script>alert('Data Berhasil Diedit!'); 
+                            // window.location='" . base_url('Admin_controllers') . "';</script>";
                      } else {
-                            echo "<script>alert('Data Gagal Diedit!'); 
-                            window.location='" . base_url('/Admin_controllers') . "';</script>";
+                            session()->setFlashdata('message', 'notedit');
+                            return redirect()->to('/Admin_controllers');
+                            // echo "<script>alert('Data Gagal Diedit!'); 
+                            // window.location='" . base_url('/Admin_controllers') . "';</script>";
                      }
               } catch (\Exception $e) {
-                     echo "<script>alert('ID Admin Sudah Ada!'); 
-                            window.location='" . base_url('/Admin_controllers') . "';</script>";
+                     session()->setFlashdata('message', 'isExist');
+                     return redirect()->to('/Admin_controllers');
+                     // echo "<script>alert('ID Admin Sudah Ada!'); 
+                     //        window.location='" . base_url('/Admin_controllers') . "';</script>";
               }
        }
 
        function hapus()
        {
               $idAdmin = $this->request->getVar('id_adm');
+              // getVar = Mengambil semua data yg ada di form (method get & post)
 
               $where = ['id_adm' => $idAdmin];
 
@@ -103,15 +111,15 @@ class Admin_controllers extends BaseController
                      $hapus = $this->madmin->hapusData($this->table, $where);
 
                      if ($hapus) {
-                            echo "<script>alert('Data Berhasil Dihapus!'); 
-                            window.location='" . base_url('Admin_controllers') . "';</script>";
+                            session()->setFlashdata('message', 'delete');
+                            return redirect()->to('Admin_controllers');
                      } else {
-                            echo "<script>alert('Data Gagal Dihapus!'); 
-                            window.location='" . base_url('/Admin_controllers') . "';</script>";
+                            session()->setFlashdata('message', 'notdelete');
+                            return redirect()->to('/Admin_controllers');
                      }
               } catch (\Exception $e) {
-                     echo "<script>alert('ID Admin Sudah Ada!'); 
-                            window.location='" . base_url('/Admin_controllers') . "';</script>";
+                     session()->setFlashdata('message', 'isExist');
+                     return redirect()->to('/Admin_controllers');
               }
        }
 }

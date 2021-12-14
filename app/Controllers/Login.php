@@ -30,23 +30,23 @@ class Login extends BaseController
         // ]);
 
         // LOGIN
-        if (!$this->validate([
-            'username' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'username harus diisi'
-                ]
-            ],
-            'password' => [
-                'rules' => 'required|min_length[5]',
-                'errors' => [
-                    'required' => 'password harus diisi',
-                    'min_length[5]' => 'password terlalu pendek'
-                ]
-            ]
-        ])) {
-            return redirect()->to('/login')->withInput();
-        }
+        // if (!$this->validate([
+        //     'username' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => 'username harus diisi'
+        //         ]
+        //     ],
+        //     'password' => [
+        //         'rules' => 'required|min_length[5]',
+        //         'errors' => [
+        //             'required' => 'password harus diisi',
+        //             'min_length[5]' => 'password terlalu pendek'
+        //         ]
+        //     ]
+        // ])) {
+        //     return redirect()->to('/login')->withInput();
+        // }
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
 

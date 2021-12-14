@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+    <!-- Sweet Alert 2 -->
+    <link rel="stylesheet" href="/assets/plugins/sweetalert2/sweetalert2.min.css">
 </head>
 
 <body class="hold-transition login-page">
@@ -23,7 +25,7 @@
     <!-- AdminLTE App -->
     <script src="/assets/dist/js/adminlte.min.js"></script>
     <!-- Sweet Alert -->
-    <script src="/assets/dist/js/sweetalert2.all.min.js"></script>
+    <script src="/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/js/swal.js"></script>
 </body>
 
