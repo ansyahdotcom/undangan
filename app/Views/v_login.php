@@ -24,7 +24,6 @@
                 </div>
             </form>
         </div>
-        <a href="dashboard" type="button" class="btn btn-primary">ke dashboard</a>
     </div>
 </div>
 
