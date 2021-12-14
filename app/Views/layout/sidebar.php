@@ -22,10 +22,10 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href=" <?php echo base_url('/Admin_controllers') ?>" class="nav-link <?php $uri = service('uri');
-                                                                                            if ($uri->getSegment(1) == 'Admin_controllers') {
-                                                                                                echo 'active';
-                                                                                            } ?>">
+                    <a href=" <?php echo base_url('/Admin') ?>" class="nav-link <?php $uri = service('uri');
+                                                                                if ($uri->getSegment(1) == 'Admin') {
+                                                                                    echo 'active';
+                                                                                } ?>">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Manajemen Admin
