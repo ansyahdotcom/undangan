@@ -13,6 +13,7 @@
 <!-- Main content -->
 <section class="content">
        <div class="container-fluid">
+              <div class="flash-data" data-flashdata="<?= session()->get('message'); ?>"></div>
               <div class="row">
                      <div class="col-12">
                             <div class="card">
