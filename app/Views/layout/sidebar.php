@@ -44,8 +44,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="template" class="nav-link <?php $uri = service('uri');
-                                                        if ($uri->getSegment(1) == 'template') {
+                    <a href="/templat" class="nav-link <?php $uri = service('uri');
+                                                        if ($uri->getSegment(1) == 'templat') {
                                                             echo 'active';
                                                         } ?>">
                         <i class="nav-icon fas fa-palette"></i>
