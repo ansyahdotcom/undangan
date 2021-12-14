@@ -34,13 +34,15 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Nama Pria</label>
-                                        <input type="text" name="nm_pria" class="form-control" id="nm_pria" placeholder="Masukkan nama pria">
+                                        <input type="text" name="nm_pria" class="form-control" id="nm_pria"
+                                            placeholder="Masukkan nama pria">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Nama Wanita</label>
-                                        <input type="text" name="nm_wanita" class="form-control" id="nm_wanita" placeholder="Masukkan nama wanita">
+                                        <input type="text" name="nm_wanita" class="form-control" id="nm_wanita"
+                                            placeholder="Masukkan nama wanita">
                                     </div>
                                 </div>
                             </div>
@@ -48,28 +50,33 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Nama Panggilan Pria</label>
-                                        <input type="text" name="pgl_pria" class="form-control" id="pgl_pria" placeholder="Masukkan nama panggilan pria">
+                                        <input type="text" name="pgl_pria" class="form-control" id="pgl_pria"
+                                            placeholder="Masukkan nama panggilan pria">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Nama Panggilan Wanita</label>
-                                        <input type="text" name="pgl_wanita" class="form-control" id="pgl_wanita" placeholder="Masukkan nama panggilan wanita">
+                                        <input type="text" name="pgl_wanita" class="form-control" id="pgl_wanita"
+                                            placeholder="Masukkan nama panggilan wanita">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                    placeholder="Enter email">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password">
                             </div>
                             <div class="form-group mb-0">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                                    <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
+                                    <label class="custom-control-label" for="exampleCheck1">I agree to the <a
+                                            href="#">terms of service</a>.</label>
                                 </div>
                             </div>
                         </div>

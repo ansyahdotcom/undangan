@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Admin_model;
+use App\Models\LoginModel;
 
 class Admin_controllers extends BaseController
 {
@@ -14,13 +15,16 @@ class Admin_controllers extends BaseController
        public function __construct()
        {
               $this->madmin = new Admin_model();
+              $this->LoginModel = new LoginModel;
        }
 
        public function index()
        {
               $getdata = $this->madmin->getdata();
-
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
               $data = array(
+                     'title' => 'Manajemen Admin',
+                     'username' => $user['username'],
                      'dataAdmin' => $getdata,
 
               );
