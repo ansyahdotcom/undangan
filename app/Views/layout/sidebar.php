@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="transaksi" class="nav-link">
+                    <a href="/transaksi" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Form Transaksi
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="template" class="nav-link">
+                    <a href="/template" class="nav-link">
                         <i class="nav-icon fas fa-palette"></i>
                         <p>
                             Form Template

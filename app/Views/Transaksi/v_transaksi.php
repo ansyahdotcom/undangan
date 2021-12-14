@@ -38,7 +38,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID Transkasi</th>
+                                    <th>ID Transaksi</th>
                                     <th>Nama Pasangan</th>
                                     <th>Tanggal Pesan</th>
                                     <th>Actions</th>
