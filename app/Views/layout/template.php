@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="/assets/plugins/sweetalert2/sweetalert2.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/assets/plugins/bs-stepper/css/bs-stepper.min.css">
     <!-- Select2 -->
     <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -121,7 +125,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/assets/dist/js/demo.js"></script>
     <!-- Sweet Alert -->
-    <script src="/assets/dist/js/sweetalert2.all.min.js"></script>
+    <script src="/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/js/swal.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -136,9 +140,14 @@
     <script src="/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- InputMask -->
+    <script src="/assets/plugins/moment/moment.min.js"></script>
+    <script src="/assets/plugins/inputmask/jquery.inputmask.min.js"></script>
     <!-- jquery-validation -->
     <script src="/assets/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="/assets/plugins/jquery-validation/additional-methods.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="/assets/plugins/bs-stepper/js/bs-stepper.min.js"></script>
     <!-- Select2 -->
     <script src="/assets/plugins/select2/js/select2.full.min.js"></script>
     <!-- InputMask -->
@@ -172,52 +181,227 @@
         });
     </script>
 
+    <!-- BS Stepper -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+        })
+    </script>
+
+    <!-- Preview Image -->
+    <script>
+        function previewImgPria() {
+            const foto = document.querySelector('#fto_pria');
+            const fotoName = document.querySelector('#fto_pria').value;
+            const imgPreview = document.querySelector('.foto_pria');
+
+            fotoName.textContent = foto.files[0].name;
+
+            const fileFoto = new FileReader();
+            fileFoto.readAsDataURL(foto.files[0]);
+
+            fileFoto.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+
+        function previewImgWanita() {
+            const foto = document.querySelector('#fto_wanita');
+            const fotoName = document.querySelector('#fto_wanita').value;
+            const imgPreview = document.querySelector('.foto_wanita');
+
+            fotoName.textContent = foto.files[0].name;
+
+            const fileFoto = new FileReader();
+            fileFoto.readAsDataURL(foto.files[0]);
+
+            fileFoto.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+    </script>
+
+    <!-- Datetime Picker -->
+    <script>
+        $('#akad').datetimepicker({
+            icons: {
+                time: 'far fa-clock'
+            },
+            format: 'MM/DD/YYYY HH:mm'
+        });
+        $('#resepsi').datetimepicker({
+            icons: {
+                time: 'far fa-clock'
+            },
+            format: 'MM/DD/YYYY HH:mm'
+        });
+    </script>
+
     <!-- JQuery Validator Form -->
     <script>
         $(function() {
-            $.validator.setDefaults({
-                submitHandler: function() {
-                    alert("Form successful submitted!");
-                }
-            });
-            $('#quickForm').validate({
+            $('.quickForm').validate({
                 rules: {
-                    email: {
-                        required: true,
-                        email: true,
+                    fto_pria: {
+                        accept: "jpg,jpeg,gif,png",
+                        extension: "jpg|jpeg|gif|png",
+                        maxsize: 2097152
                     },
-                    password: {
-                        required: true,
-                        minlength: 5
+                    fto_wanita: {
+                        accept: "jpg,jpeg,gif,png",
+                        extension: "jpg|jpeg|gif|png",
+                        maxsize: 2097152
                     },
-                    terms: {
+                    nm_pria: {
+                        required: true,
+                        lettersonly: true,
+                        noSpace: false
+                    },
+                    nm_wanita: {
+                        required: true,
+                        lettersonly: true,
+                        noSpace: false
+                    },
+                    pgl_pria: {
+                        required: true,
+                        lettersonly: true
+                    },
+                    pgl_wanita: {
+                        required: true,
+                        lettersonly: true
+                    },
+                    ayh_pria: {
+                        required: true,
+                        lettersonly: true,
+                        noSpace: false
+                    },
+                    ibu_pria: {
+                        required: true,
+                        lettersonly: true,
+                        noSpace: false
+                    },
+                    ayh_wanita: {
+                        required: true,
+                        lettersonly: true,
+                        noSpace: false
+                    },
+                    ibu_wanita: {
+                        required: true,
+                        lettersonly: true,
+                        noSpace: false
+                    },
+                    tgl_resepsi: {
                         required: true
+                    },
+                    mp_resepsi: {
+                        required: true
+                    },
+                    almt_resepsi: {
+                        required: true
+                    },
+                    no_hp: {
+                        required: true,
+                        mobileIDN: true,
+                        minlength: 11,
+                        maxlength: 15
                     },
                 },
                 messages: {
-                    email: {
-                        required: "Please enter a email address",
-                        email: "Please enter a vaild email address"
+                    fto_pria: {
+                        accept: "Format foto harus jpg, jpeg, gif, png",
+                        extension: "Format foto harus jpg, jpeg, gif, png",
+                        maxsize: "Ukuran foto maksimal 2MB"
                     },
-                    password: {
-                        required: "Please provide a password",
-                        minlength: "Your password must be at least 5 characters long"
+                    fto_wanita: {
+                        accept: "Format foto harus jpg, jpeg, gif, png",
+                        extension: "Format foto harus jpg, jpeg, gif, png",
+                        maxsize: "Ukuran foto maksimal 2MB"
                     },
-                    terms: "Please accept our terms"
+                    nm_pria: {
+                        required: "Nama pria wajib diisi",
+                        lettersonly: "Nama pria hanya boleh huruf"
+                    },
+                    nm_wanita: {
+                        required: "Nama wanita wajib diisi",
+                        lettersonly: "Nama wanita hanya boleh huruf"
+                    },
+                    pgl_pria: {
+                        required: "Nama panggilan pria wajib diisi",
+                        lettersonly: "Nama panggilan pria hanya boleh huruf"
+                    },
+                    pgl_wanita: {
+                        required: "Nama panggilan wanita wajib diisi",
+                        lettersonly: "Nama panggilan wanita hanya boleh huruf"
+                    },
+                    ayh_pria: {
+                        required: "Nama ayah pria wajib diisi",
+                        lettersonly: "Nama ayah pria hanya boleh huruf"
+                    },
+                    ibu_pria: {
+                        required: "Nama ibu pria wajib diisi",
+                        lettersonly: "Nama ibu pria hanya boleh huruf"
+                    },
+                    ayh_wanita: {
+                        required: "Nama ayah wanita wajib diisi",
+                        lettersonly: "Nama ayah wanita hanya boleh huruf"
+                    },
+                    ibu_wanita: {
+                        required: "Nama ibu wanita wajib diisi",
+                        lettersonly: "Nama ibu wanita hanya boleh huruf"
+                    },
+                    tgl_resepsi: {
+                        required: "Tanggal resepsi wajib diisi"
+                    },
+                    mp_resepsi: {
+                        required: "Maps resepsi wajib diisi"
+                    },
+                    almt_resepsi: {
+                        required: "Alamat resepsi wajib diisi"
+                    },
+                    no_hp: {
+                        required: "Nomor HP wajib diisi",
+                        mobileIDN: "Format nomor HP tidak valid",
+                        minlength: "Format nomor HP tidak valid",
+                        maxlength: "Format nomor HP tidak valid"
+                    },
                 },
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
                     error.addClass('invalid-feedback');
                     element.closest('.form-group').append(error);
+                    countValidation();
                 },
                 highlight: function(element, errorClass, validClass) {
                     $(element).addClass('is-invalid');
+                    $(element).addClass('need-validation');
+                    countValidation();
                 },
                 unhighlight: function(element, errorClass, validClass) {
                     $(element).removeClass('is-invalid');
+                    $(element).removeClass('need-validation');
+                    $(element).addClass('is-valid');
+                    countValidation();
                 }
             });
         });
+    </script>
+
+    <!-- count length need-validation class -->
+    <script>
+        function countValidation() {
+            // const nextBtnSubmit = `<button type="submit" class="btn btn-primary next-btn-submit">Next <i class="fas fa-arrow-right"></i></button>`;
+            // const nextBtn = `<button type="button" class="btn btn-primary next-btn" onclick="stepper.next()" hidden>Next <i class="fas fa-arrow-right"></i></button>`;
+
+            if ($('.need-validation').length > 1) {
+                $('.next-btn-submit').prop('hidden', false);
+                $('.next-btn').prop('hidden', true);
+            } else {
+                $('.next-btn-submit').prop('hidden', true);
+                $('.next-btn').prop('hidden', false);
+            }
+
+            console.log($('.need-validation').length);
+        };
     </script>
 
     <!-- Responsive Data Tables -->

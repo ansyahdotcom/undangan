@@ -21,11 +21,17 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        <!-- Flash Data -->
+        <div class="flash-data" data-flashdata="<?= session()->get('message'); ?>"></div>
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/transaksi/add" class="btn btn-success"><i class="fas fa-database"></i> Tambah Baru</a>
+                        <div class="d-flex">
+                            <a href="/transaksi/add" class="btn btn-success mr-2"><i class="fas fa-database"></i> Tambah Baru</a>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del-all-modal"><i class="fas fa-trash"></i> Hapus Semua Data</button>
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -40,16 +46,17 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($transaksi as $tr) : ?>
-                                <tr>
-                                    <td><?= $tr['id_tr']; ?></td>
-                                    <td><?= $tr['nama_pria'] . '  &  ' . $tr['nama_wanita']; ?></td>
-                                    <td><?= $tr['created_tr']; ?></td>
-                                    <td>
-                                        <button class="btn btn-info btn-sm" title="lihat"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" title="hapus data"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td><?= $tr['id_tr']; ?></td>
+                                        <td><?= $tr['nama_pria'] . '  &  ' . $tr['nama_wanita']; ?></td>
+                                        <td><?= date('D, d-m-Y', strtotime($tr['created_tr'])) . " | " . date('H:i', strtotime($tr['created_tr'])) . " WIB"; ?></td>
+                                        <td>
+                                            <button class="btn btn-info btn-sm" title="lihat undangan"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tr['id_tr']; ?>" title="hapus data"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-secondary btn-sm" data-toggle="modal" title="copy link undangan"><i class="fas fa-copy"></i></button>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                             </tbody>
                             <tfoot>
@@ -73,4 +80,62 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+<?php foreach ($transaksi as $tr) : ?>
+    <!-- delete modal -->
+    <div class="modal fade" id="del-modal<?= $tr['id_tr']; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Data</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/transaksi/delete" method="post">
+                    <?= csrf_field(); ?>
+                    <div class="modal-body">
+                        Apakah anda yakin ingin menghapus data ini?
+                        <input type="hidden" name="id" value="<?= $tr['id_tr'] ?>">
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Batal</button>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php endforeach; ?>
+
+<!-- delete all modal -->
+<div class="modal fade" id="del-all-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Hapus Semua Data</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/transaksi/deleteAll" method="post">
+                <?= csrf_field(); ?>
+                <div class="modal-body">
+                    <p>Apakah anda yakin ingin menghapus semua data?</p>
+                    <p class="font-weight-bold text-danger font-italic">(Peringatan!!! semua data yang telah dihapus tidak dapat dikembalikan)</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Batal</button>
+                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <?= $this->endSection(); ?>
