@@ -22,7 +22,7 @@
                     <div class="inner">
                         <h3>150</h3>
 
-                        <p>Jumlah Buku</p>
+                        <p>Jumlah Template</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -54,46 +54,6 @@
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($admin as $adm) :
-                                    $nama = $adm['nama_adm']; ?>
-                                    <tr>
-                                        <td>Trnamaent</td>
-                                        <td><?= $adm['nama_adm']; ?></td>
-                                        <td><?= $adm['username']; ?></td>
-                                        <td> 4</td>
-                                        <td>
-                                            <a href="lihat/<?= $nama; ?>" type="button" class="btn btn-primary">Lihat Undangan</a>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                                Tambah tamu
-                                            </button>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
