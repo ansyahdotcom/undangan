@@ -22,10 +22,10 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="buku" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
+                    <a href="<?php echo base_url('/Admin_controllers') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
-                            Undangan
+                            Manajemen Admin
                         </p>
                     </a>
                 </li>
@@ -34,6 +34,14 @@
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Form Transaksi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="template" class="nav-link">
+                        <i class="nav-icon fas fa-palette"></i>
+                        <p>
+                            Form Template
                         </p>
                     </a>
                 </li>

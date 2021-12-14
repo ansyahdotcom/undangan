@@ -28,6 +28,8 @@
 
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
 
 </head>
 
@@ -178,6 +180,10 @@
                 }
 
             });
+        });
+
+        $('.toastrDefaultSuccess').click(function() {
+            toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
         });
     </script>
 
