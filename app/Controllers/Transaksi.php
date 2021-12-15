@@ -4,15 +4,18 @@ namespace App\Controllers;
 
 use App\Models\LoginModel;
 use App\Models\TransaksiModel;
+use App\Models\TemplateModel;
 
 class Transaksi extends BaseController
 {
     protected $LoginModel;
     protected $TransaksiModel;
+    protected $TemplateModel;
     public function __construct()
     {
         $this->LoginModel = new LoginModel;
         $this->TransaksiModel = new TransaksiModel;
+        $this->TemplateModel = new TemplateModel;
     }
 
     public function index()
@@ -37,7 +40,9 @@ class Transaksi extends BaseController
             return redirect()->to('/login');
         } else {
             $data = [
-                'title' => 'Tambah Transaksi Baru'
+                'title' => 'Tambah Transaksi Baru',
+                'username' => $user['username'],
+                'template' => $this->TemplateModel->findAll()
             ];
             echo view('transaksi/v_addTransaksi', $data);
         }
@@ -127,13 +132,132 @@ class Transaksi extends BaseController
                 'foto_wanita' => $wanita,
                 'permalink' => $permalink,
                 'nomor_hp' => $this->request->getVar('no_hp'),
-                'id_tm' => 1
+                'id_tm' => $this->request->getVar('undangan')
             ];
 
             // query builder insert 
             $this->TransaksiModel->insert($data);
             session()->setFlashdata('message', 'save');
-            return redirect()->to('/transaksi/add');
+            return redirect()->to('/transaksi/edit/' . $id);
+        }
+    }
+
+    public function edit($id)
+    {
+        $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+        if ($user == null) {
+            return redirect()->to('/login');
+        } else {
+            $data = [
+                'title' => 'Edit Transaksi',
+                'username' => $user['username'],
+                'trn' => $this->TransaksiModel->where(['id_tr' => $id])->first(),
+                'template' => $this->TemplateModel->findAll()
+            ];
+            echo view('transaksi/v_editTransaksi', $data);
+        }
+    }
+
+    public function update()
+    {
+        $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+        if ($user == null) {
+            return redirect()->to('/login');
+        } else {
+            $id = $this->request->getVar('id');
+
+            // cek maps
+            $maps_akad = $this->request->getVar('mp_akad');
+            $maps_resepsi = $this->request->getVar('mp_resepsi1');
+
+            if ($maps_akad == '') {
+                $mp_akad = $this->request->getVar('mp_akad_old');
+            } else {
+                $mp_akad = $this->request->getVar('mp_akad');
+            }
+
+            if ($maps_resepsi == '') {
+                $mp_resepsi = $this->request->getVar('mp_resepsi_old');
+            } else {
+                $mp_resepsi = $this->request->getVar('mp_resepsi1');
+            }
+
+            // cek custom link
+            $link = $this->request->getVar('custom_link');
+            if ($link == '') {
+                $permalink = $this->request->getVar('custom_link_old');
+            } else {
+                $permalink = $link;
+            }
+
+            // cek edit foto
+            $fto_pria = $this->request->getFile('fto_pria');
+            $fto_pria_old = $this->request->getVar('fto_pria_old');
+            $fto_wanita = $this->request->getFile('fto_wanita');
+            $fto_wanita_old = $this->request->getVar('fto_wanita_old');
+
+            if ($fto_pria->getError() != 4) {
+                $pria = $fto_pria->getRandomName();
+                // upload file foto
+                $fto_pria->move('assets/dist/img/transaksi/', $pria);
+
+                // cek if old foto default.png don't delete it
+                if ($fto_pria_old != "default-p.png") {
+                    unlink('assets/dist/img/transaksi/' . $fto_pria_old);
+                }
+
+                // update foto in database
+                $data_foto_p = [
+                    'id_tr' => $id,
+                    'foto_pria' => $pria
+                ];
+                $this->TransaksiModel->save($data_foto_p);
+            }
+
+            if ($fto_wanita->getError() != 4) {
+                $wanita = $fto_wanita->getRandomName();
+                // upload file foto
+                $fto_wanita->move('assets/dist/img/transaksi/', $wanita);
+
+                // cek if old foto default.png don't delete it
+                if ($fto_wanita_old != "default-w.png") {
+                    unlink('assets/dist/img/transaksi/' . $fto_wanita_old);
+                }
+                
+                // update foto in database
+                $data_foto_w = [
+                    'id_tr' => $id,
+                    'foto_wanita' => $wanita
+                ];
+                $this->TransaksiModel->save($data_foto_w);
+            }
+
+            // get data from form
+            $data = [
+                'id_tr' => $id,
+                'nama_pria' => $this->request->getVar('nm_pria'),
+                'nama_wanita' => $this->request->getVar('nm_wanita'),
+                'nama_pgl_pria' => $this->request->getVar('pgl_pria'),
+                'nama_pgl_wanita' => $this->request->getVar('pgl_wanita'),
+                'nama_ayah_pria' => $this->request->getVar('ayh_pria'),
+                'nama_ibu_pria' => $this->request->getVar('ibu_pria'),
+                'nama_ayah_wanita' => $this->request->getVar('ayh_wanita'),
+                'nama_ibu_wanita' => $this->request->getVar('ibu_wanita'),
+                'maps_akad' => $mp_akad,
+                'tgl_akad' => date('Y-m-d H:i:s', strtotime($this->request->getVar('tgl_akad'))),
+                'alamat_akad' => $this->request->getVar('almt_akad'),
+                'maps_resepsi' => $mp_resepsi,
+                'tgl_resepsi' => date('Y-m-d H:i:s', strtotime($this->request->getVar('tgl_resepsi'))),
+                'alamat_resepsi' => $this->request->getVar('almt_resepsi'),
+                'permalink' => $permalink,
+                'nomor_hp' => $this->request->getVar('no_hp'),
+                'id_tm' => $this->request->getVar('undangan')
+            ];
+
+            // update data in database
+            $this->TransaksiModel->save($data);
+            session()->setFlashdata('message', 'edit');
+            return redirect()->to('/transaksi/edit/' . $id);
         }
     }
 
@@ -148,14 +272,14 @@ class Transaksi extends BaseController
             //find foto name by id
             $foto_pria = $this->TransaksiModel->where(['id_tr' => $id])->first();
             $foto_wanita = $this->TransaksiModel->where(['id_tr' => $id])->first();
-            
+
             // delete foto in folder "assets/dist/img"
-            if($foto_pria['foto_pria'] != 'default-p.png'){
-                unlink('assets/dist/img/transaksi/'.$foto_pria['foto_pria']);
+            if ($foto_pria['foto_pria'] != 'default-p.png') {
+                unlink('assets/dist/img/transaksi/' . $foto_pria['foto_pria']);
             }
 
-            if($foto_wanita['foto_wanita'] != 'default-w.png'){
-                unlink('assets/dist/img/transaksi/'.$foto_wanita['foto_wanita']);
+            if ($foto_wanita['foto_wanita'] != 'default-w.png') {
+                unlink('assets/dist/img/transaksi/' . $foto_wanita['foto_wanita']);
             }
 
             // delete data in database
@@ -176,12 +300,12 @@ class Transaksi extends BaseController
 
             // delete foto in folder "assets/dist/img"
             foreach ($foto as $f) {
-                if($f['foto_pria'] != 'default-p.png'){
-                    unlink('assets/dist/img/transaksi/'.$f['foto_pria']);
+                if ($f['foto_pria'] != 'default-p.png') {
+                    unlink('assets/dist/img/transaksi/' . $f['foto_pria']);
                 }
 
-                if($f['foto_wanita'] != 'default-w.png'){
-                    unlink('assets/dist/img/transaksi/'.$f['foto_wanita']);
+                if ($f['foto_wanita'] != 'default-w.png') {
+                    unlink('assets/dist/img/transaksi/' . $f['foto_wanita']);
                 }
             }
 

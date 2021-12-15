@@ -8,3 +8,25 @@
 .border-dashed {
     border: dashed 3px;
 }
+
+.text-transparent {
+    color: transparent;
+}
+
+.custom-radio {
+    width: 25px;
+    height: 25px;
+}
+
+.card-undangan {
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.card-undangan:hover {
+    box-shadow: rgba(0,123,255, 0.3) 0px 0px 0px 3px;
+}
+
+.card-undangan-active {
+    box-shadow: rgba(0,123,255, 0.3) 0px 0px 0px 3px;
+}
