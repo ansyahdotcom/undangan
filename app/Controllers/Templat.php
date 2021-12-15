@@ -139,7 +139,7 @@ class Templat extends BaseController
             'nama_tm' => [
                 'rules' => 'required|trim',
                 'errors' => [
-                    'required' => 'field Nama harus diisi.'
+                    'required' => 'Field Nama harus diisi.'
                 ]
             ],
             'harga_tm' => [

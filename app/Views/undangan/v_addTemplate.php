@@ -34,12 +34,18 @@
                             <div class="form-group">
                                 <label for="nama">Nama Template</label>
                                 <input type="text" name="nama_tm" class="form-control <?= ($validation->hasError('nama_tm')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_tm'); ?>"" id=" nama_tm" placeholder="Masukkan Nama Template">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('nama_tm'); ?>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="harga">Harga Template</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Rp.</span>
                                     <input type="text" class="form-control <?= ($validation->hasError('harga_tm')) ? 'is-invalid' : ''; ?>" value="<?= old('harga_tm'); ?>"" name=" harga_tm" id="harga_tm" aria-label="" placeholder="Ex: 50000">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('harga_tm'); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
