@@ -38,6 +38,7 @@ class Templat extends BaseController
         } else {
             $data = [
                 'title' => 'Tambah Template Baru',
+                'username' => $user['username'],
                 'validation' => \Config\Services::validation()
             ];
             echo view('undangan/v_addTemplate', $data);
@@ -123,7 +124,6 @@ class Templat extends BaseController
             $this->TemplateModel->delete($id);
             session()->setFlashdata('message', 'delete');
             return redirect()->to('/templat');
-
         }
     }
 }

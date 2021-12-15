@@ -33,10 +33,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="transaksi" class="nav-link <?php $uri = service('uri');
-                                                        if ($uri->getSegment(1) == 'transaksi') {
-                                                            echo 'active';
-                                                        } ?>">
+                    <a href="/transaksi" class="nav-link <?php $uri = service('uri');
+                                                            if ($uri->getSegment(1) == 'transaksi') {
+                                                                echo 'active';
+                                                            } ?>">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Form Transaksi

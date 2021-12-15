@@ -37,7 +37,8 @@ class Transaksi extends BaseController
             return redirect()->to('/login');
         } else {
             $data = [
-                'title' => 'Tambah Transaksi Baru'
+                'title' => 'Tambah Transaksi Baru',
+                'username' => $user['username']
             ];
             echo view('transaksi/v_addTransaksi', $data);
         }
@@ -148,14 +149,14 @@ class Transaksi extends BaseController
             //find foto name by id
             $foto_pria = $this->TransaksiModel->where(['id_tr' => $id])->first();
             $foto_wanita = $this->TransaksiModel->where(['id_tr' => $id])->first();
-            
+
             // delete foto in folder "assets/dist/img"
-            if($foto_pria['foto_pria'] != 'default-p.png'){
-                unlink('assets/dist/img/transaksi/'.$foto_pria['foto_pria']);
+            if ($foto_pria['foto_pria'] != 'default-p.png') {
+                unlink('assets/dist/img/transaksi/' . $foto_pria['foto_pria']);
             }
 
-            if($foto_wanita['foto_wanita'] != 'default-w.png'){
-                unlink('assets/dist/img/transaksi/'.$foto_wanita['foto_wanita']);
+            if ($foto_wanita['foto_wanita'] != 'default-w.png') {
+                unlink('assets/dist/img/transaksi/' . $foto_wanita['foto_wanita']);
             }
 
             // delete data in database
@@ -176,12 +177,12 @@ class Transaksi extends BaseController
 
             // delete foto in folder "assets/dist/img"
             foreach ($foto as $f) {
-                if($f['foto_pria'] != 'default-p.png'){
-                    unlink('assets/dist/img/transaksi/'.$f['foto_pria']);
+                if ($f['foto_pria'] != 'default-p.png') {
+                    unlink('assets/dist/img/transaksi/' . $f['foto_pria']);
                 }
 
-                if($f['foto_wanita'] != 'default-w.png'){
-                    unlink('assets/dist/img/transaksi/'.$f['foto_wanita']);
+                if ($f['foto_wanita'] != 'default-w.png') {
+                    unlink('assets/dist/img/transaksi/' . $f['foto_wanita']);
                 }
             }
 
