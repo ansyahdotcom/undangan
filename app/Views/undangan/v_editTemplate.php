@@ -46,7 +46,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-save" id="save-btn"></i> Simpan</button>
+                            <button type="submit" class="btn btn-primary float-right"><i class="fas fa-save" id="save-btn"></i> Simpan</button>
                         </div>
                     </form>
                 </div>
