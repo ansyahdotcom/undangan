@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\LoginModel;
 use App\Models\TemplateModel;
+use FFI\CData;
 
 class Templat extends BaseController
 {

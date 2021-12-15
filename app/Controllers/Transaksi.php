@@ -26,10 +26,33 @@ class Transaksi extends BaseController
         } else {
             $data = [
                 'title' => 'Data Transaksi',
-                'transaksi' => $this->TransaksiModel->findAll(),
+                'transaksi' => $this->TransaksiModel->getTransaksi()->getResultArray(),
                 'username' => $user['username']
             ];
             echo view('transaksi/v_transaksi', $data);
+        }
+    }
+
+    public function preview($undangan, $permalink, $tamu = "Bpk. John Doe")
+    {
+        $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+        if ($user == null) {
+            return redirect()->to('/login');
+        } else {
+            $data = [
+                'title' => 'Data Undangan',
+                'permalink' => $this->TransaksiModel->getByPermalink($permalink),
+                'tamu' => $tamu,
+                'username' => $user['username']
+            ];
+
+            if ($undangan == 'simple-flower') {
+                echo view('template_undangan/simpleflower/simpleflower', $data);
+            } elseif ($undangan == 'plumber') {
+                echo view('template_undangan/plumber/plumber', $data);
+            } elseif ($undangan == 'eris-rude') {
+                echo view('template_undangan/erisrude/erisrude', $data);
+            }
         }
     }
 

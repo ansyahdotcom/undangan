@@ -70,33 +70,33 @@
                                             <div class="row">
                                                 <?php $num = 0; ?>
                                                 <?php foreach ($template as $t) : ?>
-                                                <?php $num++ ?>
-                                                <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                                                    <div class="card card-undangan bg-light d-flex flex-fill" onclick="clickCardUndangan()">
-                                                        <div class="card-header bg-secondary text-white border-bottom-0">
-                                                            <?= $t['nama_tm']; ?>
-                                                        </div>
-                                                        <div class="card-body d-flex justify-content-center align-items-center">
-                                                            <div class="text-center">
-                                                                <img src="/assets/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                                    <?php $num++ ?>
+                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                                                        <div class="card card-undangan bg-light d-flex flex-fill" onclick="clickCardUndangan()">
+                                                            <div class="card-header bg-secondary text-white border-bottom-0">
+                                                                <?= $t['nama_tm']; ?>
                                                             </div>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                            <div class="d-flex justify-content-between align-items-center">
-                                                                <button type="button" class="btn btn-sm btn-info" title="preview undangan">
-                                                                    <i class="fas fa-eye"></i>
-                                                                    Preview
-                                                                </button>
-                                                                <div class="icheck-success d-inline">
-                                                                    <input type="radio" class="radioSuccess" id="radioSuccess<?= $num; ?>" value="<?= $t['id_tm']; ?>" name="undangan" onchange="isChecked()">
-                                                                    <label for="radioSuccess<?= $num; ?>">
-                                                                        <span class="font-weight-bold">Pilih Undangan</span>
-                                                                    </label>
+                                                            <div class="card-body d-flex justify-content-center align-items-center">
+                                                                <div class="text-center">
+                                                                    <img src="/assets/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                    <button type="button" class="btn btn-sm btn-info" title="preview undangan">
+                                                                        <i class="fas fa-eye"></i>
+                                                                        Preview
+                                                                    </button>
+                                                                    <div class="icheck-success d-inline">
+                                                                        <input type="radio" class="radioSuccess" id="radioSuccess<?= $num; ?>" value="<?= $t['id_tm']; ?>" name="undangan" onchange="isChecked()">
+                                                                        <label for="radioSuccess<?= $num; ?>">
+                                                                            <span class="font-weight-bold">Pilih Undangan</span>
+                                                                        </label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
                                                 <?php endforeach; ?>
                                             </div>
                                             <div class="mb-3">
@@ -237,6 +237,16 @@
                                             <h4 class="text-capitalize text-center text-white font-weight-bold">Waktu dan tempat acara</h3>
                                         </div>
                                         <div class="card-body">
+                                            <div class="d-flex justify-content-center">
+                                                <label for="">Tampilan Maps Akad</label>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="preview-mp-akad p-0 border-dashed border-primary">
+                                                    <div class="contain-mp-old-akad">
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32658827.85049738!2d99.40239044513784!3d-2.275096596503077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sid!2sid!4v1639578696772!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="row mt-2">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
@@ -252,13 +262,23 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label for="">Maps Akad</label>
-                                                        <input type="text" name="mp_akad" class="form-control" id="mp_akad" placeholder="masukkan maps akad">
+                                                        <input type="text" name="mp_akad" class="form-control" id="mp_akad" onchange="previewMapsAkad()" placeholder="masukkan maps akad">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Alamat Akad</label>
                                                 <textarea name="almt_akad" class="form-control" id="almt_akad" cols="30" rows="5" placeholder="masukkan alamat akad"></textarea>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <label for="">Tampilan Maps Resepsi</label>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="preview-mp-resepsi p-0 border-dashed border-primary">
+                                                    <div class="contain-mp-old-resepsi">
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32658827.85049738!2d99.40239044513784!3d-2.275096596503077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sid!2sid!4v1639578696772!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -275,7 +295,7 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label for="">Maps Resepsi <span class="text-danger">*</span></label>
-                                                        <input type="text" name="mp_resepsi" class="form-control" id="mp_resepsi" placeholder="masukkan maps resepsi">
+                                                        <input type="text" name="mp_resepsi" class="form-control" id="mp_resepsi" onchange="previewMapsResepsi()" placeholder="masukkan maps resepsi">
                                                     </div>
                                                 </div>
                                             </div>

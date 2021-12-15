@@ -13,11 +13,11 @@ class TransaksiModel extends Model
     protected $updatedField = 'updated_tr';
     protected $allowedFields = [
         'id_tr',
-        'nama_pria', 
-        'nama_wanita', 
-        'nama_pgl_pria', 
-        'nama_pgl_wanita', 
-        'nama_ayah_pria', 
+        'nama_pria',
+        'nama_wanita',
+        'nama_pgl_pria',
+        'nama_pgl_wanita',
+        'nama_ayah_pria',
         'nama_ibu_pria',
         'nama_ayah_wanita',
         'nama_ibu_wanita',
@@ -33,4 +33,20 @@ class TransaksiModel extends Model
         'nomor_hp',
         'id_tm'
     ];
+
+
+    // table transaksi join table template
+    public function getTransaksi()
+    {
+        return $this->join('template', 'transaksi.id_tm = template.id_tm')
+                    ->get();
+    }
+
+    // get by permalink
+    public function getByPermalink($permalink)
+    {
+        return $this->join('template', 'transaksi.id_tm = template.id_tm')
+                    ->where('permalink', $permalink)
+                    ->first();
+    }
 }
