@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Sweet Alert -->
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css">
+    <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="/assets/plugins/sweetalert2/sweetalert2.min.css">
     <!-- BS Stepper -->
     <link rel="stylesheet" href="/assets/plugins/bs-stepper/css/bs-stepper.min.css">
@@ -38,15 +40,19 @@
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-dark bg-primary">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="<?= base_url() ?>" class="nav-link <?php $uri = service('uri');
+                                                                if ($uri->getSegment(1) == 'dashboard') {
+                                                                    echo 'active';
+                                                                } ?>">Dashboard</a>
+                </li>
             </ul>
-
-
         </nav>
         <!-- /.navbar -->
         <?= $this->include('layout/sidebar'); ?>
@@ -105,7 +111,11 @@
         </div>
 
         <footer class="main-footer">
-            <strong>Copyright &copy; Jheng Onjheng 2021
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.1.0
+            </div>
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -127,6 +137,9 @@
     <!-- Sweet Alert -->
     <script src="/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/js/swal.js"></script>
+    <!-- daterangepicker -->
+    <script src="/assets/plugins/moment/moment.min.js"></script>
+    <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

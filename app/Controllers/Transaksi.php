@@ -223,7 +223,7 @@ class Transaksi extends BaseController
                 if ($fto_wanita_old != "default-w.png") {
                     unlink('assets/dist/img/transaksi/' . $fto_wanita_old);
                 }
-                
+
                 // update foto in database
                 $data_foto_w = [
                     'id_tr' => $id,

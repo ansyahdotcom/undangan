@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Admin_model;
+use App\Models\LoginModel;
 
-class Admin_controllers extends BaseController
+class Admin extends BaseController
 {
        protected $madmin;
        protected $table = "admin";
@@ -14,13 +15,16 @@ class Admin_controllers extends BaseController
        public function __construct()
        {
               $this->madmin = new Admin_model();
+              $this->LoginModel = new LoginModel;
        }
 
        public function index()
        {
               $getdata = $this->madmin->getdata();
-
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
               $data = array(
+                     'title' => 'Manajemen Admin',
+                     'username' => $user['username'],
                      'dataAdmin' => $getdata,
 
               );
@@ -45,15 +49,15 @@ class Admin_controllers extends BaseController
 
                      if ($simpan) {
                             session()->setFlashdata('message', 'save');
-                            return redirect()->to('Admin_controllers');
+                            return redirect()->to('Admin');
                      } else {
                             session()->setFlashdata('message', 'notsave');
-                            return redirect()->to('/Admin_controllers');
+                            return redirect()->to('/Admin');
                      }
               } catch (\Exception $e) {
 
                      session()->setFlashdata('message', 'isExist');
-                     return redirect()->to('/Admin_controllers');
+                     return redirect()->to('/Admin');
               }
        }
 
@@ -77,21 +81,14 @@ class Admin_controllers extends BaseController
 
                      if ($edit) {
                             session()->setFlashdata('message', 'edit');
-                            return redirect()->to('Admin_controllers');
-
-                            // echo "<script>alert('Data Berhasil Diedit!'); 
-                            // window.location='" . base_url('Admin_controllers') . "';</script>";
+                            return redirect()->to('Admin');
                      } else {
                             session()->setFlashdata('message', 'notedit');
-                            return redirect()->to('/Admin_controllers');
-                            // echo "<script>alert('Data Gagal Diedit!'); 
-                            // window.location='" . base_url('/Admin_controllers') . "';</script>";
+                            return redirect()->to('/Admin');
                      }
               } catch (\Exception $e) {
                      session()->setFlashdata('message', 'isExist');
-                     return redirect()->to('/Admin_controllers');
-                     // echo "<script>alert('ID Admin Sudah Ada!'); 
-                     //        window.location='" . base_url('/Admin_controllers') . "';</script>";
+                     return redirect()->to('/Admin');
               }
        }
 
@@ -108,14 +105,14 @@ class Admin_controllers extends BaseController
 
                      if ($hapus) {
                             session()->setFlashdata('message', 'delete');
-                            return redirect()->to('Admin_controllers');
+                            return redirect()->to('Admin');
                      } else {
                             session()->setFlashdata('message', 'notdelete');
-                            return redirect()->to('/Admin_controllers');
+                            return redirect()->to('/Admin');
                      }
               } catch (\Exception $e) {
                      session()->setFlashdata('message', 'isExist');
-                     return redirect()->to('/Admin_controllers');
+                     return redirect()->to('/Admin');
               }
        }
 }

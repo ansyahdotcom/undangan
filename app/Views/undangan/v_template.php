@@ -21,11 +21,12 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        <div class="flash-data" data-flashdata="<?= session()->get('message') ?>"></div>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/template/add" class="btn btn-success"><i class="fas fa-database"></i> Tambah Baru</a>
+                        <a href="/templat/add" class="btn btn-success"><i class="fas fa-database"></i> Tambah Baru</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -34,7 +35,7 @@
                                 <tr>
                                     <th>ID Template</th>
                                     <th>Nama Template</th>
-                                    <th>Harga Template</th>
+                                    <th>Harga Template (Rp.)</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -45,9 +46,9 @@
                                         <td><?= $tr['nama_tm'] ?></td>
                                         <td><?= $tr['harga_tm']; ?></td>
                                         <td>
-                                            <button class="btn btn-info btn-sm" title="lihat"><i class="fas fa-eye"></i></button>
-                                            <button class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm" title="hapus data"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-info btn-sm" title="lihat undangan"><i class="fas fa-eye"></i></button>
+                                            <a href="<?= base_url(); ?>/templat/edit/<?= $tr['id_tm']; ?>" class="btn btn-primary btn-sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tr['id_tm']; ?>" title="Hapus Data"><i class="fas fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -56,7 +57,7 @@
                                 <tr>
                                     <th>ID Template</th>
                                     <th>Nama Template</th>
-                                    <th>Harga Template</th>
+                                    <th>Harga Template (Rp.)</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -72,5 +73,35 @@
     </div>
     <!-- /.container-fluid -->
 </section>
+
+<?php foreach ($template as $tr) : ?>
+    <!-- delete modal -->
+    <div class="modal fade" id="del-modal<?= $tr['id_tm']; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Data</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/templat/delete" method="post">
+                    <?= csrf_field(); ?>
+                    <div class="modal-body">
+                        Apakah anda yakin ingin menghapus data ini?
+                        <input type="hidden" name="id" value="<?= $tr['id_tm'] ?>">
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Batal</button>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php endforeach; ?>
 <!-- /.content -->
 <?= $this->endSection(); ?>

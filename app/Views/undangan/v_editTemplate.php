@@ -29,11 +29,12 @@
                 <!-- jquery validation -->
                 <div class="card">
                     <!-- form start -->
-                    <form id="" action="<?= base_url(); ?>/templat/save" method="post">
+                    <form id="" action="<?= base_url(); ?>/templat/update/<?= $template['id_tm']; ?>" method="post">
                         <div class="card-body">
+                            <input type="hidden" name="id" value="<?= $template['id_tm']; ?>">
                             <div class="form-group">
                                 <label for="nama">Nama Template</label>
-                                <input type="text" name="nama_tm" class="form-control <?= ($validation->hasError('nama_tm')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_tm'); ?>"" id=" nama_tm" placeholder="Masukkan Nama Template">
+                                <input type="text" name="nama_tm" class="form-control <?= ($validation->hasError('nama_tm')) ? 'is-invalid' : ''; ?>" value="<?= $template['nama_tm']; ?>" id=" nama_tm" placeholder="Masukkan Nama Template">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('nama_tm'); ?>
                                 </div>
@@ -42,7 +43,7 @@
                                 <label for="harga">Harga Template</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Rp.</span>
-                                    <input type="text" class="form-control <?= ($validation->hasError('harga_tm')) ? 'is-invalid' : ''; ?>" value="<?= old('harga_tm'); ?>"" name=" harga_tm" id="harga_tm" aria-label="" placeholder="Ex: 50000">
+                                    <input type="text" class="form-control <?= ($validation->hasError('harga_tm')) ? 'is-invalid' : ''; ?>" value="<?= $template['harga_tm']; ?>" name=" harga_tm" id="harga_tm" aria-label="" placeholder="Ex: 50000">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('harga_tm'); ?>
                                     </div>

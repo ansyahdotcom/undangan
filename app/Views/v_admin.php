@@ -4,7 +4,13 @@
        <div class="container-fluid">
               <div class="row mb-2">
                      <div class="col-sm-6">
-                            <h1>Manajemen Admin</h1>
+                            <h1><?= $title; ?></h1>
+                     </div>
+                     <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                   <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                                   <li class="breadcrumb-item active"><?= $title; ?></li>
+                            </ol>
                      </div>
               </div>
        </div><!-- /.container-fluid -->
@@ -71,7 +77,7 @@
                                    <span aria-hidden="true">&times;</span>
                             </button>
                      </div>
-                     <form action="<?php echo base_url('Admin_controllers/simpan'); ?>" method="POST">
+                     <form action="<?php echo base_url('Admin/simpan'); ?>" method="POST">
                             <?php echo csrf_field(); ?>
                             <div class="modal-body">
                                    <!-- <div class="form-group row">
@@ -118,7 +124,7 @@ foreach ($dataAdmin as $row) : ?>
                                           <span aria-hidden="true">&times;</span>
                                    </button>
                             </div>
-                            <form action="<?php echo base_url('Admin_controllers/edit'); ?>" method="POST" class="form-horizontal">
+                            <form action="<?php echo base_url('Admin/edit'); ?>" method="POST" class="form-horizontal">
                                    <?php echo csrf_field(); ?>
                                    <div class="modal-body">
                                           <!-- <div class="form-group row">
@@ -167,7 +173,7 @@ foreach ($dataAdmin as $row) : ?>
                                           <span aria-hidden="true">&times;</span>
                                    </button>
                             </div>
-                            <form action="<?php echo base_url('Admin_controllers/hapus'); ?>" method="POST" class="form-horizontal">
+                            <form action="<?php echo base_url('Admin/hapus'); ?>" method="POST" class="form-horizontal">
                                    <?= csrf_field(); ?>
                                    <div class="modal-body">
                                           <input type="hidden" value="<?= $row->id_adm; ?>" name="id_adm">
