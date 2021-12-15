@@ -47,8 +47,8 @@
                                         <td><?= $tr['harga_tm']; ?></td>
                                         <td>
                                             <button class="btn btn-info btn-sm" title="lihat undangan"><i class="fas fa-eye"></i></button>
-                                            <button class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tr['id_tm']; ?>" title="hapus data"><i class="fas fa-trash"></i></button>
+                                            <a href="<?= base_url(); ?>/templat/edit/<?= $tr['id_tm']; ?>" class="btn btn-primary btn-sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tr['id_tm']; ?>" title="Hapus Data"><i class="fas fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
