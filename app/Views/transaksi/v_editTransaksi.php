@@ -131,7 +131,7 @@
                                                     <div class="form-group">
                                                         <label for="">Upload Foto Pria</label>
                                                         <small>
-                                                            <p class="text-primary font-italic">upload foto beresolusi 500px <span class="text-danger">x</span> 500px, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
+                                                            <p class="text-primary font-italic">upload foto rasio 1 <span class="text-danger">:</span> 1, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
                                                         </small>
                                                         <input type="hidden" name="fto_pria_old" value="<?= $trn['foto_pria']; ?>">
                                                         <input type="file" name="fto_pria" class="form-control" id="fto_pria" onchange="previewImgPria()" accept="image/jpg, image/jpeg, image/gif, image/png">
@@ -141,7 +141,7 @@
                                                     <div class="form-group">
                                                         <label for="">Upload Foto Wanita</label>
                                                         <small for="">
-                                                            <p class="text-primary font-italic">upload foto beresolusi 500px <span class="text-danger">x</span> 500px, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
+                                                            <p class="text-primary font-italic">upload foto rasio 1 <span class="text-danger">:</span> 1, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
                                                         </small>
                                                         <input type="hidden" name="fto_wanita_old" value="<?= $trn['foto_wanita']; ?>">
                                                         <input type="file" name="fto_wanita" class="form-control" id="fto_wanita" onchange="previewImgWanita()" accept="image/jpg, image/jpeg, image/gif, image/png">

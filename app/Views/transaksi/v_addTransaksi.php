@@ -71,7 +71,7 @@
                                                 <?php $num = 0; ?>
                                                 <?php foreach ($template as $t) : ?>
                                                     <?php $num++ ?>
-                                                    <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
+                                                    <div class="undangan col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
                                                         <div class="card card-undangan bg-light d-flex flex-fill" onclick="clickCardUndangan()">
                                                             <div class="card-header h5 text-center text-muted font-weight-bold border-bottom-0">
                                                                 <?= $t['nama_tm']; ?>
@@ -100,16 +100,16 @@
                                                 <?php endforeach; ?>
                                             </div>
                                             <div class="mb-3">
-                                                <nav aria-label="Contacts Page Navigation">
+                                                <nav aria-label="Template Page Navigation">
                                                     <ul class="pagination justify-content-center m-0">
-                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                        <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                                                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                                                         <li class="page-item"><a class="page-link" href="#">4</a></li>
                                                         <li class="page-item"><a class="page-link" href="#">5</a></li>
                                                         <li class="page-item"><a class="page-link" href="#">6</a></li>
                                                         <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">8</a></li> -->
                                                     </ul>
                                                 </nav>
                                             </div>

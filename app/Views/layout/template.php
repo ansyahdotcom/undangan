@@ -503,6 +503,37 @@
         });
     </script>
 
+    <!-- Pagination template undangan -->
+    <script>
+        $(function() {
+            const undangan = $(".undangan");
+            const cardsperPage = 4;
+
+            if (undangan.length > cardsperPage) {
+                const totalPages = Math.ceil(undangan.length / cardsperPage);
+                let currentPage = 1;
+                let pagination = '';
+
+                for (let i = 1; i <= totalPages; i++) {
+                    pagination += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`;
+                }
+
+                // pagination += `</ul>
+                //                 </nav>`;
+
+                $(".pagination").append(pagination);
+
+                $(".page-item").click(function() {
+                    $(".page-item").removeClass("active");
+                    $(this).addClass("active");
+                    currentPage = $(this).text();
+                    $(".undangan").hide();
+                    $(".undangan").slice((currentPage - 1) * cardsperPage, currentPage * cardsperPage).show();
+                });
+            }
+        });
+    </script>
+
     <!-- Responsive Data Tables -->
     <script>
         $(function() {
