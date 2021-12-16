@@ -71,26 +71,26 @@
                                                 <?php $num = 0; ?>
                                                 <?php foreach ($template as $t) : ?>
                                                     <?php $num++ ?>
-                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                                                    <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
                                                         <div class="card card-undangan bg-light d-flex flex-fill" onclick="clickCardUndangan()">
-                                                            <div class="card-header bg-secondary text-white border-bottom-0">
+                                                            <div class="card-header h5 text-center text-muted font-weight-bold border-bottom-0">
                                                                 <?= $t['nama_tm']; ?>
                                                             </div>
-                                                            <div class="card-body d-flex justify-content-center align-items-center">
-                                                                <div class="text-center">
-                                                                    <img src="/assets/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
-                                                                </div>
+                                                            <div class="card-body card-body-undangan d-flex justify-content-center align-items-center" style="background-image: url('/assets/dist/img/template/Pastel_Floral.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+
                                                             </div>
                                                             <div class="card-footer">
                                                                 <div class="d-flex justify-content-between align-items-center">
-                                                                    <button type="button" class="btn btn-sm btn-info" title="preview undangan">
-                                                                        <i class="fas fa-eye"></i>
-                                                                        Preview
+                                                                    <button type="button" class="btn btn-sm text-muted" data-toggle="modal" data-target="#preview-modal<?= $t['id_tm']; ?>" title="preview undangan">
+                                                                        <span class="font-weight-bold">
+                                                                            <i class="fas fa-eye"></i>
+                                                                            Preview
+                                                                        </span>
                                                                     </button>
-                                                                    <div class="icheck-success d-inline">
+                                                                    <div class="icheck-success d-inline text-muted">
                                                                         <input type="radio" class="radioSuccess" id="radioSuccess<?= $num; ?>" value="<?= $t['id_tm']; ?>" name="undangan" onchange="isChecked()">
                                                                         <label for="radioSuccess<?= $num; ?>">
-                                                                            <span class="font-weight-bold">Pilih Undangan</span>
+                                                                            <span class="font-weight-bold">Pilih</span>
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -148,7 +148,7 @@
                                                     <div class="form-group">
                                                         <label for="">Upload Foto Pria</label>
                                                         <small>
-                                                            <p class="text-primary font-italic">upload foto beresolusi 500px <span class="text-danger">x</span> 500px, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
+                                                            <p class="text-primary font-italic">upload foto rasio 1 <span class="text-danger">:</span> 1, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
                                                         </small>
                                                         <input type="file" name="fto_pria" class="form-control" id="fto_pria" onchange="previewImgPria()" accept="image/jpg, image/jpeg, image/gif, image/png">
                                                     </div>
@@ -157,7 +157,7 @@
                                                     <div class="form-group">
                                                         <label for="">Upload Foto Wanita</label>
                                                         <small for="">
-                                                            <p class="text-primary font-italic">upload foto beresolusi 500px <span class="text-danger">x</span> 500px, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
+                                                            <p class="text-primary font-italic">upload foto rasio 1 <span class="text-danger">:</span> 1, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
                                                         </small>
                                                         <input type="file" name="fto_wanita" class="form-control" id="fto_wanita" onchange="previewImgWanita()" accept="image/jpg, image/jpeg, image/gif, image/png">
                                                     </div>
@@ -328,7 +328,7 @@
                                                         <small>
                                                             <p class="text-primary font-italic">jika ingin mengkustom alamat url undangan silahkan isi field ini</p>
                                                         </small>
-                                                        <input type="text" name="custom_link" class="form-control" id="custom_link" placeholder="masukkan kustom url undangan (contoh: rendi-reni-wedding)">
+                                                        <input type="text" name="custom_link" class="form-control" id="custom_link" placeholder="kustom url undangan tanpa spasi, gunakan tanda pemisah '-' (contoh: rendi-reni)">
                                                     </div>
                                                 </div>
                                             </div>
@@ -364,4 +364,42 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+<!-- modal preview undangan -->
+<?php foreach ($template as $t) : ?>
+    <div class="modal fade" id="preview-modal<?= $t['id_tm']; ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><?= $t['nama_tm']; ?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="carousel-wrap">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <img class="img img-fluid img-thumbnail" src="/assets/dist/img/template/Pastel_Floral.png" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img img-fluid img-thumbnail" src="/assets/dist/img/template/Sparkling_Flowers.png" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img img-fluid img-thumbnail" src="/assets/dist/img/template/Modern_Elegant.png" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img img-fluid img-thumbnail" src="/assets/dist/img/template/Dark_Flower.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php endforeach; ?>
+
 <?= $this->endSection(); ?>

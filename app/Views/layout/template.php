@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
-
+    <!-- Owl Caraousel -->
+    <link rel="stylesheet" href="/assets/plugins/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/plugins/owlcarousel/owl.theme.default.min.css">
     <!-- iCheck for checkboxes and radio inputs -->
     <link rel="stylesheet" href="/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- DataTables -->
@@ -134,6 +136,8 @@
     <script src="/assets/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/assets/dist/js/demo.js"></script>
+    <!-- Owl Carousel -->
+    <script src="/assets/plugins/owlcarousel/owl.carousel.min.js"></script>
     <!-- Sweet Alert -->
     <script src="/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/js/swal.js"></script>
@@ -289,6 +293,16 @@
                 return this.optional(element) || /^(([0-2]?\d)|([3][01]))\/[0,1]?\d\/((199\d)|([2-9]\d{3}))\s(00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/.test(value);
             }, "Please enter a date in the format DD/MM/YYYY HH:mm");
 
+            // AlphaNumericDash
+            jQuery.validator.addMethod("alphanumdash", function(value, element) {
+                return this.optional(element) || /^[a-zA-Z0-9-]+$/i.test(value);
+            }, "Please enter a valid alphanumeric with dash value.");
+
+            // AlphaDash
+            jQuery.validator.addMethod("alphadash", function(value, element) {
+                return this.optional(element) || /^[a-zA-Z-]+$/i.test(value);
+            }, "Please enter a valid alpha with dash value.");
+
             // CurencyIDR
             jQuery.validator.addMethod("currencyIDR", function(value, element) {
                 return this.optional(element) || /^\Rp?(.[0-9]{1,3}.([0-9]{3}.)*[0-9]{3}|[0-9]+)(,[0-9][0-9])?$/.test(value);
@@ -368,6 +382,9 @@
                         minlength: 11,
                         maxlength: 15
                     },
+                    custom_link: {
+                        alphadash: true
+                    }
                 },
                 messages: {
                     fto_pria: {
@@ -431,6 +448,9 @@
                         minlength: "Format nomor HP tidak valid (08xxxxxxxxxx / +628xxxxxxxxxx)",
                         maxlength: "Format nomor HP tidak valid (08xxxxxxxxxx / +628xxxxxxxxxx)"
                     },
+                    custom_link: {
+                        alphadash: "Format custom url hanya boleh huruf dengan pemisah dash '-'"
+                    }
                 },
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
@@ -466,6 +486,21 @@
                 $(this).addClass("card-undangan-active");
             });
         }
+    </script>
+
+    <!-- owl caraousel preview template -->
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                lazyLoad: true,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                margin: 10,
+                nav: true
+            });
+        });
     </script>
 
     <!-- Responsive Data Tables -->

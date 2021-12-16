@@ -97,7 +97,7 @@ class Transaksi extends BaseController
             if ($link == '') {
                 $permalink = $this->request->getVar('pgl_pria') . '-' . $this->request->getVar('pgl_wanita') . '-wedding';
             } else {
-                $permalink = $link;
+                $permalink = str_replace(" ", "-", $link);
             }
 
             // get file foto
@@ -210,7 +210,7 @@ class Transaksi extends BaseController
             if ($link == '') {
                 $permalink = $this->request->getVar('custom_link_old');
             } else {
-                $permalink = $link;
+                $permalink = str_replace(" ", "-", $link);
             }
 
             // cek edit foto
