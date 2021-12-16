@@ -11,7 +11,7 @@ class TemplateModel extends Model
     protected $useTimestamps = true;
     protected $createdField = 'created_tm';
     protected $updatedField = 'updated_tm';
-    protected $allowedFields = ['id_tm', 'nama_tm', 'harga_tm'];
+    protected $allowedFields = ['id_tm', 'nama_tm', 'harga_tm', 'thumbnail', 'file_tm'];
 
     public function editTemplate($id)
     {

@@ -31,6 +31,11 @@
                     <!-- form start -->
                     <form id="" action="<?= base_url(); ?>/templat/save" method="post">
                         <div class="card-body">
+                            <div class="row mb-4 mt-2 text-center">
+                                <div class="col-md-12">
+                                    <img src="/assets/dist/img/thumbnail/thumbnail-undangan.jpg" class="rounded img-fluid border-dashed border-primary object-cover foto_pria" alt="foto pria">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="nama">Nama Template</label>
                                 <input type="text" name="nama_tm" class="form-control <?= ($validation->hasError('nama_tm')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_tm'); ?>"" id=" nama_tm" placeholder="Masukkan Nama Template">
