@@ -85,9 +85,30 @@ class Templat extends BaseController
                 // menyimpan data yang diinputkan
                 $nama_tm = $this->request->getVar('nama_tm');
                 $harga_tm = $this->request->getVar('harga_tm');
+                // get file foto
+                $thumbnail = $this->request->getFile('fto_pria');
+
+                // cek foto name upload to folder img'
+                if ($thumbnail == "") {
+                    $file = 'default-p.png';
+                } else {
+                    $file = $thumbnail->getRandomName();
+                    // upload file foto
+                    $thumbnail->move('assets/dist/img/thumbnail/', $file);
+                }
+
+                // cek file foto insert to database
+                if ($thumbnail->getError() == 4) {
+                    $thumb = 'default-p.png';
+                } else {
+                    $thumb = $file;
+                }
+
                 $insert = [
                     'nama_tm' => $nama_tm,
-                    'harga_tm' => $harga_tm
+                    'harga_tm' => $harga_tm,
+                    'file_tm' => $this->slugify($nama_tm),
+                    'thumbnail' => $thumb
                 ];
                 $this->TemplateModel->insert($insert);
                 /**
@@ -113,6 +134,31 @@ class Templat extends BaseController
                 return redirect()->to("/templat/add")->withInput()->with('validation', $validation);
             }
         }
+    }
+
+    private static function slugify($text, string $divider = '-')
+    {
+        // Strip html tags
+        $text = strip_tags($text);
+        // Replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+        // Transliterate
+        setlocale(LC_ALL, 'en_US.utf8');
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        // Remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+        // Trim
+        $text = trim($text, '-');
+        // Remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+        // Lowercase
+        $text = strtolower($text);
+        // Check if it is empty
+        if (empty($text)) {
+            return 'n-a';
+        }
+        // Return result
+        return $text;
     }
 
     public function edit($id)
