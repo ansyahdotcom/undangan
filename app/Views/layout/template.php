@@ -267,6 +267,21 @@
                 imgPreview.src = e.target.result;
             }
         }
+
+        function previewThumbnail() {
+            const foto = document.querySelector('#thumbnail');
+            const fotoName = document.querySelector('#thumbnail').value;
+            const imgPreview = document.querySelector('.thumb');
+
+            fotoName.textContent = foto.files[0].name;
+
+            const fileFoto = new FileReader();
+            fileFoto.readAsDataURL(foto.files[0]);
+
+            fileFoto.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
     </script>
 
     <!-- Datetime Picker -->

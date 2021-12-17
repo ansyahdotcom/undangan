@@ -89,6 +89,12 @@
     background-position: -24px -53px;
 }
 
+.coverimg{
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+}
+
 span.img-text {
     text-decoration: none;
     outline: none;

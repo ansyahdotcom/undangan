@@ -29,21 +29,12 @@
                 <!-- jquery validation -->
                 <div class="card">
                     <!-- form start -->
-                    <form id="" action="<?= base_url(); ?>/templat/update/<?= $template['id_tm']; ?>" method="post" enctype="multipart/form-data">
+                    <form id="" action="<?= base_url(); ?>/templat/save" method="post" enctype="multipart/form-data">
                         <div class="card-body">
-                            <input type="hidden" name="id" value="<?= $template['id_tm']; ?>">
                             <div class="row mb-4 mt-2 text-center">
                                 <div class="col-md-12">
-                                    <img src="/assets/dist/img/thumbnail/<?= $template['thumbnail']; ?>" class="coverimg img-fluid border-dashed border-primary thumb" alt="Thumbnail Template">
+                                    <img src="/assets/dist/img/thumbnail/. <?= $template['thumbnail']; ?>" class="rounded img-fluid border-dashed border-primary thumb" alt="Thumbnail Template">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Upload Thumbnail Template</label>
-                                <small>
-                                    <p class="text-primary font-italic">upload foto maksimal ukuran 2MB, berformat jpg, jpeg, dan png</p>
-                                </small>
-                                <input type="hidden" name="thumbnail_old" value="<?= $template['thumbnail']; ?>">
-                                <input type="file" name="thumbnail" class="form-control" id="thumbnail" onchange="previewThumbnail()" accept="image/jpg, image/jpeg, image/png">
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama Template</label>

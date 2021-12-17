@@ -86,11 +86,10 @@ class Templat extends BaseController
                 $nama_tm = $this->request->getVar('nama_tm');
                 $harga_tm = $this->request->getVar('harga_tm');
                 // get file foto
-                $thumbnail = $this->request->getFile('fto_pria');
-
+                $thumbnail = $this->request->getFile('thumbnail');
                 // cek foto name upload to folder img'
                 if ($thumbnail == "") {
-                    $file = 'default-p.png';
+                    $file = 'thumbnail-undangan.jpg';
                 } else {
                     $file = $thumbnail->getRandomName();
                     // upload file foto
@@ -99,7 +98,7 @@ class Templat extends BaseController
 
                 // cek file foto insert to database
                 if ($thumbnail->getError() == 4) {
-                    $thumb = 'default-p.png';
+                    $thumb = 'thumbnail-undangan.jpg';
                 } else {
                     $thumb = $file;
                 }
@@ -181,6 +180,9 @@ class Templat extends BaseController
     {
         $nama = $this->request->getVar('nama_tm');
         $harga = $this->request->getVar('harga_tm');
+        // get file foto
+        $thumbnail = $this->request->getFile('thumbnail');
+        $thumbnail_old = $this->request->getVar('thumbnail_old');
 
         if (!$this->validate([
             'nama_tm' => [
@@ -200,6 +202,23 @@ class Templat extends BaseController
             return redirect()->to('/templat/edit/'. $id)->withInput();
         }
 
+        if ($thumbnail->getError() != 4) {
+            $pria = $thumbnail->getRandomName();
+            // upload file foto
+            $thumbnail->move('assets/dist/img/thumbnail/', $pria);
+
+            // cek if old foto default.png don't delete it
+            if ($thumbnail_old != "thumbnail-undangan.jpg") {
+                unlink('assets/dist/img/thumbnail/' . $thumbnail_old);
+            }
+
+            // update foto in database
+            $data_thumbnail = [
+                'id_tm' => $id,
+                'foto_pria' => $pria
+            ];
+            $this->TemplateModel->save($data_thumbnail);
+        }
         $this->TemplateModel->save([
             'id_tm' => $id,
             'nama_tm' => $nama,
@@ -208,6 +227,22 @@ class Templat extends BaseController
 
         session()->setFlashdata('message', 'edit');
         return redirect()->to('/templat');
+    }
+
+    public function detail($id)
+    {
+        $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+        if ($user == null) {
+            return redirect()->to('/login');
+        } else {
+            $data = [
+                'title' => 'Detail Template',
+                'username' => $user['username'],
+                'template' => $this->TemplateModel->editTemplate($id),
+                'validation' => \Config\Services::validation()
+            ];
+            echo view('undangan/v_detailTemplate', $data);
+        }
     }
 
     public function delete()
