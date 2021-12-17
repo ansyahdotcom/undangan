@@ -31,21 +31,21 @@ class TransaksiModel extends Model
         'foto_wanita',
         'permalink',
         'nomor_hp',
-        'id_tm'
+        'tm_id'
     ];
 
 
     // table transaksi join table template
     public function getTransaksi()
     {
-        return $this->join('template', 'transaksi.id_tm = template.id_tm')
+        return $this->join('template', 'transaksi.tm_id = template.id_tm')
                     ->get();
     }
 
     // get by permalink
     public function getByPermalink($permalink)
     {
-        return $this->join('template', 'transaksi.id_tm = template.id_tm')
+        return $this->join('template', 'transaksi.tm_id = template.id_tm')
                     ->where('permalink', $permalink)
                     ->first();
     }

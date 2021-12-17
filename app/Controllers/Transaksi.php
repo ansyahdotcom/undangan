@@ -33,6 +33,12 @@ class Transaksi extends BaseController
         }
     }
 
+    public function getTransaksi()
+    {
+        $data = $this->TransaksiModel->getTransaksi()->getResultArray();
+        echo json_encode($data);
+    }
+
     public function preview($undangan, $permalink, $tamu = "Bpk. John Doe")
     {
         $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
@@ -155,11 +161,13 @@ class Transaksi extends BaseController
                 'foto_wanita' => $wanita,
                 'permalink' => $permalink,
                 'nomor_hp' => $this->request->getVar('no_hp'),
-                'id_tm' => $this->request->getVar('undangan')
+                'tm_id' => $this->request->getVar('undangan')
             ];
 
+            // dd($data['tgl_akad']);
+
             // query builder insert 
-            $this->TransaksiModel->insert($data);
+            $insert = $this->TransaksiModel->insert($data);
             session()->setFlashdata('message', 'save');
             return redirect()->to('/transaksi/edit/' . $id);
         }
@@ -274,8 +282,10 @@ class Transaksi extends BaseController
                 'alamat_resepsi' => $this->request->getVar('almt_resepsi'),
                 'permalink' => $permalink,
                 'nomor_hp' => $this->request->getVar('no_hp'),
-                'id_tm' => $this->request->getVar('undangan')
+                'tm_id' => $this->request->getVar('undangan')
             ];
+
+            // dd($data['tm_id']);
 
             // update data in database
             $this->TransaksiModel->save($data);

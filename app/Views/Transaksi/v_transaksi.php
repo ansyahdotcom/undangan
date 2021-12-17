@@ -30,7 +30,11 @@
                     <div class="card-header">
                         <div class="d-flex">
                             <a href="/transaksi/add" class="btn btn-success mr-2"><i class="fas fa-database"></i> Tambah Baru</a>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del-all-modal"><i class="fas fa-trash"></i> Hapus Semua Data</button>
+                            <?php if ($transaksi == null) : ?>
+                                <!-- don't show button delete all -->
+                            <?php else : ?>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del-all-modal"><i class="fas fa-trash"></i> Hapus Semua Data</button>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <!-- /.card-header -->

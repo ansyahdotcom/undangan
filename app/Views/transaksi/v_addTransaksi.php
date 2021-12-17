@@ -61,6 +61,12 @@
 
                                 <!-- bs stepper content template start -->
                                 <div id="template-part" class="content" role="tabpanel" aria-labelledby="template-part-trigger">
+
+                                    <div class="data-part-actions d-flex justify-content-between mb-3">
+                                        <a href="/transaksi" class="btn btn-secondary"><i class="fas fa-times"></i> Batal</a>
+                                        <button type="button" class="btn btn-primary next-btn-copy" disabled>Selanjutnya <i class="fas fa-arrow-right"></i></button>
+                                    </div>
+
                                     <!-- Default box -->
                                     <div class="card card-solid">
                                         <div class="card-header bg-primary">
@@ -116,7 +122,8 @@
                                         </div>
                                         <!-- /.card-body -->
                                         <div class="card-footer">
-                                            <div class="data-part-actions d-flex justify-content-end">
+                                            <div class="data-part-actions d-flex justify-content-between">
+                                                <a href="/transaksi" class="btn btn-secondary"><i class="fas fa-times"></i> Batal</a>
                                                 <button type="button" class="btn btn-primary next-btn-copy" disabled>Selanjutnya <i class="fas fa-arrow-right"></i></button>
                                             </div>
                                         </div>
@@ -128,6 +135,12 @@
 
                                 <!-- bs stapper content data start -->
                                 <div id="data-part" class="content" role="tabpanel" aria-labelledby="data-part-trigger">
+
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <button type="button" class="btn btn-primary" onclick="stepper.previous()"><i class="fas fa-arrow-left"></i> Kembali</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                                    </div>
+
                                     <!-- data diri pengantin -->
                                     <div class="card">
                                         <div class="card-header bg-primary">
@@ -252,7 +265,7 @@
                                                     <div class="form-group">
                                                         <label>Tanggal dan Waktu Akad</label>
                                                         <div class="input-group date" id="akad" data-target-input="nearest">
-                                                            <input type="text" name="tgl_akad" class="form-control datetimepicker-input" id="tgl_akad" data-target="#akad" placeholder="masukkan tanggal akad" />
+                                                            <input type="text" name="tgl_akad" class="form-control datetimepicker-input" id="tgl_akad" data-toggle="datetimepicker" data-target="#akad" placeholder="masukkan tanggal akad" autocomplete="off"/>
                                                             <div class="input-group-append" data-target="#akad" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
@@ -285,7 +298,7 @@
                                                     <div class="form-group">
                                                         <label>Tanggal dan Waktu Resepsi <span class="text-danger">*</span></label>
                                                         <div class="input-group date" id="resepsi" data-target-input="nearest">
-                                                            <input type="text" name="tgl_resepsi" class="form-control datetimepicker-input" id="tgl_resepsi" data-target="#resepsi" placeholder="masukkan tanggal resepsi" />
+                                                            <input type="text" name="tgl_resepsi" class="form-control datetimepicker-input" id="tgl_resepsi" data-toggle="datetimepicker" data-target="#resepsi" placeholder="masukkan tanggal resepsi" autocomplete="off"/>
                                                             <div class="input-group-append" data-target="#resepsi" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>

@@ -61,6 +61,12 @@
 
                                 <!-- bs stepper content template start -->
                                 <div id="template-part" class="content" role="tabpanel" aria-labelledby="template-part-trigger">
+
+                                    <div class="data-part-actions d-flex justify-content-between mb-3">
+                                        <a href="/transaksi" class="btn btn-secondary"><i class="fas fa-times"></i> Batal</a>
+                                        <button type="button" class="btn btn-primary next-btn" onclick="stepper.next()">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+                                    </div>
+
                                     <div class="card">
                                         <div class="card-header bg-primary">
                                             <h4 class="text-capitalize text-center text-white font-weight-bold">Pilih Template Undangan</h3>
@@ -71,7 +77,7 @@
                                                 <?php foreach ($template as $t) : ?>
                                                     <?php $num++ ?>
                                                     <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
-                                                        <div class="card card-undangan bg-light d-flex flex-fill <?= ($t['id_tm'] == $trn['id_tm'] ? "card-undangan-active" : ""); ?>" onclick="clickCardUndangan()">
+                                                        <div class="card card-undangan bg-light d-flex flex-fill <?= ($t['id_tm'] == $trn['tm_id'] ? "card-undangan-active" : ""); ?>" onclick="clickCardUndangan()">
                                                             <div class="card-header h5 text-center text-muted font-weight-bold border-bottom-0">
                                                                 <?= $t['nama_tm']; ?>
                                                             </div>
@@ -87,7 +93,7 @@
                                                                         </span>
                                                                     </button>
                                                                     <div class="icheck-success d-inline">
-                                                                        <input type="radio" class="radioSuccess" id="radioSuccess<?= $num; ?>" value="<?= $t['id_tm']; ?>" name="undangan" onchange="isChecked()" <?= ($t['id_tm'] == $trn['id_tm'] ? "checked" : ""); ?>>
+                                                                        <input type="radio" class="radioSuccess" id="radioSuccess<?= $num; ?>" value="<?= $t['id_tm']; ?>" name="undangan" onchange="isChecked()" <?= ($t['id_tm'] == $trn['tm_id'] ? "checked" : ""); ?>>
                                                                         <label for="radioSuccess<?= $num; ?>">
                                                                             <span class="font-weight-bold">Pilih</span>
                                                                         </label>
@@ -100,7 +106,8 @@
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                            <div class="data-part-actions d-flex justify-content-end">
+                                            <div class="data-part-actions d-flex justify-content-between">
+                                                <a href="/transaksi" class="btn btn-secondary"><i class="fas fa-times"></i> Batal</a>
                                                 <button type="button" class="btn btn-primary next-btn" onclick="stepper.next()">Selanjutnya <i class="fas fa-arrow-right"></i></button>
                                             </div>
                                         </div>
@@ -110,6 +117,12 @@
 
                                 <!-- bs stapper content data start -->
                                 <div id="data-part" class="content" role="tabpanel" aria-labelledby="data-part-trigger">
+
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <button type="button" class="btn btn-primary" onclick="stepper.previous()"><i class="fas fa-arrow-left"></i> Kembali</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-upload"></i> Update</button>
+                                    </div>
+
                                     <!-- data diri pengantin -->
                                     <input type="hidden" name="id" value="<?= $trn['id_tr']; ?>">
                                     <div class="card">
@@ -119,7 +132,7 @@
                                         <div class="card-body">
                                             <p class="font-italic font-weight-bold">Field bertanda (<span class="text-danger">*</span>) wajib diisi!</p>
                                             <div class="row mb-4 mt-2 text-center">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 mb-3">
                                                     <img src="/assets/dist/img/transaksi/<?= $trn['foto_pria']; ?>" class="img-circle img-fluid border-dashed border-primary object-cover foto_pria" alt="foto pria">
                                                 </div>
                                                 <div class="col-md-6">
@@ -235,7 +248,7 @@
                                                     <div class="form-group">
                                                         <label>Tanggal dan Waktu Akad</label>
                                                         <div class="input-group date" id="akad" data-target-input="nearest">
-                                                            <input type="text" name="tgl_akad" class="form-control datetimepicker-input" id="tgl_akad" data-target="#akad" value="<?= date('m-d-Y H:i', strtotime($trn['tgl_akad'])); ?>" placeholder="masukkan tanggal akad" />
+                                                            <input type="text" name="tgl_akad" class="form-control datetimepicker-input" id="tgl_akad" data-toggle="datetimepicker" data-target="#akad" value="<?= date('m/d/Y H:i', strtotime($trn['tgl_akad'])); ?>" placeholder="masukkan tanggal akad" autocomplete="off"/>
                                                             <div class="input-group-append" data-target="#akad" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
@@ -267,7 +280,7 @@
                                                     <div class="form-group">
                                                         <label>Tanggal dan Waktu Resepsi <span class="text-danger">*</span></label>
                                                         <div class="input-group date" id="resepsi" data-target-input="nearest">
-                                                            <input type="text" name="tgl_resepsi" class="form-control  datetimepicker-input" id="tgl_resepsi" data-target="#resepsi" value="<?= date('m-d-Y H:i:s', strtotime($trn['tgl_resepsi'])); ?>" placeholder="masukkan tanggal resepsi" />
+                                                            <input type="text" name="tgl_resepsi" class="form-control  datetimepicker-input" id="tgl_resepsi" data-toggle="datetimepicker" data-target="#resepsi" value="<?= date('m/d/Y H:i:s', strtotime($trn['tgl_resepsi'])); ?>" placeholder="masukkan tanggal resepsi" autocomplete="off"/>
                                                             <div class="input-group-append" data-target="#resepsi" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
