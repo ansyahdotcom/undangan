@@ -1,3 +1,5 @@
+/** == TEMPAT UNTUK NAMBAH JAVASCRIPT GLOBAL == */
+
 /**
  * ========================================
  * MAIN JS
