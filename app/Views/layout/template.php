@@ -6,35 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jheng Onjheng</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
-    <!-- Owl Caraousel -->
-    <link rel="stylesheet" href="/assets/plugins/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="/assets/plugins/owlcarousel/owl.theme.default.min.css">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css">
-    <!-- Sweet Alert 2 -->
-    <link rel="stylesheet" href="/assets/plugins/sweetalert2/sweetalert2.min.css">
-    <!-- BS Stepper -->
-    <link rel="stylesheet" href="/assets/plugins/bs-stepper/css/bs-stepper.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="/assets/dist/css/style.css">
-
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Include Partial Template CSS /layout/css.php -->
+    <?= $this->include('/layout/css'); ?>
 
 </head>
 
@@ -116,7 +89,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.1.0
             </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            <strong>Copyright &copy; 2021 <a href="/dashboard">Online Wedding Invitation</a>.</strong> All rights
             reserved.
         </footer>
 
@@ -127,61 +100,10 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
-    <!-- jQuery -->
-    <script src="/assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/assets/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/assets/dist/js/demo.js"></script>
-    <!-- Owl Carousel -->
-    <script src="/assets/plugins/owlcarousel/owl.carousel.min.js"></script>
-    <!-- Sweet Alert -->
-    <script src="/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="/assets/dist/js/swal.js"></script>
-    <!-- daterangepicker -->
-    <script src="/assets/plugins/moment/moment.min.js"></script>
-    <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="/assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="/assets/plugins/jszip/jszip.min.js"></script>
-    <script src="/assets/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="/assets/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- InputMask -->
-    <script src="/assets/plugins/moment/moment.min.js"></script>
-    <script src="/assets/plugins/inputmask/jquery.inputmask.min.js"></script>
-    <!-- jquery-validation -->
-    <script src="/assets/plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script src="/assets/plugins/jquery-validation/additional-methods.min.js"></script>
-    <!-- BS-Stepper -->
-    <script src="/assets/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-    <!-- Select2 -->
-    <script src="/assets/plugins/select2/js/select2.full.min.js"></script>
-    <!-- InputMask -->
-    <script src="/assets/plugins/moment/moment.min.js"></script>
-    <script src="/assets/plugins/inputmask/jquery.inputmask.min.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Main JS -->
-    <script src="/assets/dist/js/main.js"></script>
-    <!-- Preview Maps -->
-    <script src="/assets/dist/js/previewmaps.js"></script>
-    <!-- Preview Image -->
-    <script src="/assets/dist/js/previewimg.js"></script>
-    <!-- Add method JQuery validator -->
-    <script src="/assets/dist/js/methodvalidate.js"></script>
-    <!-- JQuery Validator Form -->
-    <script src="/assets/dist/js/formvalidate.js"></script>
+    
+    <!-- Include Partial Template JS /layout/js.php -->
+    <?= $this->include('/layout/js'); ?>
+    
 </body>
 
 </html>
