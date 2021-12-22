@@ -28,7 +28,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="d-flex">
+                        <div class="d-flex align-items-start">
                             <a href="/transaksi/add" class="btn btn-success mr-2"><i class="fas fa-database"></i> Tambah Baru</a>
                             <?php if ($transaksi == null) : ?>
                                 <!-- don't show button delete all -->

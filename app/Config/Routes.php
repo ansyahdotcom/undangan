@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 // $routes->get('/', 'Landingpage::index');
 $routes->get('/logout', 'Login::logout');
+// $routes->get('/undangan/(:segment)/(:segment)/(:segment)', 'Transaksi::preview/$1/$2/$3');
 
 /*
  * --------------------------------------------------------------------

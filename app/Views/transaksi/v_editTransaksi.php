@@ -78,11 +78,8 @@
                                                     <?php $num++ ?>
                                                     <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
                                                         <div class="card card-undangan bg-light d-flex flex-fill <?= ($t['id_tm'] == $trn['tm_id'] ? "card-undangan-active" : ""); ?>" onclick="clickCardUndangan()">
-                                                            <div class="card-header h5 text-center text-muted font-weight-bold border-bottom-0">
-                                                                <?= $t['nama_tm']; ?>
-                                                            </div>
                                                             <div class="card-body card-body-undangan d-flex justify-content-center align-items-center" style="background-image: url('/assets/dist/img/template/Pastel_Floral.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
-
+                                                                <p class="tm-name text-capitalize h4" hidden><?= $t['nama_tm']; ?></p>
                                                             </div>
                                                             <div class="card-footer">
                                                                 <div class="d-flex justify-content-between align-items-center">
@@ -248,7 +245,7 @@
                                                     <div class="form-group">
                                                         <label>Tanggal dan Waktu Akad</label>
                                                         <div class="input-group date" id="akad" data-target-input="nearest">
-                                                            <input type="text" name="tgl_akad" class="form-control datetimepicker-input" id="tgl_akad" data-toggle="datetimepicker" data-target="#akad" value="<?= date('m/d/Y H:i', strtotime($trn['tgl_akad'])); ?>" placeholder="masukkan tanggal akad" autocomplete="off"/>
+                                                            <input type="text" name="tgl_akad" class="form-control datetimepicker-input" id="tgl_akad" data-toggle="datetimepicker" data-target="#akad" value="<?= date('m/d/Y H:i', strtotime($trn['tgl_akad'])); ?>" placeholder="masukkan tanggal akad" autocomplete="off" />
                                                             <div class="input-group-append" data-target="#akad" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
@@ -280,7 +277,7 @@
                                                     <div class="form-group">
                                                         <label>Tanggal dan Waktu Resepsi <span class="text-danger">*</span></label>
                                                         <div class="input-group date" id="resepsi" data-target-input="nearest">
-                                                            <input type="text" name="tgl_resepsi" class="form-control  datetimepicker-input" id="tgl_resepsi" data-toggle="datetimepicker" data-target="#resepsi" value="<?= date('m/d/Y H:i:s', strtotime($trn['tgl_resepsi'])); ?>" placeholder="masukkan tanggal resepsi" autocomplete="off"/>
+                                                            <input type="text" name="tgl_resepsi" class="form-control  datetimepicker-input" id="tgl_resepsi" data-toggle="datetimepicker" data-target="#resepsi" value="<?= date('m/d/Y H:i:s', strtotime($trn['tgl_resepsi'])); ?>" placeholder="masukkan tanggal resepsi" autocomplete="off" />
                                                             <div class="input-group-append" data-target="#resepsi" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>

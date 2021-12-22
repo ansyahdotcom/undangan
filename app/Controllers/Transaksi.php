@@ -164,12 +164,10 @@ class Transaksi extends BaseController
                 'tm_id' => $this->request->getVar('undangan')
             ];
 
-            // dd($data['tgl_akad']);
-
             // query builder insert 
             $insert = $this->TransaksiModel->insert($data);
             session()->setFlashdata('message', 'save');
-            return redirect()->to('/transaksi/edit/' . $id);
+            return redirect()->to('/transaksi/add');
         }
     }
 
@@ -284,8 +282,6 @@ class Transaksi extends BaseController
                 'nomor_hp' => $this->request->getVar('no_hp'),
                 'tm_id' => $this->request->getVar('undangan')
             ];
-
-            // dd($data['tm_id']);
 
             // update data in database
             $this->TransaksiModel->save($data);

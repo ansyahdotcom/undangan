@@ -82,6 +82,16 @@ function clickCardUndangan() {
         $(this).addClass("card-undangan-active");
     });
 }
+$(document).ready(function() {
+    $(".card-body-undangan").mouseenter(function() {
+        $(".tm-name").prop("hidden", true);
+        $(this).find(".tm-name").prop("hidden", false);
+    });
+
+    $(".card-body-undangan").mouseleave(function() {
+        $(this).find(".tm-name").prop("hidden", true);
+    });
+});
 
 
 /**
@@ -99,40 +109,6 @@ $(document).ready(function() {
         margin: 10,
         nav: true
     });
-});
-
-
-/**
- * ========================================
- * PAGINATION PICK TEMPLATE UNDANGAN
- * ========================================
- */
-$(function() {
-    const undangan = $(".undangan");
-    const cardsperPage = 4;
-
-    if (undangan.length > cardsperPage) {
-        const totalPages = Math.ceil(undangan.length / cardsperPage);
-        let currentPage = 1;
-        let pagination = '';
-
-        for (let i = 1; i <= totalPages; i++) {
-            pagination += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`;
-        }
-
-        // pagination += `</ul>
-        //                 </nav>`;
-
-        $(".pagination").append(pagination);
-
-        $(".page-item").click(function() {
-            $(".page-item").removeClass("active");
-            $(this).addClass("active");
-            currentPage = $(this).text();
-            $(".undangan").hide();
-            $(".undangan").slice((currentPage - 1) * cardsperPage, currentPage * cardsperPage).show();
-        });
-    }
 });
 
 

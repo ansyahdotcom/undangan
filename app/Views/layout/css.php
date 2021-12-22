@@ -23,3 +23,5 @@
 <link rel="stylesheet" href="/assets/dist/css/style.css">
 <!-- Tempusdominus Bootstrap 4 -->
 <link rel="stylesheet" href="/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- dropzonejs -->
+<link rel="stylesheet" href="/assets/plugins/dropzone/min/dropzone.min.css">
