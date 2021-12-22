@@ -19,7 +19,8 @@ class Dashboard extends BaseController
         } else {
             $data = [
                 'admin' => $this->LoginModel->findAll(),
-                'username' => $user['username']
+                'username' => $user['username'],
+                'title' => "Dashboard"
             ];
             echo view('v_dashboard', $data);
         }
