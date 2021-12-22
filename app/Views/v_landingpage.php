@@ -41,9 +41,6 @@
             <!-- Image Logo -->
             <a class="navbar-brand logo-image" href="index.html"><img src="/assets/landingpage/images/logo.svg" alt="alternative"></a>
 
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text" href="index.html">Zinc</a> -->
-
             <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -77,9 +74,6 @@
                         </ul>
                     </li>
                 </ul>
-                <span class="nav-item">
-                    <a class="btn-solid-sm" href="#contact">Get quote</a>
-                </span>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -92,16 +86,15 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <div class="section-title">Welcome to Zinc web agency</div>
-                        <h1 class="h1-large">Zinc creates stylish and efficient sites</h1>
-                        <p class="p-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices sollicitudin</p>
+                        <div class="section-title">Welcome to Jheng Onjheng</div>
+                        <h1 class="h1-large">Toreh Tan Tretan Sedhejeh</h1>
+                        <p class="p-large">Ghebei Undangan Kadintoh. Tak osah print ngeprint. Disainah Bhegus Tor Mode!</p>
                         <a class="btn-solid-lg" href="#services">Offered services</a>
-                        <a class="quote" href="#contact"><i class="fas fa-paper-plane"></i>Get quote</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="/assets/landingpage/images/header-illustration.svg" alt="alternative">
+                        <img class="img-fluid" src="/assets/landingpage/images/banner.jpg" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -119,27 +112,23 @@
                     <!-- Card -->
                     <div class="card">
                         <div class="card-icon blue">
-                            <span class="far fa-file-alt"></span>
+                            <span class="fas fa-pager"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Landing page</h5>
-                            <p>Lorem ipsum dolor sit amet, consect adipiscing elit nulla id nisl blah nor</p>
+                            <h5 class="card-title">Desain Modern</h5>
+                            <p>Desain yang elegan dan responsive pada tampilan desktop dan mobile, terdiri dari beberapa paket</p>
                             <ul class="list-unstyled li-space-lg">
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Ut tincidunt vitae enim non vehi</div>
+                                    <div class="flex-grow-1">Paket Premium</div>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Phasellus vitae metus in felis</div>
+                                    <div class="flex-grow-1">Paket Eksklusif</div>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Fusce pulvinar eu mi ac molestie</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Curabitur consequat nisl eget</div>
+                                    <div class="flex-grow-1">Paket Istimewa</div>
                                 </li>
                             </ul>
                         </div>
@@ -149,27 +138,23 @@
                     <!-- Card -->
                     <div class="card">
                         <div class="card-icon yellow">
-                            <span class="fas fa-solar-panel"></span>
+                            <span class="fas fa-scroll"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Corporate site</h5>
-                            <p>Nam eu erat tellused vivamus vitae sem in tortor pharetra vehicula orn</p>
+                            <h5 class="card-title">Paperless</h5>
+                            <p>Tidak perlu repot mencetak undangan</p>
                             <ul class="list-unstyled li-space-lg">
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Vivaus dignissim sit amet nisi</div>
+                                    <div class="flex-grow-1">Isi data online</div>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Aliqam a tristique nibh in pretium</div>
+                                    <div class="flex-grow-1">Bagikan link undangan ke keluarga dan teman</div>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Nunc commodo magna quis blah</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Lacus fermentum tincidunt</div>
+                                    <div class="flex-grow-1">Bisa konfirmasi kehadiran tamu</div>
                                 </li>
                             </ul>
                         </div>
@@ -179,27 +164,23 @@
                     <!-- Card -->
                     <div class="card">
                         <div class="card-icon red">
-                            <span class="fas fa-gift"></span>
+                            <span class="fas fa-images"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Online shop</h5>
-                            <p>Nullam lobortis porta diam, vitae dictum metus placerat luctus bora</p>
+                            <h5 class="card-title">Galeri Foto</h5>
+                            <p>Bagikan momen - momen bahagia anda bersama pasangan dalam satu undangan</p>
                             <ul class="list-unstyled li-space-lg">
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Sed laoreet blandit mollis ne</div>
+                                    <div class="flex-grow-1">Momen ketika pertama bertemu</div>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Mauris non luctus est quisquerm</div>
+                                    <div class="flex-grow-1">Momen saat berpacaran</div>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Mattis dapibus quisque tristique</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Cursus lacus interdum sollicdn</div>
+                                    <div class="flex-grow-1">Momen saat pre wedding</div>
                                 </li>
                             </ul>
                         </div>
@@ -219,15 +200,13 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="/assets/landingpage/images/details-1.svg" alt="alternative">
+                        <img class="img-fluid" src="/assets/landingpage/images/picture2.jpg" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <h2><span>Perfect solution</span><br> for your small business</h2>
-                        <p>Maecenas fringilla quam posuere, pellentesque est nec, gravida turpis. Integer vitae mollis felis. Integer id quam id tellus hendrerit laciniad binfer</p>
-                        <p>Sed id dui rutrum, dictum urna eu, accumsan turpis. Fusce id auctor velit, sed viverra dui rem dina</p>
-                        <a class="btn-solid-reg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modal</a>
+                        <h3><span>Perfect solution</span><br> for your wedding invitation</h3>
+                        <p>Kami menyedikan template undangan pernikahan anda yang sangat menarik dan banyak pilihan</p>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -235,65 +214,12 @@
     </div> <!-- end of basic-1 -->
     <!-- end of details 1 -->
 
-
-    <!-- Details Modal -->
-    <div id="staticBackdrop" class="modal fade" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="row">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <div class="col-lg-8">
-                        <div class="image-container">
-                            <img class="img-fluid" src="/assets/landingpage/images/details-modal.jpg" alt="alternative">
-                        </div> <!-- end of image-container -->
-                    </div> <!-- end of col -->
-                    <div class="col-lg-4">
-                        <h3>Goals Setting</h3>
-                        <hr>
-                        <p>In gravida at nunc sodales pretium. Vivamus semper, odio vitae mattis auctor, elit elit semper magna ac tum nico vela spider</p>
-                        <h4>User Feedback</h4>
-                        <p>Sapien vitae eros. Praesent ut erat a tellus posuere nisi more thico cursus pharetra finibus posuere nisi. Vivamus feugiat</p>
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="d-flex">
-                                <i class="fas fa-chevron-right"></i>
-                                <div class="flex-grow-1">Tincidunt sem vel brita bet mala</div>
-                            </li>
-                            <li class="d-flex">
-                                <i class="fas fa-chevron-right"></i>
-                                <div class="flex-grow-1">Sapien condimentum sacoz sil necr</div>
-                            </li>
-                            <li class="d-flex">
-                                <i class="fas fa-chevron-right"></i>
-                                <div class="flex-grow-1">Fusce interdum nec ravon fro urna</div>
-                            </li>
-                            <li class="d-flex">
-                                <i class="fas fa-chevron-right"></i>
-                                <div class="flex-grow-1">Integer pulvinar biolot bat tortor</div>
-                            </li>
-                            <li class="d-flex">
-                                <i class="fas fa-chevron-right"></i>
-                                <div class="flex-grow-1">Id ultricies fringilla fangor raq trinit</div>
-                            </li>
-                        </ul>
-                        <a id="modalCtaBtn" class="btn-solid-reg" href="#">Details</a>
-                        <button type="button" class="btn-outline-reg" data-bs-dismiss="modal">Close</button>
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of modal-content -->
-        </div> <!-- end of modal-dialog -->
-    </div> <!-- end of modal -->
-    <!-- end of details modal -->
-
-
     <!-- Details 2 -->
     <div class="counter">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <h2><span>Awesome websites</span><br> built with tons of love</h2>
-                        <p>In gravida vitae nulla vitae tincidunt imperdiet ante. Pellentesque aliquet mi eu tortor dictum, non imperdiet ante viverra. Phasellus eget enim orci flig rine bilo</p>
-
                         <!-- Counter -->
                         <div class="counter-container">
                             <div class="counter-cell">
@@ -301,18 +227,18 @@
                                 <div class="counter-info">Happy Customers</div>
                             </div> <!-- end of counter-cell -->
                             <div class="counter-cell red">
-                                <div data-purecounter-start="0" data-purecounter-end="1380" data-purecounter-duration="2" class="purecounter">1</div>
-                                <div class="counter-info">Issues Solved</div>
+                                <?php
+                                $db = \Config\Database::connect();
+                                $sql = $db->query("SELECT COUNT(id_tr) as id_tr FROM transaksi");
+                                foreach ($sql->getResultArray() as $countCus) :
+                                ?>
+                                    <div data-purecounter-start="0" data-purecounter-end="<?= $countCus['id_tr'] ?>" data-purecounter-duration="2" class="purecounter">1</div>
+                                    <div class="counter-info">Template Invitations</div>
+                                <?php endforeach; ?>
                             </div> <!-- end of counter-cell -->
                         </div> <!-- end of counter-container -->
                         <!-- end of counter -->
-
                     </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6 col-xl-7">
-                    <div class="image-container">
-                        <img class="img-fluid" src="/assets/landingpage/images/details-2.svg" alt="alternative">
-                    </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -325,19 +251,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">Projects that we're proud of</h2>
+                    <h2 class="h2-heading">Template undangan yang tersedia</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
                 <div class="col-lg-12">
-
-                    <!-- Filter -->
-                    <div class="button-group filters-button-group">
-                        <button class="button is-checked" data-filter="*">ALL</button>
-                        <button class="button" data-filter=".design">DESIGN</button>
-                        <button class="button" data-filter=".development">DEVELOPMENT</button>
-                        <button class="button" data-filter=".marketing">MARKETING</button>
-                    </div> <!-- end of button group -->
                     <div class="grid">
                         <div class="element-item development">
                             <a href="article.html">
@@ -395,127 +313,25 @@
                         </div>
                     </div> <!-- end of grid -->
                     <!-- end of filter -->
-
+                    <div class="form-group">
+                        <button type="submit" class="form-control-template-button">All Templates</button>
+                    </div>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div> <!-- end of filter -->
     <!-- end of projects -->
 
-
-    <!-- Testimonials -->
-    <div class="slider-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <!-- Card Slider -->
-                    <div class="slider-container">
-                        <div class="swiper-container card-slider">
-                            <div class="swiper-wrapper">
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="quotes" src="/assets/landingpage/images/quotes.svg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">Fusce tincidunt dui nec diam varius venenatis. Nullam tristique rutrum odio, ut tincidunt erat dictum in. Etiam et aliquet mi, et vehicula elit fusce porta ullamcorper</p>
-                                            <div class="details">
-                                                <img class="testimonial-image" src="/assets/landingpage/images/testimonial-1.jpg" alt="alternative">
-                                                <div class="text">
-                                                    <div class="testimonial-author">Samantha Bloom</div>
-                                                    <div class="occupation">Team Leader - Syncnow</div>
-                                                </div> <!-- end of text -->
-                                            </div> <!-- end of testimonial-details -->
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="quotes" src="/assets/landingpage/images/quotes.svg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">Mauris ut mattis nisl. Nunc ultrices nisi eget nisl pulvinar iaculis vitae ac nulla. Nullam fringilla varius blandit. Nam sit amet eleifend justo blogo rovan de chichis kokos venir dab</p>
-                                            <div class="details">
-                                                <img class="testimonial-image" src="/assets/landingpage/images/testimonial-2.jpg" alt="alternative">
-                                                <div class="text">
-                                                    <div class="testimonial-author">Mike Page</div>
-                                                    <div class="occupation">Developer - Chainlink</div>
-                                                </div> <!-- end of text -->
-                                            </div> <!-- end of testimonial-details -->
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="quotes" src="/assets/landingpage/images/quotes.svg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">Nam sit amet eleifend justo. Aliquam sit amet lacinia enim, eget facilisis ex. Ut pretium cursus eleifend. Integer feugiat malesuada quam vel basil venis proca jilo</p>
-                                            <div class="details">
-                                                <img class="testimonial-image" src="/assets/landingpage/images/testimonial-3.jpg" alt="alternative">
-                                                <div class="text">
-                                                    <div class="testimonial-author">Mary Longhorn</div>
-                                                    <div class="occupation">Manager - Firstdev</div>
-                                                </div> <!-- end of text -->
-                                            </div> <!-- end of testimonial-details -->
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="quotes" src="/assets/landingpage/images/quotes.svg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur ing elit. Nulla id nisl tempus risus facilisis efficr ut tincidunt vitae enim non vehicula. Phases vitae metus in felis gravida ultrices zimbo</p>
-                                            <div class="details">
-                                                <img class="testimonial-image" src="/assets/landingpage/images/testimonial-4.jpg" alt="alternative">
-                                                <div class="text">
-                                                    <div class="testimonial-author">Ronny Drummer</div>
-                                                    <div class="occupation">Designer - Sawdust</div>
-                                                </div> <!-- end of text -->
-                                            </div> <!-- end of testimonial-details -->
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                            </div> <!-- end of swiper-wrapper -->
-
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <!-- end of add arrows -->
-
-                        </div> <!-- end of swiper-container -->
-                    </div> <!-- end of slider-container -->
-                    <!-- end of card slider -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of slider-1 -->
-    <!-- end of testimonials -->
-
-
     <!-- Pricing -->
-    <div id="pricing" class="cards-2">
+    <!-- <div id="pricing" class="cards-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h2 class="h2-heading"><span>Choose the package</span><br> that fits your budget and project</h2>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-12">
-
-                    <!-- Card -->
                     <div class="card">
                         <div class="card-body">
                             <div class="card-title">
@@ -534,9 +350,7 @@
                             <a href="#contact" class="btn-outline-reg">Get quote</a>
                         </div>
                     </div>
-                    <!-- end of card -->
 
-                    <!-- Card -->
                     <div class="card">
                         <div class="card-body">
                             <div class="card-title">
@@ -555,9 +369,7 @@
                             <a href="#contact" class="btn-outline-reg">Get quote</a>
                         </div>
                     </div>
-                    <!-- end of card -->
 
-                    <!-- Card -->
                     <div class="card">
                         <div class="card-body">
                             <div class="card-title">
@@ -576,14 +388,11 @@
                             <a href="#contact" class="btn-outline-reg">Get quote</a>
                         </div>
                     </div>
-                    <!-- end of card -->
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-2 -->
-    <!-- end of pricing -->
-
+                </div>
+            </div>
+        </div>
+    </div> -->
 
     <!-- Invitation -->
     <div class="basic-2">

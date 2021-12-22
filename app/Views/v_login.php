@@ -141,7 +141,7 @@
     <div class="flash-data" data-flashdata="<?= session()->get('message') ?>"></div>
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <h1><b>Jheng Onjheng</b></h1>
+            <h1><b>Undangan</b></h1>
             <h5>Admin</h5>
         </div>
         <div class="card-body">

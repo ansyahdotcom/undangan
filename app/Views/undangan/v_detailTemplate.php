@@ -29,16 +29,16 @@
                 <!-- jquery validation -->
                 <div class="card">
                     <!-- form start -->
-                    <form id="" action="<?= base_url(); ?>/templat/save" method="post" enctype="multipart/form-data">
+                    <form id="" action="" method="post" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="row mb-4 mt-2 text-center">
                                 <div class="col-md-12">
-                                    <img src="/assets/dist/img/thumbnail/. <?= $template['thumbnail']; ?>" class="rounded img-fluid border-dashed border-primary thumb" alt="Thumbnail Template">
+                                    <img src="/assets/dist/img/thumbnail/<?= $template['thumbnail']; ?>" class="coverimg img-fluid border-dashed border-primary thumb" alt="Thumbnail Template">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama Template</label>
-                                <input type="text" name="nama_tm" class="form-control <?= ($validation->hasError('nama_tm')) ? 'is-invalid' : ''; ?>" value="<?= $template['nama_tm']; ?>" id=" nama_tm" placeholder="Masukkan Nama Template">
+                                <input type="text" name="nama_tm" class="form-control <?= ($validation->hasError('nama_tm')) ? 'is-invalid' : ''; ?>" value="<?= $template['nama_tm']; ?>" id=" nama_tm" placeholder="Masukkan Nama Template" readonly>
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('nama_tm'); ?>
                                 </div>
@@ -47,7 +47,7 @@
                                 <label for="harga">Harga Template</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Rp.</span>
-                                    <input type="text" class="form-control <?= ($validation->hasError('harga_tm')) ? 'is-invalid' : ''; ?>" value="<?= $template['harga_tm']; ?>" name=" harga_tm" id="harga_tm" aria-label="" placeholder="Ex: 50000">
+                                    <input type="text" class="form-control <?= ($validation->hasError('harga_tm')) ? 'is-invalid' : ''; ?>" value="<?= $template['harga_tm']; ?>" name=" harga_tm" id="harga_tm" aria-label="" placeholder="Ex: 50000" readonly>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('harga_tm'); ?>
                                     </div>
@@ -56,7 +56,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary float-right"><i class="fas fa-save" id="save-btn"></i> Simpan</button>
+                            <a href="/templat" class="btn btn-primary float-right">Kembali</a>
                         </div>
                     </form>
                 </div>
