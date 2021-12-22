@@ -100,10 +100,10 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    
+
     <!-- Include Partial Template JS /layout/js.php -->
     <?= $this->include('/layout/js'); ?>
-    
+
 </body>
 
 </html>

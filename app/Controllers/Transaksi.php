@@ -348,4 +348,5 @@ class Transaksi extends BaseController
             return redirect()->to('/transaksi');
         }
     }
+
 }

@@ -35,6 +35,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 // $routes->get('/', 'Landingpage::index');
 $routes->get('/logout', 'Login::logout');
+$routes->get('/tamu/(:any)', 'Tamu::index/$1');
+$routes->get('/addTamu', 'Tamu::addTamu');
 
 /*
  * --------------------------------------------------------------------
