@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jheng Onjheng</title>
+    <title><?= $title; ?></title>
 
     <!-- Include Partial Template CSS /layout/css.php -->
     <?= $this->include('/layout/css'); ?>
@@ -100,10 +100,10 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    
+
     <!-- Include Partial Template JS /layout/js.php -->
     <?= $this->include('/layout/js'); ?>
-    
+
 </body>
 
 </html>
