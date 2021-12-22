@@ -128,36 +128,6 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="font-italic font-weight-bold">Field bertanda (<span class="text-danger">*</span>) wajib diisi!</p>
-                                            <div class="row mb-4 mt-2 text-center">
-                                                <div class="col-md-6 mb-3">
-                                                    <img src="/assets/dist/img/transaksi/<?= $trn['foto_pria']; ?>" class="img-circle img-fluid border-dashed border-primary object-cover foto_pria" alt="foto pria">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <img src="/assets/dist/img/transaksi/<?= $trn['foto_wanita']; ?>" class="img-circle img-fluid border-dashed border-primary object-cover foto_wanita" alt="foto wanita">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">Upload Foto Pria</label>
-                                                        <small>
-                                                            <p class="text-primary font-italic">upload foto rasio 1 <span class="text-danger">:</span> 1, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
-                                                        </small>
-                                                        <input type="hidden" name="fto_pria_old" value="<?= $trn['foto_pria']; ?>">
-                                                        <input type="file" name="fto_pria" class="form-control" id="fto_pria" onchange="previewImgPria()" accept="image/jpg, image/jpeg, image/gif, image/png">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">Upload Foto Wanita</label>
-                                                        <small for="">
-                                                            <p class="text-primary font-italic">upload foto rasio 1 <span class="text-danger">:</span> 1, maksimal ukuran 2MB, berformat jpg, jpeg, png, dan gif</p>
-                                                        </small>
-                                                        <input type="hidden" name="fto_wanita_old" value="<?= $trn['foto_wanita']; ?>">
-                                                        <input type="file" name="fto_wanita" class="form-control" id="fto_wanita" onchange="previewImgWanita()" accept="image/jpg, image/jpeg, image/gif, image/png">
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -232,14 +202,6 @@
                                             <h4 class="text-capitalize text-center text-white font-weight-bold">Waktu dan tempat acara</h3>
                                         </div>
                                         <div class="card-body">
-                                            <div class="d-flex justify-content-center">
-                                                <label for="">Tampilan Maps Akad</label>
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                                <div class="preview-mp-akad p-0 border-dashed border-primary">
-                                                    <div class="contain-mp-old-akad"><?= $trn['maps_akad']; ?></div>
-                                                </div>
-                                            </div>
                                             <div class="row mt-2">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
@@ -255,22 +217,13 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label for="">Maps Akad</label>
-                                                        <input type="hidden" name="mp_akad_old" value='<?= $trn['maps_akad']; ?>'>
-                                                        <input type="text" name="mp_akad" class="form-control" id="mp_akad" onchange="previewMapsAkad()" placeholder="masukkan maps akad">
+                                                        <input type="text" name="mp_akad" class="form-control" id="mp_akad" value='<?= $trn['maps_akad']; ?>' onchange="previewMapsAkad()" placeholder="masukkan maps akad">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Alamat Akad</label>
                                                 <textarea name="almt_akad" class="form-control" id="almt_akad" cols="30" rows="5" placeholder="masukkan alamat akad"><?= $trn['alamat_akad']; ?></textarea>
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                                <label for="">Tampilan Maps Resepsi</label>
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                                <div class="preview-mp-resepsi p-0 border-dashed border-primary">
-                                                    <div class="contain-mp-old-resepsi"><?= $trn['maps_resepsi']; ?></div>
-                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -287,8 +240,7 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label for="">Maps Resepsi <span class="text-danger">*</span></label>
-                                                        <input type="hidden" name="mp_resepsi_old" value='<?= $trn['maps_resepsi']; ?>'>
-                                                        <input type="text" name="mp_resepsi1" class="form-control" id="mp_resepsi" onchange="previewMapsResepsi()" placeholder="masukkan maps resepsi">
+                                                        <input type="text" name="mp_resepsi1" class="form-control" id="mp_resepsi" value='<?= $trn['maps_resepsi']; ?>' onchange="previewMapsResepsi()" placeholder="masukkan maps resepsi">
                                                     </div>
                                                 </div>
                                             </div>
