@@ -65,6 +65,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
+                            <a href="/templat" class="btn btn-secondary float-left">Kembali</a>
                             <button type="submit" class="btn btn-primary float-right"><i class="fas fa-save" id="save-btn"></i> Simpan</button>
                         </div>
                     </form>
