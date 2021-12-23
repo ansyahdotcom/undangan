@@ -141,3 +141,7 @@ span.img-text:hover {
 .tm-name:hover {
     transform: scale(1.2);
 }
+
+.check-all, .check-it {
+    cursor: pointer;
+}

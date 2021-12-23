@@ -143,17 +143,21 @@ $(function() {
         ]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
-    // CHECK IF NO DATA AVAILABLE ON TABLE
+    // IF NO DATA AVAILABLE ON TABLE DOING THIS:
     if ($(".dataTables_empty").text() == "No data available in table") {
         $(".buttons-copy").hide();
         $(".buttons-excel").hide();
         $(".buttons-pdf").hide();
         $(".buttons-print").hide();
+        $(".th-check").hide();
+        $(".td-check").hide();
     } else {
         $(".buttons-copy").show();
         $(".buttons-excel").show();
         $(".buttons-pdf").show();
         $(".buttons-print").show();
+        $(".th-check").show();
+        $(".td-check").show();
     }
 });
 
@@ -171,8 +175,22 @@ $(document).ready(function() {
 
 
 /**
+ * ========================================
+ * IF CHECK-IT UNCHECKED
+ * ========================================
+ */
+$(document).ready(function() {
+    $('.check-it').change(function() {
+        if (!$(this).is(':checked')) {
+            $('.check-all').prop('checked', false);
+        }
+    });
+});
+
+
+/**
  * ======================================== 
- * BULK SELECETED DELETE
+ * IF BULK SELECETED DELETE
  * ========================================
  */
 $(document).ready(function() {

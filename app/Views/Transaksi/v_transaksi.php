@@ -48,7 +48,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th><input type="checkbox" class="check-all"></th>
+                                        <th class="th-check"><input type="checkbox" class="check-all" title="pilih semua"></th>
                                         <th>#</th>
                                         <th>ID Transaksi</th>
                                         <th>Nama Pasangan</th>
@@ -60,7 +60,7 @@
                                     <?php $num = 1; ?>
                                     <?php foreach ($transaksi as $tr) : ?>
                                         <tr>
-                                            <td><input type="checkbox" class="check-it" name="check[]" value="<?= $tr['id_tr']; ?>"></td>
+                                            <td class="td-check"><input type="checkbox" class="check-it" name="check[]" value="<?= $tr['id_tr']; ?>" title="pilih data ini (<?= $tr['id_tr']; ?>)"></td>
                                             <td class="font-weight-bold"><?= $num++; ?></td>
                                             <td>
                                                 <p><?= $tr['id_tr']; ?></p>
@@ -69,7 +69,7 @@
                                             <td><?= $tr['nama_pria'] . '  &  ' . $tr['nama_wanita']; ?></td>
                                             <td><?= date('D, d-m-Y', strtotime($tr['created_tr'])) . " | " . date('H:i', strtotime($tr['created_tr'])) . " WIB"; ?></td>
                                             <td>
-                                                <a href="/transaksi/preview/<?= $tr['file_tm']; ?>/<?= $tr['permalink']; ?>/" class="btn btn-info btn-sm" title="lihat undangan"><i class="fas fa-eye"></i></a>
+                                                <!-- <a href="/transaksi/preview/<?= $tr['file_tm']; ?>/<?= $tr['permalink']; ?>/" class="btn btn-info btn-sm" title="lihat undangan"><i class="fas fa-eye"></i></a> -->
                                                 <a type="button" href="tamu/<?= $tr['id_tr']; ?>" class="btn btn-secondary btn-sm" title="tambah tamu undangan"><i class="fas fa-users"></i></a>
                                                 <a href="/transaksi/edit/<?= $tr['id_tr']; ?>" class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></a>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tr['id_tr']; ?>" title="hapus data"><i class="fas fa-trash"></i></button>
@@ -79,7 +79,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th><input type="checkbox" class="check-all"></th>
+                                        <th class="th-check"><input type="checkbox" class="check-all" title="pilih semua"></th>
                                         <th>#</th>
                                         <th>ID Transaksi</th>
                                         <th>Nama Pasangan</th>
