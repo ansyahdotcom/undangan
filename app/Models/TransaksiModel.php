@@ -39,14 +39,15 @@ class TransaksiModel extends Model
     public function getTransaksi()
     {
         return $this->join('template', 'transaksi.tm_id = template.id_tm')
-            ->get();
+                    ->orderBy('transaksi.id_tr', 'DESC')
+                    ->get();
     }
 
     // get by permalink
     public function getByPermalink($permalink)
     {
         return $this->join('template', 'transaksi.tm_id = template.id_tm')
-            ->where('permalink', $permalink)
-            ->first();
+                    ->where('permalink', $permalink)
+                    ->first();
     }
 }

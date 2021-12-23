@@ -122,6 +122,61 @@ $(function() {
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "buttons": [
+            {
+                extend: "copy",
+                text: `<span><i class="fas fa-copy"></i> Salin</span>`
+            },
+            {
+                extend: "excel",
+                text: `<span><i class="fas fa-file-excel"></i> Ekspor Excel</span>`
+            },
+            {
+                extend: "pdf",
+                text: `<span><i class="fas fa-file-pdf"></i> Ekspor PDF</span>`
+            },
+            {
+                extend: "print",
+                text: `<span><i class="fas fa-print"></i> Cetak</span>`
+            },
+        ]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+    // CHECK IF NO DATA AVAILABLE ON TABLE
+    if ($(".dataTables_empty").text() == "No data available in table") {
+        $(".buttons-copy").hide();
+        $(".buttons-excel").hide();
+        $(".buttons-pdf").hide();
+        $(".buttons-print").hide();
+    } else {
+        $(".buttons-copy").show();
+        $(".buttons-excel").show();
+        $(".buttons-pdf").show();
+        $(".buttons-print").show();
+    }
+});
+
+
+/**
+ * ========================================
+ * CHECK ALL
+ * ========================================
+ */
+$(document).ready(function() { 
+    $('.check-all').change(function() {
+        $('.check-it, .check-all').prop('checked', this.checked);
+    });
+});
+
+
+/**
+ * ======================================== 
+ * BULK SELECETED DELETE
+ * ========================================
+ */
+$(document).ready(function() {
+    $('select[name="bulk"]').change(function() {
+        $('.bulk-form').prop('action', $(this).val());
+    });
 });
