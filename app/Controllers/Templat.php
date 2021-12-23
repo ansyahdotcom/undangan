@@ -61,15 +61,17 @@ class Templat extends BaseController
             $validation =  \Config\Services::validation();
             $validation->setRules([
                 'nama_tm' => [
-                    'rules' => 'trim|required',
+                    'rules' => 'trim|required|regex_match[/^[A-Za-z_]*$/]',
                     'errors' => [
-                        'required' => 'Field Nama Template harus diisi.'
+                        'required' => 'Field Nama Template harus diisi.',
+                        'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan'
                     ]
                 ],
                 'harga_tm' => [
-                    'rules' => 'trim|required',
+                    'rules' => 'trim|required|numeric',
                     'errors' => [
-                        'required' => 'Field Harga Template harus diisi.'
+                        'required' => 'Field Harga Template harus diisi.',
+                        'numeric' => 'Hanya dapat diisi dengan angka'
                     ]
                 ]
             ]);
@@ -186,15 +188,17 @@ class Templat extends BaseController
 
         if (!$this->validate([
             'nama_tm' => [
-                'rules' => 'required|trim',
+                'rules' => 'trim|required|regex_match[/^[A-Za-z_]*$/]',
                 'errors' => [
-                    'required' => 'Field Nama harus diisi.'
+                    'required' => 'Field Nama Template harus diisi.',
+                    'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan'
                 ]
             ],
             'harga_tm' => [
-                'rules' => 'trim|required',
+                'rules' => 'trim|required|numeric',
                 'errors' => [
-                    'required' => 'Field Harga Template harus diisi.'
+                    'required' => 'Field Harga Template harus diisi.',
+                    'numeric' => 'Hanya dapat diisi dengan angka'
                 ]
             ]
         ])) {
