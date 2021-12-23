@@ -61,10 +61,11 @@ class Templat extends BaseController
             $validation =  \Config\Services::validation();
             $validation->setRules([
                 'nama_tm' => [
-                    'rules' => 'trim|required|regex_match[/^[A-Za-z_]*$/]',
+                    'rules' => 'trim|required|is_unique[template.nama_tm]|regex_match[/^[A-Za-z_]*$/]',
                     'errors' => [
                         'required' => 'Field Nama Template harus diisi.',
-                        'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan'
+                        'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan',
+                        'is_unique'     => 'Nama template telah terdaftar. Harap gunakan nama yang lain.'
                     ]
                 ],
                 'harga_tm' => [
@@ -188,10 +189,11 @@ class Templat extends BaseController
 
         if (!$this->validate([
             'nama_tm' => [
-                'rules' => 'trim|required|regex_match[/^[A-Za-z_]*$/]',
+                'rules' => 'trim|required|is_unique[template.nama_tm]|regex_match[/^[A-Za-z_]*$/]',
                 'errors' => [
                     'required' => 'Field Nama Template harus diisi.',
-                    'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan'
+                    'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan',
+                    'is_unique'     => 'Nama template telah terdaftar. Harap gunakan nama yang lain.'
                 ]
             ],
             'harga_tm' => [

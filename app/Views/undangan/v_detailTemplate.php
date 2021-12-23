@@ -56,7 +56,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <a href="/templat" class="btn btn-primary float-right">Kembali</a>
+                            <a href="/templat" class="btn btn-secondary float-left">Kembali</a>
                         </div>
                     </form>
                 </div>
