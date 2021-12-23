@@ -35,7 +35,6 @@
                                     <select class="form-control" name="bulk">
                                         <option value="#" selected disabled>---- Opsi bulk ----</option>
                                         <option value="/transaksi/bulk_delete">Hapus data</option>
-                                        <option value="#">Edit data (coming soon)</option>
                                     </select>
                                     <span class="input-group-append">
                                         <button type="submit" class="btn btn-primary">Mulai <i class="fas fa-arrow-right"></i></button>
