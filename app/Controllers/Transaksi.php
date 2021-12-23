@@ -5,17 +5,23 @@ namespace App\Controllers;
 use App\Models\LoginModel;
 use App\Models\TransaksiModel;
 use App\Models\TemplateModel;
+use App\Models\RsvpModel;
+use App\Models\dt_rsvpModel;
 
 class Transaksi extends BaseController
 {
     protected $LoginModel;
     protected $TransaksiModel;
     protected $TemplateModel;
+    protected $RsvpModel;
+    protected $dt_rsvpModel;
     public function __construct()
     {
         $this->LoginModel = new LoginModel;
         $this->TransaksiModel = new TransaksiModel;
         $this->TemplateModel = new TemplateModel;
+        $this->RsvpModel = new RsvpModel;
+        $this->dt_rsvpModel = new dt_rsvpModel;
     }
 
     public function index()
@@ -254,11 +260,57 @@ class Transaksi extends BaseController
                     // delete data in database
                     $this->TransaksiModel->delete($i);
                 }
-                
+
                 session()->setFlashdata('message', 'delete');
                 return redirect()->to('/transaksi');
             }
-
         }
+    }
+
+    public function form_iframe($slug = "asd")
+    {
+        $data = [
+            'title' => 'RSVP',
+            'sluged' => $this->TransaksiModel->getByPermalink($slug),
+        ];
+
+        $theme = $data['sluged']['nama_tm'];
+
+        if ($theme == 'wedding') {
+            echo view('transaksi/iframe_form', $data);
+        } else {
+            echo "blank";
+        }
+    }
+
+    public function rsvp()
+    {
+        $row = $this->RsvpModel->countAll();
+        if ($row == 0) {
+            $id_rsvp = 'RSV-000001';
+        } else {
+            $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+            $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+        }
+
+        $id_tr = $this->request->getVar('id');
+
+        $rsvp = [
+            'id_rsvp' => $id_rsvp,
+            'nama_tamu' => $this->request->getVar('nama'),
+            'jumlah' => $this->request->getVar('jml_tamu'),
+            'no_wa' => $this->request->getVar('no_wa'),
+            'kehadiran' => $this->request->getVar('hadir'),
+        ];
+
+        $dt_rsvp = [
+            'rsvp_id' => $id_rsvp,
+            'tr_id' => $id_tr,
+        ];
+
+        $this->RsvpModel->insert($rsvp);
+        $this->dt_rsvpModel->insert($dt_rsvp);
+        session()->setFlashdata('message', 'save');
+        return redirect()->to('/transaksi/form_iframe');
     }
 }
