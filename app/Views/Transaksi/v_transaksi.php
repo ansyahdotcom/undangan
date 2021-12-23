@@ -26,18 +26,18 @@
 
         <div class="row">
             <div class="col-12">
-                <form action="" class="bulk-form" method="post">
+                <form action="#" class="bulk-form" method="post">
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex align-items-start">
                                 <a href="/transaksi/add" class="btn btn-success mr-2"><i class="fas fa-plus"></i> Tambah Baru</a>
-                                <div class="input-group col-md-4">
+                                <div class="input-group bulk-input-group col-md-4">
                                     <select class="form-control" name="bulk">
-                                        <option value="#" selected disabled>---- Opsi bulk ----</option>
+                                        <option value="" selected>--- Pilih opsi bulk ---</option>
                                         <option value="/transaksi/bulk_delete">Hapus data</option>
                                     </select>
                                     <span class="input-group-append">
-                                        <button type="submit" class="btn btn-primary">Mulai <i class="fas fa-arrow-right"></i></button>
+                                        <button type="submit" class="btn btn-primary bulk-btn" disabled>Mulai <i class="fas fa-arrow-right"></i></button>
                                     </span>
                                 </div>
                             </div>
@@ -92,6 +92,13 @@
                     </div>
                 </form>
                 <!-- /.card -->
+
+                <!-- <div class="card">
+                    <div class="card-body">
+                        <iframe src="/transaksi/form_iframe" frameborder="0" class="w-100 vh-100"></iframe>
+                    </div>
+                </div> -->
+
             </div>
             <!-- /.col -->
         </div>

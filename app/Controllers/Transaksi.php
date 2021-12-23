@@ -39,35 +39,6 @@ class Transaksi extends BaseController
         }
     }
 
-    public function getTransaksi()
-    {
-        $data = $this->TransaksiModel->getTransaksi()->getResultArray();
-        echo json_encode($data);
-    }
-
-    public function preview($undangan, $permalink, $tamu = "Bpk. John Doe")
-    {
-        $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
-        if ($user == null) {
-            return redirect()->to('/login');
-        } else {
-            $data = [
-                'title' => 'Data Undangan',
-                'permalink' => $this->TransaksiModel->getByPermalink($permalink),
-                'tamu' => $tamu,
-                'username' => $user['username']
-            ];
-
-            if ($undangan == 'simple-flower') {
-                echo view('template_undangan/simpleflower/simpleflower', $data);
-            } elseif ($undangan == 'plumber') {
-                echo view('template_undangan/plumber/plumber', $data);
-            } elseif ($undangan == 'eris-rude') {
-                echo view('template_undangan/erisrude/erisrude', $data);
-            }
-        }
-    }
-
     public function add()
     {
         $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
@@ -129,8 +100,6 @@ class Transaksi extends BaseController
                 'maps_resepsi' => $this->request->getVar('mp_resepsi'),
                 'tgl_resepsi' => date('Y-m-d H:i:s', strtotime($this->request->getVar('tgl_resepsi'))),
                 'alamat_resepsi' => $this->request->getVar('almt_resepsi'),
-                'foto_pria' => 'default-p.png',
-                'foto_wanita' => 'default-w.png',
                 'permalink' => $permalink,
                 'nomor_hp' => $this->request->getVar('no_hp'),
                 'tm_id' => $this->request->getVar('undangan')
@@ -212,19 +181,6 @@ class Transaksi extends BaseController
         } else {
             $id = $this->request->getVar('id');
 
-            //find foto name by id
-            $foto_pria = $this->TransaksiModel->where(['id_tr' => $id])->first();
-            $foto_wanita = $this->TransaksiModel->where(['id_tr' => $id])->first();
-
-            // delete foto in folder "assets/dist/img"
-            if ($foto_pria['foto_pria'] != 'default-p.png') {
-                unlink('assets/dist/img/transaksi/' . $foto_pria['foto_pria']);
-            }
-
-            if ($foto_wanita['foto_wanita'] != 'default-w.png') {
-                unlink('assets/dist/img/transaksi/' . $foto_wanita['foto_wanita']);
-            }
-
             // delete data in database
             $this->TransaksiModel->delete($id);
             session()->setFlashdata('message', 'delete');
@@ -241,22 +197,11 @@ class Transaksi extends BaseController
             $id = $this->request->getVar('check');
 
             if ($id == "") {
+                session()->setFlashdata('message', 'empty');
                 return redirect()->to('/transaksi');
             } else {
                 // find foto name by id
                 foreach ($id as $i) {
-                    $foto_pria = $this->TransaksiModel->where(['id_tr' => $i])->first();
-                    $foto_wanita = $this->TransaksiModel->where(['id_tr' => $i])->first();
-
-                    // delete foto in folder "assets/dist/img"
-                    if ($foto_pria['foto_pria'] != 'default-p.png') {
-                        unlink('assets/dist/img/transaksi/' . $foto_pria['foto_pria']);
-                    }
-
-                    if ($foto_wanita['foto_wanita'] != 'default-w.png') {
-                        unlink('assets/dist/img/transaksi/' . $foto_wanita['foto_wanita']);
-                    }
-
                     // delete data in database
                     $this->TransaksiModel->delete($i);
                 }

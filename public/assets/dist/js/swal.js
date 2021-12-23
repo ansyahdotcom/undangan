@@ -52,5 +52,10 @@ $(function() {
             icon: 'error',
             title: 'Gagal menghapus data',
         });
+    } else if (flashData == 'empty') {
+        Toast.fire({
+            icon: 'warning',
+            title: 'Tidak ada data yang dipilih',
+        });
     }
 });

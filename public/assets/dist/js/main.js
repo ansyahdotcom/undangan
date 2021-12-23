@@ -151,6 +151,7 @@ $(function() {
         $(".buttons-print").hide();
         $(".th-check").hide();
         $(".td-check").hide();
+        $(".bulk-input-group").hide();
     } else {
         $(".buttons-copy").show();
         $(".buttons-excel").show();
@@ -158,6 +159,7 @@ $(function() {
         $(".buttons-print").show();
         $(".th-check").show();
         $(".td-check").show();
+        $(".bulk-input-group").show();
     }
 });
 
@@ -176,13 +178,20 @@ $(document).ready(function() {
 
 /**
  * ========================================
- * IF CHECK-IT UNCHECKED
+ * IF CHECK-IT UNCHECKED/CHECKED
  * ========================================
  */
 $(document).ready(function() {
     $('.check-it').change(function() {
+        const check_it = $('.check-it').filter(':checked').length;
+        const check_td = $('.td-check').length;
+
         if (!$(this).is(':checked')) {
             $('.check-all').prop('checked', false);
+        }
+        
+        if(check_it == check_td) {
+            $('.check-all').prop('checked', true);
         }
     });
 });
@@ -190,11 +199,31 @@ $(document).ready(function() {
 
 /**
  * ======================================== 
- * IF BULK SELECETED DELETE
+ * BULK SELECETED FUNCTION
  * ========================================
  */
 $(document).ready(function() {
     $('select[name="bulk"]').change(function() {
         $('.bulk-form').prop('action', $(this).val());
+    });
+});
+
+
+/**
+ * ========================================
+ * IF BULK SELECTED IS DELETE
+ * ========================================
+ */
+$(document).ready(function() {
+    $('select[name="bulk"]').change(function() {
+        if ($(this).val() == "/transaksi/bulk_delete") {
+            $('.bulk-input-group').find('button').remove();
+            $('.bulk-input-group').find('span').append(`<button type="submit" class="btn btn-danger bulk-btn">Mulai <i class="fas fa-trash"></i></button>`);
+            $('.bulk-input-group').append(`<small class="text-danger">peringatan! data yang sudah dihapus tidak bisa dipulihkan kembali</small>`);
+        } else {
+            $('.bulk-input-group').find('button').remove();
+            $('.bulk-input-group').find('span').append(`<button type="submit" class="btn btn-primary bulk-btn" disabled>Mulai <i class="fas fa-arrow-right"></i></button>`);
+            $('.bulk-input-group').find('small').remove();
+        }
     });
 });
