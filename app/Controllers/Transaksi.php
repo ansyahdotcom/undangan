@@ -226,31 +226,39 @@ class Transaksi extends BaseController
         }
     }
 
-    public function deleteAll()
+    public function bulk_delete()
     {
         $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
         if ($user == null) {
             return redirect()->to('/login');
         } else {
-            // get all data foto name
-            $foto = $this->TransaksiModel->findAll();
+            $id = $this->request->getVar('check');
 
-            // delete foto in folder "assets/dist/img"
-            foreach ($foto as $f) {
-                if ($f['foto_pria'] != 'default-p.png') {
-                    unlink('assets/dist/img/transaksi/' . $f['foto_pria']);
-                }
+            if ($id == "") {
+                return redirect()->to('/transaksi');
+            } else {
+                // find foto name by id
+                foreach ($id as $i) {
+                    $foto_pria = $this->TransaksiModel->where(['id_tr' => $i])->first();
+                    $foto_wanita = $this->TransaksiModel->where(['id_tr' => $i])->first();
 
-                if ($f['foto_wanita'] != 'default-w.png') {
-                    unlink('assets/dist/img/transaksi/' . $f['foto_wanita']);
+                    // delete foto in folder "assets/dist/img"
+                    if ($foto_pria['foto_pria'] != 'default-p.png') {
+                        unlink('assets/dist/img/transaksi/' . $foto_pria['foto_pria']);
+                    }
+
+                    if ($foto_wanita['foto_wanita'] != 'default-w.png') {
+                        unlink('assets/dist/img/transaksi/' . $foto_wanita['foto_wanita']);
+                    }
+
+                    // delete data in database
+                    $this->TransaksiModel->delete($i);
                 }
+                
+                session()->setFlashdata('message', 'delete');
+                return redirect()->to('/transaksi');
             }
 
-            // delete all data in database
-            $this->TransaksiModel->truncate();
-            session()->setFlashdata('message', 'delete');
-            return redirect()->to('/transaksi');
         }
     }
-
 }

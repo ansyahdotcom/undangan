@@ -26,62 +26,72 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex align-items-start">
-                            <a href="/transaksi/add" class="btn btn-success mr-2"><i class="fas fa-database"></i> Tambah Baru</a>
-                            <?php if ($transaksi == null) : ?>
-                                <!-- don't show button delete all -->
-                            <?php else : ?>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del-all-modal"><i class="fas fa-trash"></i> Hapus Semua Data</button>
-                            <?php endif; ?>
+                <form action="" class="bulk-form" method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex align-items-start">
+                                <a href="/transaksi/add" class="btn btn-success mr-2"><i class="fas fa-plus"></i> Tambah Baru</a>
+                                <div class="input-group col-md-4">
+                                    <select class="form-control" name="bulk">
+                                        <option value="#" selected disabled>---- Opsi bulk ----</option>
+                                        <option value="/transaksi/bulk_delete">Hapus data</option>
+                                        <option value="#">Edit data (coming soon)</option>
+                                    </select>
+                                    <span class="input-group-append">
+                                        <button type="submit" class="btn btn-primary">Mulai <i class="fas fa-arrow-right"></i></button>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>ID Transaksi</th>
-                                    <th>Nama Pasangan</th>
-                                    <th>Tanggal Pesan</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $num = 1; ?>
-                                <?php foreach ($transaksi as $tr) : ?>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
                                     <tr>
-                                        <td class="font-weight-bold"><?= $num++; ?></td>
-                                        <td>
-                                            <p><?= $tr['id_tr']; ?></p>
-                                            <small class="actions" hidden><a href="" class="text-primary font-weight-bold">Edit</a> | <a href="" class="text-danger font-weight-bold">Hapus</a></small>
-                                        </td>
-                                        <td><?= $tr['nama_pria'] . '  &  ' . $tr['nama_wanita']; ?></td>
-                                        <td><?= date('D, d-m-Y', strtotime($tr['created_tr'])) . " | " . date('H:i', strtotime($tr['created_tr'])) . " WIB"; ?></td>
-                                        <td>
-                                            <a href="/transaksi/preview/<?= $tr['file_tm']; ?>/<?= $tr['permalink']; ?>/" class="btn btn-info btn-sm" title="lihat undangan"><i class="fas fa-eye"></i></a>
-                                            <a type="button" href="tamu/<?= $tr['id_tr']; ?>" class="btn btn-secondary btn-sm" title="tambah tamu undangan"><i class="fas fa-users"></i></a>
-                                            <a href="/transaksi/edit/<?= $tr['id_tr']; ?>" class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></a>
-                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tr['id_tr']; ?>" title="hapus data"><i class="fas fa-trash"></i></button>
-                                        </td>
+                                        <th><input type="checkbox" class="check-all"></th>
+                                        <th>#</th>
+                                        <th>ID Transaksi</th>
+                                        <th>Nama Pasangan</th>
+                                        <th>Tanggal Pesan</th>
+                                        <th>Actions</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>#</th>
-                                    <th>ID Transaksi</th>
-                                    <th>Nama Pasangan</th>
-                                    <th>Tanggal Pesan</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </tfoot>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php $num = 1; ?>
+                                    <?php foreach ($transaksi as $tr) : ?>
+                                        <tr>
+                                            <td><input type="checkbox" class="check-it" name="check[]" value="<?= $tr['id_tr']; ?>"></td>
+                                            <td class="font-weight-bold"><?= $num++; ?></td>
+                                            <td>
+                                                <p><?= $tr['id_tr']; ?></p>
+                                                <small class="actions" hidden><a href="" class="text-primary font-weight-bold">Edit</a> | <a href="" class="text-danger font-weight-bold">Hapus</a></small>
+                                            </td>
+                                            <td><?= $tr['nama_pria'] . '  &  ' . $tr['nama_wanita']; ?></td>
+                                            <td><?= date('D, d-m-Y', strtotime($tr['created_tr'])) . " | " . date('H:i', strtotime($tr['created_tr'])) . " WIB"; ?></td>
+                                            <td>
+                                                <a href="/transaksi/preview/<?= $tr['file_tm']; ?>/<?= $tr['permalink']; ?>/" class="btn btn-info btn-sm" title="lihat undangan"><i class="fas fa-eye"></i></a>
+                                                <a type="button" href="tamu/<?= $tr['id_tr']; ?>" class="btn btn-secondary btn-sm" title="tambah tamu undangan"><i class="fas fa-users"></i></a>
+                                                <a href="/transaksi/edit/<?= $tr['id_tr']; ?>" class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></a>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tr['id_tr']; ?>" title="hapus data"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th><input type="checkbox" class="check-all"></th>
+                                        <th>#</th>
+                                        <th>ID Transaksi</th>
+                                        <th>Nama Pasangan</th>
+                                        <th>Tanggal Pesan</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
-                </div>
+                </form>
                 <!-- /.card -->
             </div>
             <!-- /.col -->
@@ -121,32 +131,4 @@
     </div>
     <!-- /.modal -->
 <?php endforeach; ?>
-
-<!-- delete all modal -->
-<div class="modal fade" id="del-all-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Hapus Semua Data</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="/transaksi/deleteAll" method="post">
-                <?= csrf_field(); ?>
-                <div class="modal-body">
-                    <p>Apakah anda yakin ingin menghapus semua data?</p>
-                    <p class="font-weight-bold text-danger font-italic">(Peringatan!!! semua data yang telah dihapus tidak dapat dikembalikan)</p>
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Batal</button>
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 <?= $this->endSection(); ?>
