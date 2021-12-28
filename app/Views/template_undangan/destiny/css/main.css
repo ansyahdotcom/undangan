@@ -503,6 +503,14 @@ h1.large {
     -ms-box-shadow: 0 0 20px rgba(53, 48, 49, 0.15);
     -o-box-shadow: 0 0 20px rgba(53, 48, 49, 0.15);
 }
+.block-events {
+    border: 20px solid #b0f2d3;
+    box-shadow: 0 0 20px rgba(53, 48, 49, 0.15);
+    -webkit-box-shadow: 0 0 20px rgba(53, 48, 49, 0.15);
+    -moz-box-shadow: 0 0 20px rgba(53, 48, 49, 0.15);
+    -ms-box-shadow: 0 0 20px rgba(53, 48, 49, 0.15);
+    -o-box-shadow: 0 0 20px rgba(53, 48, 49, 0.15);
+}
 .block-event .circle-dashed {
     top: 25%;
 }

@@ -20,7 +20,7 @@ class Dashboard extends BaseController
             $data = [
                 'admin' => $this->LoginModel->findAll(),
                 'username' => $user['username'],
-                'title' => "Dashboard"
+                'title' => 'Dashboard'
             ];
             echo view('v_dashboard', $data);
         }

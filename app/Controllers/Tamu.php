@@ -22,6 +22,7 @@ class Tamu extends BaseController
             return redirect()->to('/login');
         } else {
             $data = [
+                'title' => 'Tamu',
                 'username' => $user['username'],
                 'id_tr' => $id_tr,
                 'tamu' => $this->DttransModel->where(['id_tr' => $id_tr])->orderBy('id_tmu', 'DESC')->findAll(),
@@ -30,12 +31,6 @@ class Tamu extends BaseController
             echo view('v_tamu', $data);
         }
     }
-
-    // function data_tamu()
-    // {
-    //     $data = $this->DttransModel->dataTamu()->getResult();
-    //     echo json_encode($data);
-    // }
 
     public function addTamu()
     {
@@ -86,12 +81,12 @@ class Tamu extends BaseController
                     'required' => 'Nomor WA tamu harus diisi',
                     'numeric' => 'Isikan hanya angka',
                     'min_length[10]' => 'Harap mengisi nomor dengan benar',
-                    'max_length[12]' => 'Harap mengisi nomor dengan benar'
+                    'max_length[13]' => 'Harap mengisi nomor dengan benar'
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/tamu/' . $id_tr)->withInput()->with('validation', $validation);
+            session()->setFlashdata('message', 'notedit');
+            return redirect()->to('/tamu/' . $id_tr);
         }
         $this->DttransModel->save([
             'id_tmu' => $this->request->getVar('id_tmu'),
@@ -99,6 +94,15 @@ class Tamu extends BaseController
             'nama_tamu' => $this->request->getVar('nama_tamu'),
             'no_wa' => '62' . $this->request->getVar('no_wa')
         ]);
+        session()->setFlashdata('message', 'edit');
+        return redirect()->to('/tamu/' . $id_tr);
+    }
+
+    public function delTamu($id_tmu)
+    {
+        $id_tr = $this->request->getVar('id_tr');
+        $this->DttransModel->delete($id_tmu);
+        session()->setFlashdata('message', 'delete');
         return redirect()->to('/tamu/' . $id_tr);
     }
 }

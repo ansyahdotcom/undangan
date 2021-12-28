@@ -258,4 +258,20 @@ class Transaksi extends BaseController
         session()->setFlashdata('message', 'save');
         return redirect()->to('/transaksi/rsvp_form/' . $id_tr);
     }
+
+    public function form_iframe_destiny($slug = "asd")
+    {
+        $data = [
+            'title' => 'RSVP',
+            'sluged' => $this->TransaksiModel->getByPermalink($slug),
+        ];
+
+        $theme = $data['sluged']['nama_tm'];
+
+        if ($theme == 'destiny') {
+            echo view('template_undangan/form', $data);
+        } else {
+            echo "blank";
+        }
+    }
 }

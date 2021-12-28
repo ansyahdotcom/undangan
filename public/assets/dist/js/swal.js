@@ -42,6 +42,11 @@ $(function() {
             icon: 'success',
             title: 'Data berhasil diubah',
         });
+    } else if (flashData == 'notedit') {
+        Toast.fire({
+            icon: 'error',
+            title: 'Gagal mengubah data',
+        });
     } else if (flashData == 'delete') {
         Toast.fire({
             icon: 'success',
