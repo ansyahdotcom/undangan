@@ -20,14 +20,14 @@
 
 /*# 1. Main Styles*/
 body {
-	font:300 15px/24px Roboto Condensed;
+	/* font:300 15px/24px Roboto Condensed; */
 	min-height:100%;
 	height:100%;
 	color:#666666;
 	
 }
 	body b {
-		font:500 15px/24px Roboto Condensed;
+		/* font:500 15px/24px Roboto Condensed; */
 	}
 html {
 	min-height:100%;
@@ -61,15 +61,15 @@ a {
 	
 }
 h2 {
-	font:46px/48px Great Vibes;
+	/* font:46px/48px Great Vibes; */
 	text-align:center;
 	margin:0 0 20px 0;
 }
 	h2 b {
-		font:400 46px/48px Roboto Condensed
+		/* font:400 46px/48px Roboto Condensed */
 	}
 	h2 span {
-		font:300 26px/40px Roboto Condensed;
+		/* font:300 26px/40px Roboto Condensed; */
 		padding:0 13px 0 0
 	}
 hr {
@@ -80,7 +80,7 @@ hr {
 	margin: 48px auto 0
 }
 .btn {
-	font:500 14px Roboto Condensed;
+	/* font:500 14px Roboto Condensed; */
 	padding:8px;
 	border-radius:0;
 	margin:20px 4px;
@@ -211,13 +211,13 @@ header {
 				.sub_menu li:before {
 					content: '0' counter(item); 
   					counter-increment: item;
-  					font:30px Great Vibes;
+  					/* font:30px Great Vibes; */
 					display:inline-block;
 					margin:0 20px 0 0
 				}
 				.sub_menu a {
 					color:#666;
-					font: 400 18px/28px Roboto Condensed;
+					/* font: 400 18px/28px Roboto Condensed; */
 					display:inline-block;
 					padding:6px 0
 				}
@@ -376,7 +376,7 @@ header {
 
 	
 	.names {
-		font:46px Great Vibes;
+		/* font:46px Great Vibes; */
 		color:#000
 	}
 		.slash {
@@ -395,18 +395,18 @@ header {
 			margin:10px 0 0 0
 		}
 		.date {
-			font:40px Great Vibes;
+			/* font:40px Great Vibes; */
 			margin:0 0 0 0;
 			color:#000
 		}
 			.date span {
-				font:32px Roboto Condensed;
+				/* font:32px Roboto Condensed; */
 				display:inline-block;
 				padding:0 0 0 20px
 			}
 					
 	#countdown {
-		font:34px/40px Roboto Condensed;
+		/* font:34px/40px Roboto Condensed; */
 		text-align:center;
 		height:60px
 	}
@@ -420,10 +420,10 @@ header {
 		}
 		
 		.days {
-			font:14px/14px Roboto Condensed
+			/* font:14px/14px Roboto Condensed */
 		}
 			.count_bl .countdown-period {
-				font:14px/14px Roboto Condensed;
+				/* font:14px/14px Roboto Condensed; */
 				display:block
 			}
 			.intro_down span {				
@@ -473,10 +473,10 @@ header {
 		position: absolute;
 		margin: -3px 0 0 -35px;
 		opacity: 0.5;
-		font: 400 18px/28px Roboto Condensed
+		/* font: 400 18px/28px Roboto Condensed */
 	}
 		.bullet span b {
-			font: 400 18px/28px Roboto Condensed;
+			/* font: 400 18px/28px Roboto Condensed; */
 			display: inline-block;
 			margin: 0 0 0 30px;
 		}
@@ -545,7 +545,7 @@ header {
 				transform-origin:100% 100% 0 
 			}
 .married_coundown {
-	font: 400 40px/48px Roboto Condensed ;
+	/* font: 400 40px/48px Roboto Condensed ; */
 	margin: 20px 0 0 0
 }
 	.married_coundown .countdown-section {
@@ -573,7 +573,7 @@ header {
 			display: none
 		}
 	.married_coundown .countdown-period {
-		font: 20px/24px Great Vibes;
+		/* font: 20px/24px Great Vibes; */
 		color: #c5c3be;
 		display: block;
 		text-transform: lowercase;
@@ -584,7 +584,7 @@ header {
 	margin: 25px auto
 }
 .bride_title_block {
-	font:46px/48px Great Vibes;
+	/* font:46px/48px Great Vibes; */
 	text-align:center;
 	margin:80px 0 0 0;
 	color:#d9c6b1;
@@ -593,7 +593,7 @@ header {
 	text-align: center;
 }
 	.bride_title_block i {
-		font: normal 300 15px/24px Roboto Condensed;
+		/* font: normal 300 15px/24px Roboto Condensed; */
 		color: #666;
 		display: block;
 		margin: -7px 0 0 0;
@@ -622,7 +622,7 @@ header {
 		left:50%
 	}
 .groom_title_block {
-	font:46px/48px Great Vibes;
+	/* font:46px/48px Great Vibes; */
 	text-align:center;
 	margin:80px 0 0 0;
 	color:#d9c6b1;
@@ -631,7 +631,7 @@ header {
 	text-align: center;
 }
 	.groom_title_block i {
-		font: normal 300 15px/24px Roboto Condensed;
+		/* font: normal 300 15px/24px Roboto Condensed; */
 		color: #666;
 		display: block;
 		margin: -7px 0 0 0;
@@ -997,12 +997,12 @@ header {
 				margin: 0 0 0 -15%;
 			}
 		.story_title {
-			font: 34px/26px Great Vibes;
+			/* font: 34px/26px Great Vibes; */
 			margin: 0 -10% 28px 0;
 			text-align: center;
 		}
 			.story_title i {
-				font: normal 300 14px/28px Roboto Condensed;
+				/* font: normal 300 14px/28px Roboto Condensed; */
 				position: relative;
 				margin: 0 0 10px 0;
 				text-align: center;;
@@ -1072,17 +1072,17 @@ header {
 	overflow: visible;
 	
 }
-#form_send_message {
+/* #form_send_message {
 	font:24px/32px Roboto Condensed
-}
+} */
 
 #envelope {
 	margin:30px 0 0;
 	position:relative;
 }	
-	.envelope p {
+	/* .envelope p {
 		font:16px/28px Roboto Condensed
-	}
+	} */
 	.envelope h2 {
 		margin:0 0 10px 0
 	}
@@ -1098,7 +1098,7 @@ header {
 		transition:0.3s all ease-out;
 		transition-delay:0.5s;
 		top: 0;
-		font: 14px/24px Roboto Condensed
+		/* font: 14px/24px Roboto Condensed */
 	}
 		.paper .paper_title {
 			margin: 10px 0 30px 0;
@@ -1188,15 +1188,15 @@ header {
 		}
 
 
-		.accept_decline {
+		/* .accept_decline {
 			font:46px Great Vibes
-		}
+		} */
 		.form-control {
 			border-radius:0;
 			background:none;
 			border:0;
 			border-bottom:1px solid #595959;
-			font:22px Roboto Condensed!important;
+			/* font:22px Roboto Condensed!important; */
 			box-shadow:0 0 0 !important;
 			position:relative;
 			height:40px!important
@@ -1313,31 +1313,31 @@ header {
 		margin: 20px auto 0
 	}
 	.title0 {
-		font:300 16px/28px Roboto Condensed;
+		/* font:300 16px/28px Roboto Condensed; */
 		color:rgba(255,255,255,0.5);
 	}
-	.title1 {
+	/* .title1 {
 		font:46px/48px Great Vibes;
-	}
+	} */
 		.title1_2 {
 			text-indent:-15px;
-			font:52px/56px Great Vibes;
+			/* font:52px/56px Great Vibes; */
 		}
 	.title2 {
-		font:56px/60px Roboto Condensed;
+		/* font:56px/60px Roboto Condensed; */
 		margin:0 0 13px 0;
 		letter-spacing: -1px
 	}
 	.title3 {
-		font:24px/32px Roboto Condensed;
+		/* font:24px/32px Roboto Condensed; */
 		margin:0 0 5px 0;
 	}
 	.title4 {
-		font:300 34px/40px Roboto Condensed;
+		/* font:300 34px/40px Roboto Condensed; */
 		text-transform:uppercase
 	}	
 	.title5 {
-		font: 300 14px/24px Roboto Condensed;
+		/* font: 300 14px/24px Roboto Condensed; */
 		text-transform: uppercase;
 		margin: -5px 0 20px
 	}
@@ -1400,7 +1400,7 @@ header {
 		left:0
 	}
 	.thanks {
-		font:45px/48px Great Vibes;
+		/* font:45px/48px Great Vibes; */
 		padding:0 24px;
 		margin: 0 0 21px 0
 	}
@@ -1484,13 +1484,13 @@ header {
 
 		
 	.guest_title {
-		font:32px/40px Great Vibes;
+		/* font:32px/40px Great Vibes; */
 		color: #757575;
 		z-index: 3;
 	}
 		.guest_title span {
 			display: block;
-			font: 300 16px/24px Roboto Condensed;
+			/* font: 300 16px/24px Roboto Condensed; */
 			margin: 20px 0 0
 		}
 	.guest_item i:before {
@@ -1514,7 +1514,7 @@ header {
 		width:100%;
 		height:100%;
 		text-align:center;
-		font:24px/32px Roboto Condensed;
+		/* font:24px/32px Roboto Condensed; */
 		display: -webkit-box; /* Android 4.3-, Safari */
     	-webkit-box-pack: justify; /* Android 4.3-, Safari */
 		display:flex;
@@ -1541,7 +1541,7 @@ header {
 			
 		.gallery_txt b {
 			display:block;
-			font:34px/40px Roboto Condensed;
+			/* font:34px/40px Roboto Condensed; */
 			color:#fff
 		}
 		.gallery_txt a {
@@ -1666,12 +1666,12 @@ header {
 	.im1, .im2 {
 		display: none;
 	}
-	h2 {
+	/* h2 {
 		font:34px/40px Great Vibes
 	}
 	h2 span {
 		font:400 24px/32px Roboto Condensed
-	}
+	} */
 	h2 span:after {
 		margin:0 0 0 10px
 	}

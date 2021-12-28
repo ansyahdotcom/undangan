@@ -8,4 +8,9 @@ class Landingpage extends BaseController
     {
         echo view('v_landingpage');
     }
+
+    public function destiny()
+    {
+        echo view('template_undangan/destiny/index');
+    }
 }
