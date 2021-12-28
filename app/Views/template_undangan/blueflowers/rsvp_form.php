@@ -1,19 +1,19 @@
 <head>
     <!-- Library CSS -->
-    <link href="/assets/wedding/css/wedding_library.css" rel="stylesheet">
+    <link href="/assets/blueflowers/css/wedding_library.css" rel="stylesheet">
 
     <!-- Icons CSS -->
     <link href="fonts/themify-icons.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="/assets/wedding/css/wedding_style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/wedding/css/leaves.css" type="text/css" media="screen">
-    <link href="/assets/wedding/css/responsive.css" rel="stylesheet">
+    <link href="/assets/blueflowers/css/wedding_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/blueflowers/css/leaves.css" type="text/css" media="screen">
+    <link href="/assets/blueflowers/css/responsive.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="/assets/wedding/envelope/css/style.css" rel="stylesheet">
+    <link href="/assets/blueflowers/envelope/css/style.css" rel="stylesheet">
     <!-- Color CSS -->
-    <link href="/assets/wedding/envelope/css/blue.css" rel="stylesheet">
+    <link href="/assets/blueflowers/envelope/css/blue.css" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
@@ -77,16 +77,16 @@
     <!-- RSVP End -->
 
     <!-- JQuery -->
-    <script src="/assets/wedding/js/jquery-1.12.4.min.js"></script>
+    <script src="/assets/blueflowers/js/jquery-1.12.4.min.js"></script>
 
     <!-- Library JS -->
-    <script src="/assets/wedding/js/wedding_library.js"></script>
-    <script src="/assets/wedding/js/jquery.countdown.min.js"></script>
-    <script src="/assets/wedding/js/leaves.js"></script>
+    <script src="/assets/blueflowers/js/wedding_library.js"></script>
+    <script src="/assets/blueflowers/js/jquery.countdown.min.js"></script>
+    <script src="/assets/blueflowers/js/leaves.js"></script>
 
     <!-- Theme JS -->
-    <script src="/assets/wedding/envelope/js/script.js"></script>
+    <script src="/assets/blueflowers/envelope/js/script.js"></script>
 
     <!-- Theme JS -->
-    <script src="/assets/wedding/js/wedding_script.js"></script>
+    <script src="/assets/blueflowers/js/wedding_script.js"></script>
 </body>
