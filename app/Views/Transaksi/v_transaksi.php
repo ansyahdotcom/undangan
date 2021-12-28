@@ -92,13 +92,6 @@
                     </div>
                 </form>
                 <!-- /.card -->
-
-                <!-- <div class="card">
-                    <div class="card-body">
-                        <iframe src="/transaksi/form_iframe" frameborder="0" class="w-100 vh-100"></iframe>
-                    </div>
-                </div> -->
-
             </div>
             <!-- /.col -->
         </div>

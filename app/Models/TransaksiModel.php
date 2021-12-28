@@ -44,10 +44,10 @@ class TransaksiModel extends Model
     }
 
     // get by permalink
-    public function getByPermalink($permalink)
+    public function getById($id)
     {
         return $this->join('template', 'transaksi.tm_id = template.id_tm')
-                    ->where('permalink', $permalink)
+                    ->where('id_tr', $id)
                     ->first();
     }
 }

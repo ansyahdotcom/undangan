@@ -1,0 +1,472 @@
+/* TABLE OF CONTENT
+======================================
+# 1. Main Styles
+# 2. White  Text*
+# 3. Header
+# 4. Intro
+# 5. Married
+# 6. Our Story
+# 7. Slider Buttons
+# 8. Events
+# 9. Registry
+# 10.  RSVP
+# 11.  Where&When
+# 12.  Footer
+# 13.  Guests
+# 14.  Gallery
+# 15.  Responsive
+======================================
+*/
+
+
+.container-envelope {
+	position: relative;
+	z-index: 1;
+	padding: 60px 16px 48px;
+	max-width: 970px
+}
+
+.btn {
+	font: 500 14px Roboto Condensed;
+	padding: 8px;
+	border-radius: 0;
+	margin: 20px 4px;
+	overflow: hidden;
+	position: relative;
+	background: none;
+	min-width: 88px;
+	min-height: 36px;
+	transition: 0.5s all;
+}
+
+.btn:active,
+.btn:focus {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	color: #fff !important
+}
+
+
+/*# 2. White  Text*/
+.white_txt {
+	color: #fff;
+	background-color: #65666b
+}
+
+.white_txt h2 {
+	color: #fff
+}
+
+.white_txt h2 span:after {
+	background: #fff
+}
+
+.white_txt .slash i {
+	background: #fff
+}
+
+.white_txt a {
+	color: #fff
+}
+
+
+/*# 10. RSVP*/
+.rsvp {
+	overflow: visible;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}	
+
+#form_send_message {
+	font: 24px/32px Roboto Condensed
+}
+
+#envelope {
+	/* margin: 30px 0 0; */
+	margin: 0;
+	position: relative;
+}
+
+.envelope p {
+	font: 16px/28px Roboto Condensed
+}
+
+.envelope h2 {
+	margin: 0 0 10px 0
+}
+
+.paper {
+	width: 534px;
+	height: 336px;
+	padding: 20px;
+	position: relative;
+	left: 50%;
+	margin: 0 0 0 -267px;
+	z-index: 2;
+	border-radius: 5px;
+	transition: 0.3s all ease-out;
+	transition-delay: 0.5s;
+	top: 0;
+	font: 14px/24px Roboto Condensed
+}
+
+.paper .paper_title {
+	margin: 10px 0 30px 0;
+	font-size: 26px
+}
+
+.paper .btn {
+	margin: 10px 4px 20px !important;
+}
+
+
+
+.envelope_back {
+	width: 559px;
+	height: 349px;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -279px;
+	z-index: 1;
+	transition: 0.3s all ease-out;
+	transition-delay: 0.5s;
+	top: 650px;
+	opacity: 0
+}
+
+.env_top {
+	width: 563px;
+	height: 195px;
+	position: absolute;
+	margin: -194px 0 0 0;
+	transition: 0.2s all ease-in;
+	transition-delay: 0.1s;
+	transform-origin: center bottom;
+}
+
+.env_top_top {
+	width: 563px;
+	height: 199px;
+	position: absolute;
+	margin: 0 0 0 0;
+	transition: 0.2s all ease-out;
+	transition-delay: 0s;
+	transform-origin: center top;
+	z-index: 5;
+	transform: rotateX(90deg);
+	opacity: 0
+}
+
+.envelope_front {
+	width: 565px;
+	height: 351px;
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	margin: 0 0 0 -281px;
+	transition: 0.3s all ease-out;
+	transition-delay: 0.5s;
+	top: 650px;
+	opacity: 0
+}
+
+
+#envelope.active .paper {
+	margin: 0 0 0 -267px;
+	transition-delay: 0;
+	transition: 0.3s all ease-out;
+
+}
+
+#envelope.active .envelope_back {
+	top: 0;
+	transition-delay: 0;
+	transition: 0.3s all ease-out;
+	opacity: 1
+}
+
+#envelope.active .envelope_front {
+	top: 0;
+	transition-delay: 0;
+	transition: 0.3s all ease-out;
+	opacity: 1
+}
+
+#envelope.active .env_top {
+	transform: rotateX(90deg);
+	transition-delay: 0.3s;
+	opacity: 1
+}
+
+#envelope.active .env_top_top {
+	transform: rotateX(0);
+	transition-delay: 0.5s;
+	opacity: 1
+}
+
+
+.accept_decline {
+	font: 46px Great Vibes
+}
+
+.form-control {
+	border-radius: 0;
+	background: none;
+	border: 0;
+	border-bottom: 1px solid #595959;
+	font: 22px Roboto Condensed !important;
+	box-shadow: 0 0 0 !important;
+	position: relative;
+	height: 40px !important
+}
+
+.txt_input {
+	width: 49%;
+	padding: 0;
+	display: inline-block;
+	margin: 0 0 10px 0;
+	position: relative
+}
+
+.txt_input:before {
+	position: absolute;
+	display: block;
+	content: "";
+	width: 1px;
+	background: #595959;
+	height: 5px;
+	bottom: 0
+}
+
+.txt_input:after {
+	position: absolute;
+	display: block;
+	content: "";
+	width: 1px;
+	background: #595959;
+	height: 5px;
+	bottom: 0;
+	right: 0
+}
+
+.wpcf7-mail-sent-ok {
+	margin: 5px 0 0 !important
+}
+
+.wpcf7-validation-errors,
+span.wpcf7-not-valid-tip {
+	display: none !important;
+}
+
+.wpcf7-not-valid {
+	border-bottom: 1px solid red
+}
+
+.form_content p {
+	margin: 0 0 10px 0
+}
+
+.form_content .btn {
+	margin: 0 !important
+}
+
+
+
+/*# 15. Responsive*/
+
+@media (max-width:992px) {
+	.owl-controls {
+		margin: 0 0 20px 0
+	}
+
+	.gallery .owl-buttons {
+		margin: -70px 0 0 0
+	}
+
+}
+
+@media (max-width:768px) {
+
+	.story_txt p,
+	.story_title {
+		margin: 0;
+	}
+
+	.home_intro {
+		background-attachment: scroll;
+	}
+
+	.hotel {
+		background-attachment: scroll;
+	}
+
+	.when_where {
+		background-attachment: scroll;
+	}
+
+	.footer_over {
+		display: none
+	}
+
+	.envelope_back,
+	.envelope_front {
+		display: none
+	}
+
+	#envelope {
+		min-height: 200px !important;
+	}
+
+	.paper {
+		width: 100%;
+		height: auto;
+		background-size: cover !important;
+		left: 0;
+		margin: 0 !important;
+		background-repeat: no-repeat !important;
+	}
+
+	.im1,
+	.im2 {
+		display: none;
+	}
+
+}
+
+@media (max-width:480px) {
+	.story_txt p {
+		margin: 0;
+	}
+
+	.gallery .owl-buttons {
+		margin: -40px 0 0 0
+	}
+
+	.owl-carousel:hover .owl-next,
+	.owl-carousel:hover .owl-prev {
+		background: none !important
+	}
+
+	.im1,
+	.im2 {
+		display: none;
+	}
+
+	h2 {
+		font: 34px/40px Great Vibes
+	}
+
+	h2 span {
+		font: 400 24px/32px Roboto Condensed
+	}
+
+	h2 span:after {
+		margin: 0 0 0 10px
+	}
+
+	.sub_menu {
+		width: 100%
+	}
+
+	.sub_menu.active {
+		width: 100%
+	}
+
+	.sub_img {
+		display: none
+	}
+
+
+	.photocamera span {
+		display: none
+	}
+
+	.gallery_item {
+		width: 100%
+	}
+
+	.paper h2 {
+		font-size: 28px !important
+	}
+
+	.paper h2 span {
+		font-size: 18px !important
+	}
+
+	.form-control {
+		font-size: 14px !important
+	}
+
+
+	.envelope p {
+		display: none
+	}
+
+	.footer {
+		background-attachment: scroll
+	}
+
+	.story_img {
+		width: 200px;
+		height: 200px;
+		left: 50%;
+		margin: 0 0 0 -100px;
+		position: absolute;
+		border-radius: 50%;
+		z-index: 5;
+	}
+
+	.story_img:before {
+		border: 10px solid rgba(255, 255, 255, 0.4);
+		border-radius: 50%;
+		content: "";
+		display: block;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+	}
+
+	.story_plane {
+		width: 100%;
+		left: 0;
+		background: none
+	}
+
+	.story_txt {
+		padding: 0 24px;
+		margin: 220px 0 0
+	}
+
+	.story_back,
+	.story_img_plane,
+	.story_title:after,
+	.story_title:before,
+	.owl-pagination {
+		display: none
+	}
+
+	.youtube {
+		margin: -11px 0 0 -20px
+	}
+
+	.story_title {
+		margin: 0
+	}
+
+	.story_wrapper .owl-wrapper-outer {
+		box-shadow: 0 0 0;
+		background: none
+	}
+
+	.story_item,
+	.guest_wrapper {
+		height: auto;
+	}
+
+	.guest_wrapper .owl-buttons,
+	.registry .owl-buttons {
+		display: block;
+	}
+
+
+}
