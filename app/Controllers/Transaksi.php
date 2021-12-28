@@ -212,17 +212,17 @@ class Transaksi extends BaseController
         }
     }
 
-    public function form_iframe($slug = "asd")
+    public function rsvp_form($id)
     {
         $data = [
             'title' => 'RSVP',
-            'sluged' => $this->TransaksiModel->getByPermalink($slug),
+            'trn' => $this->TransaksiModel->getById($id),
         ];
 
-        $theme = $data['sluged']['nama_tm'];
+        $theme = $data['trn']['nama_tm'];
 
-        if ($theme == 'wedding') {
-            echo view('transaksi/iframe_form', $data);
+        if ($theme == 'Blue Flowers') {
+            echo view('template_undangan/blueflowers/rsvp_form', $data);
         } else {
             echo "blank";
         }
@@ -256,7 +256,7 @@ class Transaksi extends BaseController
         $this->RsvpModel->insert($rsvp);
         $this->dt_rsvpModel->insert($dt_rsvp);
         session()->setFlashdata('message', 'save');
-        return redirect()->to('/transaksi/form_iframe');
+        return redirect()->to('/transaksi/rsvp_form/' . $id_tr);
     }
 
     public function form_iframe_destiny($slug = "asd")
