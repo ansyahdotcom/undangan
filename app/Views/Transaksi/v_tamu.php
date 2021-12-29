@@ -43,7 +43,13 @@
                                         <td><?= $tm['nama_tamu']; ?></td>
                                         <td><?= $tm['jumlah'] ?></td>
                                         <td><?= $tm['no_wa']; ?></td>
-                                        <td><?= $tm['kehadiran']; ?></td>
+                                        <td>
+                                            <?php if ($tm['kehadiran'] == 1) { ?>
+                                                <span class="badge badge-pill badge-success px-3"><b>Hadir</b></span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-pill badge-danger px-3"><b>Tidak Hadir</b></span>
+                                            <?php } ?>
+                                        </td>
                                         <td>
                                             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $tm['id_rsvp']; ?>" title="Hapus Data"><i class="fas fa-trash"></i></button>
                                         </td>
