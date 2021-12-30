@@ -22,6 +22,17 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
+                    <a href="/dashboard" class="nav-link <?php $uri = service('uri');
+                                                            if ($uri->getSegment(1) == 'dashboard') {
+                                                                echo 'active';
+                                                            } ?>">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href=" <?php echo base_url('/Admin') ?>" class="nav-link <?php $uri = service('uri');
                                                                                 if ($uri->getSegment(1) == 'Admin') {
                                                                                     echo 'active';
@@ -39,7 +50,7 @@
                                                             } ?>">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Form Transaksi
+                            Transaksi
                         </p>
                     </a>
                 </li>
