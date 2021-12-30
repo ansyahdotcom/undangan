@@ -18,6 +18,9 @@
 ======================================
 */
 
+body::-webkit-scrollbar {
+	display: none;
+}
 
 .container-envelope {
 	position: relative;

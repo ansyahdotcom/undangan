@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\LoginModel;
 use App\Models\TransaksiModel;
-use App\Models\TemplateModel;
 use App\Models\RsvpModel;
 use App\Models\dt_rsvpModel;
 
@@ -12,14 +11,12 @@ class Transaksi extends BaseController
 {
     protected $LoginModel;
     protected $TransaksiModel;
-    protected $TemplateModel;
     protected $RsvpModel;
     protected $dt_rsvpModel;
     public function __construct()
     {
         $this->LoginModel = new LoginModel;
         $this->TransaksiModel = new TransaksiModel;
-        $this->TemplateModel = new TemplateModel;
         $this->RsvpModel = new RsvpModel;
         $this->dt_rsvpModel = new dt_rsvpModel;
     }
@@ -32,7 +29,7 @@ class Transaksi extends BaseController
         } else {
             $data = [
                 'title' => 'Data Transaksi',
-                'transaksi' => $this->TransaksiModel->getTransaksi()->getResultArray(),
+                'transaksi' => $this->TransaksiModel->findAll(),
                 'username' => $user['username']
             ];
             echo view('transaksi/v_transaksi', $data);
@@ -47,8 +44,7 @@ class Transaksi extends BaseController
         } else {
             $data = [
                 'title' => 'Tambah Transaksi Baru',
-                'username' => $user['username'],
-                'template' => $this->TemplateModel->findAll()
+                'username' => $user['username']
             ];
             echo view('transaksi/v_addTransaksi', $data);
         }
@@ -75,34 +71,12 @@ class Transaksi extends BaseController
                 $id = 'TRN-' . sprintf('%06d', substr($row['id_tr'], 5) + 1);
             }
 
-            // cek custom link
-            $link = $this->request->getVar('custom_link');
-            if ($link == '') {
-                $permalink = $this->request->getVar('pgl_pria') . '-' . $this->request->getVar('pgl_wanita') . '-wedding';
-            } else {
-                $permalink = str_replace(" ", "-", $link);
-            }
-
             // get form data
             $data = [
                 'id_tr' => $id,
                 'nama_pria' => $this->request->getVar('nm_pria'),
                 'nama_wanita' => $this->request->getVar('nm_wanita'),
-                'nama_pgl_pria' => $this->request->getVar('pgl_pria'),
-                'nama_pgl_wanita' => $this->request->getVar('pgl_wanita'),
-                'nama_ayah_pria' => $this->request->getVar('ayh_pria'),
-                'nama_ibu_pria' => $this->request->getVar('ibu_pria'),
-                'nama_ayah_wanita' => $this->request->getVar('ayh_wanita'),
-                'nama_ibu_wanita' => $this->request->getVar('ibu_wanita'),
-                'maps_akad' => $this->request->getVar('mp_akad'),
-                'tgl_akad' => date('Y-m-d H:i:s', strtotime($this->request->getVar('tgl_akad'))),
-                'alamat_akad' => $this->request->getVar('almt_akad'),
-                'maps_resepsi' => $this->request->getVar('mp_resepsi'),
-                'tgl_resepsi' => date('Y-m-d H:i:s', strtotime($this->request->getVar('tgl_resepsi'))),
-                'alamat_resepsi' => $this->request->getVar('almt_resepsi'),
-                'permalink' => $permalink,
-                'nomor_hp' => $this->request->getVar('no_hp'),
-                'tm_id' => $this->request->getVar('undangan')
+                'nomor_hp' => $this->request->getVar('no_hp')
             ];
 
             // query builder insert 
@@ -121,8 +95,7 @@ class Transaksi extends BaseController
             $data = [
                 'title' => 'Edit Transaksi',
                 'username' => $user['username'],
-                'trn' => $this->TransaksiModel->where(['id_tr' => $id])->first(),
-                'template' => $this->TemplateModel->findAll()
+                'trn' => $this->TransaksiModel->where(['id_tr' => $id])->first()
             ];
             echo view('transaksi/v_editTransaksi', $data);
         }
@@ -136,34 +109,12 @@ class Transaksi extends BaseController
         } else {
             $id = $this->request->getVar('id');
 
-            // cek custom link
-            $link = $this->request->getVar('custom_link');
-            if ($link == '') {
-                $permalink = $this->request->getVar('custom_link_old');
-            } else {
-                $permalink = str_replace(" ", "-", $link);
-            }
-
             // get data from form
             $data = [
                 'id_tr' => $id,
                 'nama_pria' => $this->request->getVar('nm_pria'),
                 'nama_wanita' => $this->request->getVar('nm_wanita'),
-                'nama_pgl_pria' => $this->request->getVar('pgl_pria'),
-                'nama_pgl_wanita' => $this->request->getVar('pgl_wanita'),
-                'nama_ayah_pria' => $this->request->getVar('ayh_pria'),
-                'nama_ibu_pria' => $this->request->getVar('ibu_pria'),
-                'nama_ayah_wanita' => $this->request->getVar('ayh_wanita'),
-                'nama_ibu_wanita' => $this->request->getVar('ibu_wanita'),
-                'maps_akad' => $this->request->getVar('mp_akad'),
-                'tgl_akad' => date('Y-m-d H:i:s', strtotime($this->request->getVar('tgl_akad'))),
-                'alamat_akad' => $this->request->getVar('almt_akad'),
-                'maps_resepsi' => $this->request->getVar('mp_resepsi1'),
-                'tgl_resepsi' => date('Y-m-d H:i:s', strtotime($this->request->getVar('tgl_resepsi'))),
-                'alamat_resepsi' => $this->request->getVar('almt_resepsi'),
-                'permalink' => $permalink,
-                'nomor_hp' => $this->request->getVar('no_hp'),
-                'tm_id' => $this->request->getVar('undangan')
+                'nomor_hp' => $this->request->getVar('no_hp')
             ];
 
             // update data in database
@@ -180,8 +131,13 @@ class Transaksi extends BaseController
             return redirect()->to('/login');
         } else {
             $id = $this->request->getVar('id');
+            $rsvp_data = $this->dt_rsvpModel->getRSVP($id);
 
             // delete data in database
+            foreach ($rsvp_data as $dt) {
+                $this->RsvpModel->delete($dt['id_rsvp']);
+            }
+            $this->dt_rsvpModel->where("tr_id", $id)->delete();
             $this->TransaksiModel->delete($id);
             session()->setFlashdata('message', 'delete');
             return redirect()->to('/transaksi');
@@ -219,16 +175,10 @@ class Transaksi extends BaseController
             'trn' => $this->TransaksiModel->getById($id),
         ];
 
-        $theme = $data['trn']['nama_tm'];
-
-        if ($theme == 'Blue Flowers') {
-            echo view('template_undangan/blueflowers/rsvp_form', $data);
-        } else {
-            echo "blank";
-        }
+        echo view('template_undangan/blueflowers/rsvp_form', $data);
     }
 
-    public function rsvp()
+    public function send_rsvp()
     {
         $row = $this->RsvpModel->countAll();
         if ($row == 0) {
@@ -244,9 +194,13 @@ class Transaksi extends BaseController
             'id_rsvp' => $id_rsvp,
             'nama_tamu' => $this->request->getVar('nama'),
             'jumlah' => $this->request->getVar('jml_tamu'),
-            'no_wa' => $this->request->getVar('no_wa'),
-            'kehadiran' => $this->request->getVar('hadir'),
+            'no_wa' => $this->request->getVar('no_hp'),
+            'kehadiran' => $this->request->getVar('kehadiran'),
         ];
+
+        if ($rsvp['nama_tamu'] == "" || $rsvp['jumlah'] == "" || $rsvp['no_wa'] == "" || $rsvp['kehadiran'] == "") {
+            return redirect()->to('/transaksi/rsvp_form/' . $id_tr);
+        }
 
         $dt_rsvp = [
             'rsvp_id' => $id_rsvp,
@@ -255,7 +209,7 @@ class Transaksi extends BaseController
 
         $this->RsvpModel->insert($rsvp);
         $this->dt_rsvpModel->insert($dt_rsvp);
-        session()->setFlashdata('message', 'save');
+        session()->setFlashdata('message', '<div class="alert alert-success">RSVP berhasil dikirim!</div>');
         return redirect()->to('/transaksi/rsvp_form/' . $id_tr);
     }
 

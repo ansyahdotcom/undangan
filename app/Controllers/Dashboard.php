@@ -3,13 +3,19 @@
 namespace App\Controllers;
 
 use App\Models\LoginModel;
+use App\Models\TransaksiModel;
+use App\Models\RsvpModel;
 
 class Dashboard extends BaseController
 {
     protected $LoginModel;
+    protected $TransaksiModel;
+    protected $RsvpModel;
     public function __construct()
     {
         $this->LoginModel = new LoginModel;
+        $this->TransaksiModel = new TransaksiModel;
+        $this->RsvpModel = new RsvpModel;
     }
     public function index()
     {
@@ -20,7 +26,9 @@ class Dashboard extends BaseController
             $data = [
                 'admin' => $this->LoginModel->findAll(),
                 'username' => $user['username'],
-                'title' => 'Dashboard'
+                'title' => 'Dashboard',
+                'jml_psn' => $this->TransaksiModel->countAll(),
+                'jml_tamu' => $this->RsvpModel->countAll()
             ];
             echo view('v_dashboard', $data);
         }
@@ -34,8 +42,5 @@ class Dashboard extends BaseController
         ];
         echo view('template_undangan/document', $data);
     }
-
-    public function kirim()
-    {
-    }
+    
 }
