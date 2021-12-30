@@ -70,6 +70,18 @@ $(function() {
             },
             custom_link: {
                 alphadash: true
+            },
+            nama: {
+                required: true,
+                lettersonly: true,
+                noSpace: false
+            },
+            jml_tamu: {
+                required: true,
+                number: true
+            },
+            kehadiran: {
+                required: true
             }
         },
         messages: {
@@ -136,6 +148,17 @@ $(function() {
             },
             custom_link: {
                 alphadash: "Format custom url hanya boleh huruf dengan pemisah dash '-'"
+            },
+            nama: {
+                required: "Nama wajib diisi",
+                lettersonly: "Nama hanya boleh huruf"
+            },
+            jml_tamu: {
+                required: "Jumlah tamu wajib diisi",
+                number: "Masukkan angka"
+            },
+            kehadiran: {
+                required: "Keahdiran wajib diisi"
             }
         },
         errorElement: 'span',

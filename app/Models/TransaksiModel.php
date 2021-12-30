@@ -34,20 +34,10 @@ class TransaksiModel extends Model
         'tm_id'
     ];
 
-
-    // table transaksi join table template
-    public function getTransaksi()
-    {
-        return $this->join('template', 'transaksi.tm_id = template.id_tm')
-                    ->orderBy('transaksi.id_tr', 'DESC')
-                    ->get();
-    }
-
     // get by permalink
     public function getById($id)
     {
-        return $this->join('template', 'transaksi.tm_id = template.id_tm')
-                    ->where('id_tr', $id)
+        return $this->where('id_tr', $id)
                     ->first();
     }
 }

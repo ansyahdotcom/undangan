@@ -43,17 +43,6 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/templat" class="nav-link <?php $uri = service('uri');
-                                                        if ($uri->getSegment(1) == 'templat') {
-                                                            echo 'active';
-                                                        } ?>">
-                        <i class="nav-icon fas fa-palette"></i>
-                        <p>
-                            Form Template
-                        </p>
-                    </a>
-                </li>
                 <li class="nav-item rounded bg-danger my-4">
                     <a class="nav-link" href="logout" data-toggle="modal" data-target="#logoutModal">
                         <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>
