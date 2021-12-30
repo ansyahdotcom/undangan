@@ -78,7 +78,7 @@ class Tamu extends BaseController
             $id = $this->request->getVar('id');
             $this->RsvpModel->delete($id);
             session()->setFlashdata('message', 'delete');
-            return redirect()->to('/transaksi');
+            return redirect()->back();
         }
     }
 
