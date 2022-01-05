@@ -34,7 +34,7 @@
                 </li>
                 <li class="nav-item">
                     <a href=" <?php echo base_url('/Admin') ?>" class="nav-link <?php $uri = service('uri');
-                                                                                if ($uri->getSegment(1) == 'Admin') {
+                                                                                if ($uri->getSegment(1) == 'admin' || $uri->getSegment(2) == 'add' || $uri->getSegment(2) == 'edit') {
                                                                                     echo 'active';
                                                                                 } ?>">
                         <i class="nav-icon fas fa-user"></i>
@@ -45,10 +45,10 @@
                 </li>
                 <li class="nav-item">
                     <a href="/transaksi" class="nav-link <?php $uri = service('uri');
-                                                            if ($uri->getSegment(1) == 'transaksi') {
+                                                            if ($uri->getSegment(1) == 'transaksi' || $uri->getSegment(2) == 'add' || $uri->getSegment(2) == 'edit') {
                                                                 echo 'active';
                                                             } ?>">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-receipt"></i>
                         <p>
                             Transaksi
                         </p>

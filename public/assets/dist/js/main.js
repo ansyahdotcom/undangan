@@ -144,3 +144,17 @@ $(document).ready(function() {
         }
     });
 });
+
+$(document).ready(function() {
+    $('select[name="bulk"]').change(function() {
+        if ($(this).val() == "/admin/bulk_delete") {
+            $('.bulk-input-group').find('button').remove();
+            $('.bulk-input-group').find('span').append(`<button type="submit" class="btn btn-danger bulk-btn">Mulai <i class="fas fa-trash"></i></button>`);
+            $('.bulk-input-group').append(`<small class="text-danger">peringatan! data yang sudah dihapus tidak bisa dipulihkan kembali</small>`);
+        } else {
+            $('.bulk-input-group').find('button').remove();
+            $('.bulk-input-group').find('span').append(`<button type="submit" class="btn btn-primary bulk-btn" disabled>Mulai <i class="fas fa-arrow-right"></i></button>`);
+            $('.bulk-input-group').find('small').remove();
+        }
+    });
+});

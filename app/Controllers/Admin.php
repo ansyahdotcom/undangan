@@ -14,105 +14,145 @@ class Admin extends BaseController
 
        public function __construct()
        {
-              $this->madmin = new Admin_model();
+              $this->madmin = new Admin_model;
               $this->LoginModel = new LoginModel;
        }
 
        public function index()
        {
-              $getdata = $this->madmin->getdata();
               $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
-              $data = array(
-                     'title' => 'Manajemen Admin',
-                     'username' => $user['username'],
-                     'dataAdmin' => $getdata,
-
-              );
-
-              return view('v_admin', $data);
-       }
-
-       function simpan()
-       {
-              $idAdmin = $this->request->getPost("id_adm");
-              $namaAdmin = $this->request->getPost("namaAdmin");
-              $username = $this->request->getPost("username");
-
-              $data = [
-                     'id_adm' => $idAdmin,
-                     'nama_adm' => $namaAdmin,
-                     'username' => $username
-              ];
-
-              try {
-                     $simpan = $this->madmin->simpanData($this->table, $data);
-
-                     if ($simpan) {
-                            session()->setFlashdata('message', 'save');
-                            return redirect()->to('Admin');
-                     } else {
-                            session()->setFlashdata('message', 'notsave');
-                            return redirect()->to('/Admin');
-                     }
-              } catch (\Exception $e) {
-
-                     session()->setFlashdata('message', 'isExist');
-                     return redirect()->to('/Admin');
+              if ($user == null) {
+                     return redirect()->to('/login');
+              } else {
+                     $data = array(
+                            'title' => 'Data Admin',
+                            'username' => $user['username'],
+                            'dataAdmin' => $this->madmin->findAll(),
+                     );
+                     echo view('admin/v_admin', $data);
               }
        }
 
-       function edit()
+       public function add()
        {
-              $idAdmin = $this->request->getPost("id_adm");
-              $namaAdmin = $this->request->getPost("namaAdmin");
-              $username = $this->request->getPost("username");
-
-              $data = [
-                     'id_adm' => $idAdmin,
-                     'nama_adm' => $namaAdmin,
-                     'username' => $username
-              ];
-
-              $where = ['id_adm' => $idAdmin];
-
-              try {
-
-                     $edit = $this->madmin->editData($this->table, $data, $where);
-
-                     if ($edit) {
-                            session()->setFlashdata('message', 'edit');
-                            return redirect()->to('Admin');
-                     } else {
-                            session()->setFlashdata('message', 'notedit');
-                            return redirect()->to('/Admin');
-                     }
-              } catch (\Exception $e) {
-                     session()->setFlashdata('message', 'isExist');
-                     return redirect()->to('/Admin');
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+              if ($user == null) {
+                     return redirect()->to('/login');
+              } else {
+                     $data = array(
+                            'title' => 'Tambah Admin Baru',
+                            'username' => $user['username'],
+                     );
+                     return view('admin/v_addAdmin', $data);
               }
        }
 
-       function hapus()
+       public function save()
        {
-              $idAdmin = $this->request->getVar('id_adm');
-              // getVar = Mengambil semua data yg ada di form (method get & post)
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+              if ($user == null) {
+                     return redirect()->to('/login');
+              } else {
+                     $namaAdmin = $this->request->getVar("namaAdmin");
+                     $username = $this->request->getVar("username");
+                     $password = password_hash($this->request->getVar("password"), PASSWORD_DEFAULT);
 
-              $where = ['id_adm' => $idAdmin];
+                     $data = [
+                            'nama_adm' => $namaAdmin,
+                            'username' => $username,
+                            'password' => $password
+                     ];
 
-              try {
+                     $this->madmin->save($data);
+                     session()->setFlashdata('message', 'save');
+                     return redirect()->to('admin/add');
+              }
+       }
 
-                     $hapus = $this->madmin->hapusData($this->table, $where);
+       public function edit($id)
+       {
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+              if ($user == null) {
+                     return redirect()->to('/login');
+              } else {
+                     $data = array(
+                            'title' => 'Edit Admin',
+                            'username' => $user['username'],
+                            'adm' => $this->madmin->where(['id_adm' => $id])->first(),
+                     );
 
-                     if ($hapus) {
+                     return view('admin/v_editAdmin', $data);
+              }
+       }
+
+       function update()
+       {
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+              if ($user == null) {
+                     return redirect()->to('/login');
+              } else {
+                     $id = $this->request->getVar("id_adm");
+                     $namaAdmin = $this->request->getVar("namaAdmin");
+                     $username = $this->request->getVar("username");
+                     $password = password_hash($this->request->getVar("password1"), PASSWORD_DEFAULT);
+
+                     if ($password == null) {
+                            $data = [
+                                   'id_adm' => $id,
+                                   'nama_adm' => $namaAdmin,
+                                   'username' => $username
+                            ];
+                     } else {
+                            $data = [
+                                   'id_adm' => $id,
+                                   'nama_adm' => $namaAdmin,
+                                   'username' => $username,
+                                   'password' => $password
+                            ];
+                     }
+
+                     $this->madmin->save($data);
+                     session()->setFlashdata('message', 'edit');
+                     return redirect()->to('/admin/edit/' . $id);
+              }
+       }
+
+       function delete()
+       {
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+              if ($user == null) {
+                     return redirect()->to('/login');
+              } else {
+                     $id = $this->request->getVar('id_adm');
+                     // getVar = Mengambil semua data yg ada di form (method get & post)
+
+                     $this->madmin->delete($id);
+                     session()->setFlashdata('message', 'delete');
+                     return redirect()->to('admin');
+              }
+       }
+
+       public function bulk_delete()
+       {
+              $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
+              if ($user == null) {
+                     return redirect()->to('/login');
+              } else {
+                     $id = $this->request->getVar('check');
+
+                     if ($id == "") {
+                            session()->setFlashdata('message', 'empty');
+                            return redirect()->to('/admin');
+                     } else {
+                            // find foto name by id
+                            foreach ($id as $i) {
+                                   // delete data in database
+                                   $this->madmin->delete($i);
+                            }
+
                             session()->setFlashdata('message', 'delete');
-                            return redirect()->to('Admin');
-                     } else {
-                            session()->setFlashdata('message', 'notdelete');
-                            return redirect()->to('/Admin');
+                            return redirect()->to('/admin');
                      }
-              } catch (\Exception $e) {
-                     session()->setFlashdata('message', 'isExist');
-                     return redirect()->to('/Admin');
               }
        }
 }

@@ -51,7 +51,7 @@
                                         <th>#</th>
                                         <th>ID Transaksi</th>
                                         <th>Nama Pasangan</th>
-                                        <th>Tanggal Pesan</th>
+                                        <th>Tanggal Order</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -81,7 +81,7 @@
                                         <th>#</th>
                                         <th>ID Transaksi</th>
                                         <th>Nama Pasangan</th>
-                                        <th>Tanggal Pesan</th>
+                                        <th>Tanggal Order</th>
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
