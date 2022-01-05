@@ -27,7 +27,7 @@ Project: Wedding Template
             this.Countdown();
             this.SmoothScroll();
             this.OwlCarousel();
-            this.RsvpForm();
+            // this.RsvpForm();
             this.MainPage();
             this.MainMenu();
             this.ClockCounting();
@@ -136,25 +136,25 @@ Project: Wedding Template
             });
         },
         //rsvp section		
-        RsvpForm: function() {
-            var theForm = document.getElementById('theForm');
+        // RsvpForm: function() {
+        //     var theForm = document.getElementById('theForm');
 
-            new stepsForm(theForm, {
-                onSubmit: function(form) {
-                    // hide form
-                    classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
-                    /*
-                    form.submit()
-                    or
-                    AJAX request (maybe show loading indicator while we don't have an answer..)
-                    */
-                    // let's just simulate something...
-                    var messageEl = theForm.querySelector('.final-message');
-                    messageEl.innerHTML = 'Terima Kasih. Data Anda Telah Berhasil Dikirim';
-                    classie.addClass(messageEl, 'show');
-                }
-            });
-        },
+        //     new stepsForm(theForm, {
+        //         onSubmit: function(form) {
+        //             // hide form
+        //             classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
+        //             /*
+        //             form.submit()
+        //             or
+        //             AJAX request (maybe show loading indicator while we don't have an answer..)
+        //             */
+        //             // let's just simulate something...
+        //             var messageEl = theForm.querySelector('.final-message');
+        //             messageEl.innerHTML = 'Terima Kasih. Data Anda Telah Berhasil Dikirim';
+        //             classie.addClass(messageEl, 'show');
+        //         }
+        //     });
+        // },
         //MainPage
         MainPage: function() {
             $(".page").hide();

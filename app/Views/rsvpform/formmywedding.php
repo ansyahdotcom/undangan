@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<!-- 
-Template Name: My Wedding - Wedding Invite Template
-Version: 1.1
-Author: Kamleshyadav
-Website: http://himanshusofttech.com/
-Purchase: http://themeforest.net/user/kamleshyadav
--->
+
 <html lang="en">
 
 <head>
@@ -13,9 +7,9 @@ Purchase: http://themeforest.net/user/kamleshyadav
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RSVP</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/mywedding/css/main.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="/assets/image/png" href="/assets/images/favicon.png" />
 </head>
 
 <body>
@@ -75,35 +69,35 @@ Purchase: http://themeforest.net/user/kamleshyadav
         </div>
         <!--form -->
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/animation-bubble.js"></script>
-    <script src="js/script.js"></script>
-    <script type="text/javascript" src="js/plugins/flipclock/flipclock.js"></script>
-    <script type="text/javascript" src="js/plugins/smoothscroll/smoothscroll.js"></script>
+    <script src="/assets/mywedding/js/jquery.js"></script>
+    <script src="/assets/mywedding/js/bootstrap.min.js"></script>
+    <script src="/assets/mywedding/js/animation-bubble.js"></script>
+    <script src="/assets/mywedding/js/script.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/flipclock/flipclock.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/smoothscroll/smoothscroll.js"></script>
     <!-- REVOLUTION JS FILES -->
-    <script type="text/javascript" src="js/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.actions.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.carousel.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.kenburn.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.layeranimation.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.migration.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.navigation.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.parallax.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.slideanims.min.js"></script>
-    <script type="text/javascript" src="js/plugins/revolution/js/revolution.extension.video.min.js"></script>
-    <script type="text/javascript" src="js/plugins/fancybox/jquery.fancybox.js"></script>
-    <script type="text/javascript" src="js/plugins/countto/jquery.countTo.js"></script>
-    <script src="js/plugins/smoothscroll/smoothscroll.js" type="text/javascript"></script>
-    <script src="js/plugins/owl/owl.carousel.min.js" type="text/javascript"></script>
-    <script src="js/plugins/rsvp/modernizr.custom.js"></script>
-    <script src="js/plugins/rsvp/classie.js"></script>
-    <script src="js/plugins/rsvp/step_form.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/plugins/stellar/jquery.stellar.js"></script>
-    <script src="js/plugins/rsvp/modernizr.hover.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/revolution/js/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/plugins/countto/jquery.countTo.js"></script>
+    <script src="/assets/mywedding/js/plugins/smoothscroll/smoothscroll.js" type="text/javascript"></script>
+    <script src="/assets/mywedding/js/plugins/owl/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="/assets/mywedding/js/plugins/rsvp/modernizr.custom.js"></script>
+    <script src="/assets/mywedding/js/plugins/rsvp/classie.js"></script>
+    <script src="/assets/mywedding/js/plugins/rsvp/step_form.js"></script>
+    <script src="/assets/mywedding/js/jquery.easing.min.js"></script>
+    <script src="/assets/mywedding/js/plugins/stellar/jquery.stellar.js"></script>
+    <script src="/assets/mywedding/js/plugins/rsvp/modernizr.hover.js"></script>
+    <script type="text/javascript" src="/assets/mywedding/js/custom.js"></script>
 </body>
 
 </html>
