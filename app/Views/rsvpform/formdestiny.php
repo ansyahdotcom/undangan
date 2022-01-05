@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-5 col-sm-5 ">
                 <div class="block-registry">
-                    <form class="registry-form" method="post" action="#">
+                    <form class="registry-form" method="post" action="customer/destiny">
                         <div class="input-columns clearfix">
                             <div class="column-1">
                                 <div class="column-inner">

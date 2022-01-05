@@ -3,18 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\LoginModel;
-use App\Models\TransaksiModel;
+use App\Models\CustomerModel;
 use App\Models\RsvpModel;
 
 class Dashboard extends BaseController
 {
     protected $LoginModel;
-    protected $TransaksiModel;
+    protected $CustomerModel;
     protected $RsvpModel;
     public function __construct()
     {
         $this->LoginModel = new LoginModel;
-        $this->TransaksiModel = new TransaksiModel;
+        $this->CustomerModel = new CustomerModel;
         $this->RsvpModel = new RsvpModel;
     }
     public function index()
@@ -27,7 +27,7 @@ class Dashboard extends BaseController
                 'admin' => $this->LoginModel->findAll(),
                 'username' => $user['username'],
                 'title' => 'Dashboard',
-                'jml_psn' => $this->TransaksiModel->countAll(),
+                'jml_psn' => $this->CustomerModel->countAll(),
                 'jml_tamu' => $this->RsvpModel->countAll()
             ];
             echo view('v_dashboard', $data);

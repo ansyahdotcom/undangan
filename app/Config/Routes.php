@@ -31,13 +31,10 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', 'Home::index');
 $routes->get('/', 'Login::index');
 // $routes->get('/', 'Landingpage::index');
 $routes->get('/logout', 'Login::logout');
-// $routes->get('/undangan/(:segment)/(:segment)/(:segment)', 'Transaksi::preview/$1/$2/$3');
 $routes->get('/tamu/(:any)', 'Tamu::index/$1');
-$routes->get('/addTamu', 'Tamu::addTamu');
 
 /*
  * --------------------------------------------------------------------

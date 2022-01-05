@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <form action="transaksi/bestdayblue" method="post">
+    <form action="customer/bestdayblue" method="post">
         <div class="txt_input">
             <input type="text" class="form-control" id="name_block_1" placeholder="Nama anda" style="text-align: center;">
         </div>

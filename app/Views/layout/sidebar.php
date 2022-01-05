@@ -44,13 +44,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/transaksi" class="nav-link <?php $uri = service('uri');
-                                                            if ($uri->getSegment(1) == 'transaksi' || $uri->getSegment(2) == 'add' || $uri->getSegment(2) == 'edit') {
-                                                                echo 'active';
-                                                            } ?>">
-                        <i class="nav-icon fas fa-receipt"></i>
+                    <a href="/customer" class="nav-link <?php $uri = service('uri');
+                                                        if ($uri->getSegment(1) == 'customer' || $uri->getSegment(2) == 'add' || $uri->getSegment(2) == 'edit') {
+                                                            echo 'active';
+                                                        } ?>">
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Transaksi
+                            Customer
                         </p>
                     </a>
                 </li>
