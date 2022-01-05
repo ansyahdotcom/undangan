@@ -323,4 +323,41 @@ class Customer extends BaseController
             echo view('rsvpform/formfoxwedding');
         }
     }
+
+    public function mywedding($id)
+    {
+        $data = [
+            'nama_tamu' => $this->request->getVar('nama_tamu')
+        ];
+
+        if (isset($data['nama_tamu'])) {
+            $row = $this->RsvpModel->countAll();
+            if ($row == 0) {
+                $id_rsvp = 'RSV-000001';
+            } else {
+                $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+                $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+            }
+
+            $rsvp = [
+                'id_rsvp' => $id_rsvp,
+                'nama_tamu' => $this->request->getVar('nama_tamu'),
+                'jumlah' => $this->request->getVar('jumlah'),
+                'no_wa' => $this->request->getVar('no_wa'),
+                'kehadiran' => $this->request->getVar('kehadiran'),
+            ];
+
+            $dt_rsvp = [
+                'rsvp_id' => $id_rsvp,
+                'tr_id' => $id,
+            ];
+
+            $this->RsvpModel->insert($rsvp);
+            $this->dt_rsvpModel->insert($dt_rsvp);
+            session()->setFlashdata('message', 'save');
+            echo view('rsvpform/formmywedding');
+        } else {
+            echo view('rsvpform/formmywedding');
+        }
+    }
 }
