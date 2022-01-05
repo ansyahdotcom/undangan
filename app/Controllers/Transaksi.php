@@ -213,19 +213,78 @@ class Transaksi extends BaseController
         return redirect()->to('/transaksi/rsvp_form/' . $id_tr);
     }
 
-    public function form_iframe_destiny($slug = "asd")
+    public function destiny($id)
     {
         $data = [
-            'title' => 'RSVP',
-            'sluged' => $this->TransaksiModel->getByPermalink($slug),
+            'nama_tamu' => $this->request->getVar('nama_tamu')
         ];
 
-        $theme = $data['sluged']['nama_tm'];
+        if (isset($data['nama_tamu'])) {
+            $row = $this->RsvpModel->countAll();
+            if ($row == 0) {
+                $id_rsvp = 'RSV-000001';
+            } else {
+                $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+                $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+            }
 
-        if ($theme == 'destiny') {
-            echo view('template_undangan/form', $data);
+            $rsvp = [
+                'id_rsvp' => $id_rsvp,
+                'nama_tamu' => $this->request->getVar('nama_tamu'),
+                'jumlah' => $this->request->getVar('jumlah'),
+                'no_wa' => $this->request->getVar('no_wa'),
+                'kehadiran' => $this->request->getVar('kehadiran'),
+            ];
+
+            $dt_rsvp = [
+                'rsvp_id' => $id_rsvp,
+                'tr_id' => $id,
+            ];
+
+            $this->RsvpModel->insert($rsvp);
+            $this->dt_rsvpModel->insert($dt_rsvp);
+            session()->setFlashdata('message', 'save');
+            echo view('rsvpform/formdestiny');
         } else {
-            echo "blank";
+            echo view('rsvpform/formdestiny');
         }
     }
+
+    public function bestdayblue($id)
+    {
+        $data = [
+            'nama_tamu' => $this->request->getVar('nama_tamu')
+        ];
+
+        if (isset($data['nama_tamu'])) {
+            $row = $this->RsvpModel->countAll();
+            if ($row == 0) {
+                $id_rsvp = 'RSV-000001';
+            } else {
+                $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+                $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+            }
+
+            $rsvp = [
+                'id_rsvp' => $id_rsvp,
+                'nama_tamu' => $this->request->getVar('nama_tamu'),
+                'jumlah' => $this->request->getVar('jumlah'),
+                'no_wa' => $this->request->getVar('no_wa'),
+                'kehadiran' => $this->request->getVar('kehadiran'),
+            ];
+
+            $dt_rsvp = [
+                'rsvp_id' => $id_rsvp,
+                'tr_id' => $id,
+            ];
+
+            $this->RsvpModel->insert($rsvp);
+            $this->dt_rsvpModel->insert($dt_rsvp);
+            session()->setFlashdata('message', 'save');
+            echo view('rsvpform/formbestdayblue');
+        } else {
+            echo view('rsvpform/formbestdayblue');
+        }
+    }
+
 }
