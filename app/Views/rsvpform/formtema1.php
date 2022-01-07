@@ -45,7 +45,7 @@
                     <div class="paper_title">Please RSVP</div>
 
                     <!-- Form -->
-                    <form action="/transaksi/send_rsvp" class="quickForm" method="POST">
+                    <form action="/customer/savetema1" class="quickForm" method="POST">
                         <div id="div_block_1">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="id" value="<?= $trn['id_tr']; ?>">

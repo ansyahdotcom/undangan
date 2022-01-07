@@ -168,17 +168,17 @@ class Customer extends BaseController
         }
     }
 
-    public function rsvp_form($id)
+    public function tema1($id)
     {
         $data = [
             'title' => 'RSVP',
             'trn' => $this->CustomerModel->getById($id),
         ];
 
-        echo view('template_undangan/blueflowers/rsvp_form', $data);
+        echo view('rsvpform/formtema1', $data);
     }
 
-    public function send_rsvp()
+    public function savetema1()
     {
         $row = $this->RsvpModel->countAll();
         if ($row == 0) {
@@ -199,7 +199,7 @@ class Customer extends BaseController
         ];
 
         if ($rsvp['nama_tamu'] == "" || $rsvp['jumlah'] == "" || $rsvp['no_wa'] == "" || $rsvp['kehadiran'] == "") {
-            return redirect()->to('/customer/rsvp_form/' . $id_tr);
+            return redirect()->to('/customer/tema1/' . $id_tr);
         }
 
         $dt_rsvp = [
@@ -210,7 +210,7 @@ class Customer extends BaseController
         $this->RsvpModel->insert($rsvp);
         $this->dt_rsvpModel->insert($dt_rsvp);
         session()->setFlashdata('message', '<div class="alert alert-success">RSVP berhasil dikirim!</div>');
-        return redirect()->to('/customer/rsvp_form/' . $id_tr);
+        return redirect()->to('/customer/tema1/' . $id_tr);
     }
 
     public function destiny($id)
