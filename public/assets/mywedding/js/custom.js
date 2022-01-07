@@ -152,6 +152,7 @@ Project: Wedding Template
                     var messageEl = theForm.querySelector('.final-message');
                     messageEl.innerHTML = 'Terima Kasih. Data Anda Telah Berhasil Dikirim';
                     classie.addClass(messageEl, 'show');
+                    form.submit();
                 }
             });
         },

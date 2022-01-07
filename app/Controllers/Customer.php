@@ -371,7 +371,7 @@ class Customer extends BaseController
             'nama_tamu' => $this->request->getVar('nama'),
             'jumlah' => $this->request->getVar('jml_tamu'),
             'no_wa' => $this->request->getVar('no_hp'),
-            'kehadiran' => $this->request->getVar('kehadiran'),
+            'kehadiran' => $this->request->getVar('kehadiran') == 'Hadir' || $this->request->getVar('kehadiran') == 'hadir' ? 1 : 0
         ];
 
         if ($rsvp['nama_tamu'] == "" || $rsvp['jumlah'] == "" || $rsvp['no_wa'] == "" || $rsvp['kehadiran'] == "") {
