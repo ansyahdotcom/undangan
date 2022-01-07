@@ -45,7 +45,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/customer" class="nav-link <?php $uri = service('uri');
-                                                        if ($uri->getSegment(1) == 'customer' || $uri->getSegment(2) == 'add' || $uri->getSegment(2) == 'edit') {
+                                                        if ($uri->getSegment(1) == 'customer' || $uri->getSegment(2) == 'addcust' || $uri->getSegment(2) == 'editcust') {
                                                             echo 'active';
                                                         } ?>">
                         <i class="nav-icon fas fa-users"></i>

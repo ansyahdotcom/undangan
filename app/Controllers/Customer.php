@@ -36,7 +36,7 @@ class Customer extends BaseController
         }
     }
 
-    public function add()
+    public function addcust()
     {
         $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
         if ($user == null) {
@@ -86,7 +86,7 @@ class Customer extends BaseController
         }
     }
 
-    public function edit($id)
+    public function editcust($id)
     {
         $user = $this->LoginModel->where(['username' => session()->get('username')])->first();
         if ($user == null) {
@@ -95,7 +95,7 @@ class Customer extends BaseController
             $data = [
                 'title' => 'Edit Customer',
                 'username' => $user['username'],
-                'trn' => $this->CustomerModel->where(['id_tr' => $id])->first()
+                'cst' => $this->CustomerModel->where(['id_tr' => $id])->first()
             ];
             echo view('customer/v_editcustomer', $data);
         }
@@ -213,151 +213,180 @@ class Customer extends BaseController
         return redirect()->to('/customer/tema1/' . $id_tr);
     }
 
-    public function destiny($id)
+    public function tema2($id)
     {
         $data = [
-            'nama_tamu' => $this->request->getVar('nama_tamu')
+            'trn' => $this->CustomerModel->getById($id),
         ];
 
-        if (isset($data['nama_tamu'])) {
-            $row = $this->RsvpModel->countAll();
-            if ($row == 0) {
-                $id_rsvp = 'RSV-000001';
-            } else {
-                $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
-                $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
-            }
-
-            $rsvp = [
-                'id_rsvp' => $id_rsvp,
-                'nama_tamu' => $this->request->getVar('nama_tamu'),
-                'jumlah' => $this->request->getVar('jumlah'),
-                'no_wa' => $this->request->getVar('no_wa'),
-                'kehadiran' => $this->request->getVar('kehadiran'),
-            ];
-
-            $dt_rsvp = [
-                'rsvp_id' => $id_rsvp,
-                'tr_id' => $id,
-            ];
-
-            $this->RsvpModel->insert($rsvp);
-            $this->dt_rsvpModel->insert($dt_rsvp);
-            session()->setFlashdata('message', 'save');
-            echo view('rsvpform/formdestiny');
-        } else {
-            echo view('rsvpform/formdestiny');
-        }
+        echo view('rsvpform/formtema2', $data);
     }
 
-    public function bestdayblue($id)
+    public function savetema2()
+    {
+        $row = $this->RsvpModel->countAll();
+        if ($row == 0) {
+            $id_rsvp = 'RSV-000001';
+        } else {
+            $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+            $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+        }
+
+        $id_tr = $this->request->getVar('id');
+
+        $rsvp = [
+            'id_rsvp' => $id_rsvp,
+            'nama_tamu' => $this->request->getVar('nama'),
+            'jumlah' => $this->request->getVar('jml_tamu'),
+            'no_wa' => $this->request->getVar('no_hp'),
+            'kehadiran' => $this->request->getVar('kehadiran'),
+        ];
+
+        if ($rsvp['nama_tamu'] == "" || $rsvp['jumlah'] == "" || $rsvp['no_wa'] == "" || $rsvp['kehadiran'] == "") {
+            return redirect()->to('/customer/tema2/' . $id_tr);
+        }
+
+        $dt_rsvp = [
+            'rsvp_id' => $id_rsvp,
+            'tr_id' => $id_tr,
+        ];
+
+        $this->RsvpModel->insert($rsvp);
+        $this->dt_rsvpModel->insert($dt_rsvp);
+        session()->setFlashdata('message', '<div class="alert alert-success">RSVP berhasil dikirim!</div>');
+        return redirect()->to('/customer/tema2/' . $id_tr);
+    }
+
+    public function tema3($id)
     {
         $data = [
-            'nama_tamu' => $this->request->getVar('nama_tamu')
+            'trn' => $this->CustomerModel->getById($id),
         ];
 
-        if (isset($data['nama_tamu'])) {
-            $row = $this->RsvpModel->countAll();
-            if ($row == 0) {
-                $id_rsvp = 'RSV-000001';
-            } else {
-                $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
-                $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
-            }
-
-            $rsvp = [
-                'id_rsvp' => $id_rsvp,
-                'nama_tamu' => $this->request->getVar('nama_tamu'),
-                'jumlah' => $this->request->getVar('jumlah'),
-                'no_wa' => $this->request->getVar('no_wa'),
-                'kehadiran' => $this->request->getVar('kehadiran'),
-            ];
-
-            $dt_rsvp = [
-                'rsvp_id' => $id_rsvp,
-                'tr_id' => $id,
-            ];
-
-            $this->RsvpModel->insert($rsvp);
-            $this->dt_rsvpModel->insert($dt_rsvp);
-            session()->setFlashdata('message', 'save');
-            echo view('rsvpform/formbestdayblue');
-        } else {
-            echo view('rsvpform/formbestdayblue');
-        }
+        echo view('rsvpform/formtema3', $data);
     }
 
-    public function foxwedding($id)
+    public function savetema3()
+    {
+        $row = $this->RsvpModel->countAll();
+        if ($row == 0) {
+            $id_rsvp = 'RSV-000001';
+        } else {
+            $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+            $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+        }
+
+        $id_tr = $this->request->getVar('id');
+
+        $rsvp = [
+            'id_rsvp' => $id_rsvp,
+            'nama_tamu' => $this->request->getVar('nama'),
+            'jumlah' => $this->request->getVar('jml_tamu'),
+            'no_wa' => $this->request->getVar('no_hp'),
+            'kehadiran' => $this->request->getVar('kehadiran'),
+        ];
+
+        if ($rsvp['nama_tamu'] == "" || $rsvp['jumlah'] == "" || $rsvp['no_wa'] == "" || $rsvp['kehadiran'] == "") {
+            return redirect()->to('/customer/tema3/' . $id_tr);
+        }
+
+        $dt_rsvp = [
+            'rsvp_id' => $id_rsvp,
+            'tr_id' => $id_tr,
+        ];
+
+        $this->RsvpModel->insert($rsvp);
+        $this->dt_rsvpModel->insert($dt_rsvp);
+        session()->setFlashdata('message', '<div class="alert alert-success">RSVP berhasil dikirim!</div>');
+        return redirect()->to('/customer/tema3/' . $id_tr);
+    }
+
+    public function tema4($id)
     {
         $data = [
-            'nama_tamu' => $this->request->getVar('nama_tamu')
+            'trn' => $this->CustomerModel->getById($id),
         ];
 
-        if (isset($data['nama_tamu'])) {
-            $row = $this->RsvpModel->countAll();
-            if ($row == 0) {
-                $id_rsvp = 'RSV-000001';
-            } else {
-                $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
-                $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
-            }
-
-            $rsvp = [
-                'id_rsvp' => $id_rsvp,
-                'nama_tamu' => $this->request->getVar('nama_tamu'),
-                'jumlah' => $this->request->getVar('jumlah'),
-                'no_wa' => $this->request->getVar('no_wa'),
-                'kehadiran' => $this->request->getVar('kehadiran'),
-            ];
-
-            $dt_rsvp = [
-                'rsvp_id' => $id_rsvp,
-                'tr_id' => $id,
-            ];
-
-            $this->RsvpModel->insert($rsvp);
-            $this->dt_rsvpModel->insert($dt_rsvp);
-            session()->setFlashdata('message', 'save');
-            echo view('rsvpform/formfoxwedding');
-        } else {
-            echo view('rsvpform/formfoxwedding');
-        }
+        echo view('rsvpform/formtema4', $data);
     }
 
-    public function mywedding($id)
+    public function savetema4()
+    {
+        $row = $this->RsvpModel->countAll();
+        if ($row == 0) {
+            $id_rsvp = 'RSV-000001';
+        } else {
+            $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+            $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+        }
+
+        $id_tr = $this->request->getVar('id');
+
+        $rsvp = [
+            'id_rsvp' => $id_rsvp,
+            'nama_tamu' => $this->request->getVar('nama'),
+            'jumlah' => $this->request->getVar('jml_tamu'),
+            'no_wa' => $this->request->getVar('no_hp'),
+            'kehadiran' => $this->request->getVar('kehadiran'),
+        ];
+
+        if ($rsvp['nama_tamu'] == "" || $rsvp['jumlah'] == "" || $rsvp['no_wa'] == "" || $rsvp['kehadiran'] == "") {
+            return redirect()->to('/customer/tema4/' . $id_tr);
+        }
+
+        $dt_rsvp = [
+            'rsvp_id' => $id_rsvp,
+            'tr_id' => $id_tr,
+        ];
+
+        $this->RsvpModel->insert($rsvp);
+        $this->dt_rsvpModel->insert($dt_rsvp);
+        session()->setFlashdata('message', '<div class="alert alert-success">RSVP berhasil dikirim!</div>');
+        return redirect()->to('/customer/tema4/' . $id_tr);
+    }
+
+    public function tema5($id)
     {
         $data = [
-            'nama_tamu' => $this->request->getVar('nama_tamu')
+            'trn' => $this->CustomerModel->getById($id),
         ];
 
-        if (isset($data['nama_tamu'])) {
-            $row = $this->RsvpModel->countAll();
-            if ($row == 0) {
-                $id_rsvp = 'RSV-000001';
-            } else {
-                $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
-                $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
-            }
-
-            $rsvp = [
-                'id_rsvp' => $id_rsvp,
-                'nama_tamu' => $this->request->getVar('nama_tamu'),
-                'jumlah' => $this->request->getVar('jumlah'),
-                'no_wa' => $this->request->getVar('no_wa'),
-                'kehadiran' => $this->request->getVar('kehadiran'),
-            ];
-
-            $dt_rsvp = [
-                'rsvp_id' => $id_rsvp,
-                'tr_id' => $id,
-            ];
-
-            $this->RsvpModel->insert($rsvp);
-            $this->dt_rsvpModel->insert($dt_rsvp);
-            session()->setFlashdata('message', 'save');
-            echo view('rsvpform/formmywedding');
-        } else {
-            echo view('rsvpform/formmywedding');
-        }
+        echo view('rsvpform/formtema5', $data);
     }
+
+    public function savetema5()
+    {
+        $row = $this->RsvpModel->countAll();
+        if ($row == 0) {
+            $id_rsvp = 'RSV-000001';
+        } else {
+            $row = $this->RsvpModel->orderBy('id_rsvp', 'DESC')->first();
+            $id_rsvp = 'RSV-' . sprintf('%06d', substr($row['id_rsvp'], 5) + 1);
+        }
+
+        $id_tr = $this->request->getVar('id');
+
+        $rsvp = [
+            'id_rsvp' => $id_rsvp,
+            'nama_tamu' => $this->request->getVar('nama'),
+            'jumlah' => $this->request->getVar('jml_tamu'),
+            'no_wa' => $this->request->getVar('no_hp'),
+            'kehadiran' => $this->request->getVar('kehadiran'),
+        ];
+
+        if ($rsvp['nama_tamu'] == "" || $rsvp['jumlah'] == "" || $rsvp['no_wa'] == "" || $rsvp['kehadiran'] == "") {
+            return redirect()->to('/customer/tema5/' . $id_tr);
+        }
+
+        $dt_rsvp = [
+            'rsvp_id' => $id_rsvp,
+            'tr_id' => $id_tr,
+        ];
+
+        $this->RsvpModel->insert($rsvp);
+        $this->dt_rsvpModel->insert($dt_rsvp);
+        session()->setFlashdata('message', '<div class="alert alert-success">RSVP berhasil dikirim!</div>');
+        return redirect()->to('/customer/tema5/' . $id_tr);
+    }
+
 }

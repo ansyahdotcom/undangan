@@ -23,26 +23,26 @@
             <p>Mohon Isi Data Berikut Untuk Mengkonfirmasi Kehadiran Anda</p>
         </div>
         <div class="wd_rsvp_section">
-            <form id="theForm" class="simform" autocomplete="off" action="" method="post">
-                <input type="hidden" name="recipient" value="upasana.jain@himanshusofttech.com">
-                <input type="hidden" name="subject" value="Wedding Planner" />
+            <form id="theForm" class="simform" autocomplete="off" action="/customer/savetema5" method="post">
+                <?php csrf_field(); ?>
+                <input type="hidden" name="id" value="<?= $trn['id_tr']; ?>">
                 <div class="simform-inner">
                     <ol class="questions">
                         <li>
                             <span><label for="q1">Nama Tamu</label></span>
-                            <input id="q1" name="name" type="text" />
+                            <input id="q1" name="nama" type="text" />
                         </li>
                         <li>
                             <span><label for="q2">Nomer Handphone</label></span>
-                            <input id="q2" name="mobile_no" type="text" data-validate="number" />
+                            <input id="q2" name="no_hp" type="text" data-validate="number" />
                         </li>
                         <li>
                             <span><label for="q4">Jumlah Anggota Tamu</label></span>
-                            <input id="q4" name="no_of_member" type="text" data-validate="mnumber" />
+                            <input id="q4" name="jml_tamu" type="text" data-validate="mnumber" />
                         </li>
                         <li>
                             <span><label for="q5">Apakah Akan Menghadiri Acara? (Hadir/Tidak)</label></span>
-                            <input id="q5" name="no_of_member" type="text" data-validate="text" />
+                            <input id="q5" name="kehadiran" type="text" data-validate="text" />
                         </li>
                         <!-- <li>
                                             <span><label for="q5">Apakah Akan Menghadiri Acara? (Iya/Tidak)</label></span>

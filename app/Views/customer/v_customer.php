@@ -30,7 +30,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex align-items-start">
-                                <a href="/customer/add" class="btn btn-success mr-2"><i class="fas fa-plus"></i> Tambah Baru</a>
+                                <a href="/customer/addcust" class="btn btn-success mr-2"><i class="fas fa-plus"></i> Tambah Baru</a>
                                 <div class="input-group bulk-input-group col-md-4">
                                     <select class="form-control" name="bulk">
                                         <option value="" selected>--- Pilih opsi bulk ---</option>
@@ -69,7 +69,7 @@
                                             <td><?= date('D, d-m-Y', strtotime($cust['created_tr'])) . " | " . date('H:i', strtotime($cust['created_tr'])) . " WIB"; ?></td>
                                             <td>
                                                 <a type="button" href="tamu/<?= $cust['id_tr']; ?>" class="btn btn-secondary btn-sm" title="list tamu undangan"><i class="fas fa-users"></i></a>
-                                                <a href="/customer/edit/<?= $cust['id_tr']; ?>" class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></a>
+                                                <a href="/customer/editcust/<?= $cust['id_tr']; ?>" class="btn btn-primary btn-sm" title="edit data"><i class="fas fa-edit"></i></a>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del-modal<?= $cust['id_tr']; ?>" title="hapus data"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>

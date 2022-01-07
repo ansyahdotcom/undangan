@@ -23,23 +23,25 @@
             </div>
             <div class="col-md-5 col-sm-5 ">
                 <div class="block-registry">
-                    <form class="registry-form" method="post" action="customer/destiny">
+                    <form class="registry-form" method="post" action="/customer/savetema2">
+                        <?= csrf_field(); ?>
                         <div class="input-columns clearfix">
                             <div class="column-1">
                                 <div class="column-inner">
-                                    <input placeholder="Nama anda" value="" id="nama_tamu" name="nama_tamu" type="text">
+                                    <input type="hidden" name="id" value="<?= $trn['id_tr']; ?>">
+                                    <input placeholder="Nama anda" value="" id="nama" name="nama" type="text">
                                 </div>
                             </div>
                             <div class="column-2">
                                 <div class="column-inner">
-                                    <input placeholder="Nomor WA" value="" id="no_wa" name="no_wa" type="text">
+                                    <input placeholder="Nomor WA" value="" id="no_hp" name="no_hp" type="text">
                                 </div>
                             </div>
                         </div>
                         <div class="input-columns clearfix">
                             <div class="column-1">
                                 <div class="column-inner">
-                                    <input placeholder="Jumlah yang hadir" value="" id="jumlah" name="jumlah" type="text">
+                                    <input placeholder="Jumlah yang hadir" value="" id="jml_tamu" name="jml_tamu" type="number" class="form-control">
                                 </div>
                             </div>
                             <div class="column-2">
@@ -53,7 +55,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input value="Send" class=" but submit" type="submit">
+                        <input value="Send" class="but submit" type="submit">
                     </form>
                 </div>
             </div>

@@ -18,15 +18,17 @@
 </head>
 
 <body>
-    <form action="customer/bestdayblue" method="post">
+    <form action="/customer/savetema3" method="post">
+        <?php csrf_field(); ?>
         <div class="txt_input">
-            <input type="text" class="form-control" id="name_block_1" placeholder="Nama anda" style="text-align: center;">
+            <input type="hidden" name="id" value="<?= $trn['id_tr']; ?>">
+            <input type="text" class="form-control" name="nama" id="name_block_1" placeholder="Nama anda" style="text-align: center;">
         </div>
         <div class="txt_input wa">
-            <input type="text" class="form-control wa" id="email_block_1" placeholder="Nomor WA" style="text-align: center;">
+            <input type="text" class="form-control wa" name="no_hp" id="email_block_1" placeholder="Nomor WA" style="text-align: center;">
         </div>
         <div class="txt_input">
-            <input type="text" class="form-control" id="guest_block_1" placeholder="Jumlah yang hadir" style="text-align: center;">
+            <input type="number" class="form-control" name="jml_tamu" id="guest_block_1" placeholder="Jumlah yang hadir" style="text-align: center;">
         </div>
         <div class="txt_input">
             <select name="kehadiran" id="kehadiran" class="form-control" style="text-align: center;">
@@ -35,7 +37,7 @@
             </select>
         </div>
         <div class="row">
-            <button type="submit" class="btn btn-lg submit_block_1">Send</button>
+            <button type="submit" class="btn btn-lg ">Send</button>
         </div>
     </form>
 

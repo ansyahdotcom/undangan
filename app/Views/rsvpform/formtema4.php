@@ -29,18 +29,20 @@
             <!--End row-->
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-lg-5 col-md-6">
-                    <form method="post" action="customer/foxwedding">
+                    <form method="post" action="/customer/savetema4">
+                        <?php csrf_field(); ?>
                         <div class="form-group">
+                            <input type="hidden" name="id" value="<?= $trn['id_tr']; ?>">
                             <label>Your Name</label>
-                            <input name="nama_tamu" type="text" class="form-control form-control-lg" placeholder="Your name">
+                            <input name="nama" type="text" class="form-control form-control-lg" placeholder="Your name">
                         </div>
                         <div class="form-group">
                             <label>WA Number</label>
-                            <input name="no_wa" type="text" class="form-control form-control-lg" placeholder="WA Number">
+                            <input name="no_hp" type="text" class="form-control form-control-lg" placeholder="WA Number">
                         </div>
                         <div class="form-group">
                             <label>Number of Attendance</label>
-                            <input name="jumlah" type="text" class="form-control form-control-lg" placeholder="Number of Attendance">
+                            <input name="jml_tamu" type="number" class="form-control form-control-lg" placeholder="Number of Attendance">
                         </div>
                         <div class="row">
                             <div class="col-12">
@@ -51,7 +53,7 @@
                             <div class="col">
                                 <div class="form-group rounded bg-white p-2 border">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="atttending-yes" name="atttending" class="custom-control-input">
+                                        <input type="radio" id="atttending-yes" name="kehadiran" value="1" class="custom-control-input">
                                         <label class="custom-control-label" for="atttending-yes">Yes, I will be there</label>
                                     </div>
                                 </div>
@@ -59,7 +61,7 @@
                             <div class="col">
                                 <div class="form-group rounded bg-white p-2 border">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="atttending-no" name="atttending" class="custom-control-input">
+                                        <input type="radio" id="atttending-no" name="kehadiran" value="0" class="custom-control-input">
                                         <label class="custom-control-label" for="atttending-no">Sorry, I can't come</label>
                                     </div>
                                 </div>
